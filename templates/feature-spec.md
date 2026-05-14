@@ -5,6 +5,7 @@ status: draft
 owners: []
 updated: YYYY-MM-DD
 layers: [L1, L2]
+target_release: unscheduled
 ---
 
 # <Feature Name> Spec
@@ -12,6 +13,19 @@ layers: [L1, L2]
 ## Scope
 
 What user or system behavior this feature governs.
+
+## Authority And Release Scope
+
+- Authority lifecycle:
+  - `draft` / `review`: not authoritative yet.
+  - `adopted`: accepted behavior; implementation may still be pending.
+  - `active` / `stable`: governs target implementation.
+- Target release:
+- Out of scope:
+
+This section records product and system intent. Do not record implementation
+readiness here. Use the Verification Map, evidence records, or `spec/reviews/`
+for `missing`, `partial`, `implemented`, or `blocked` status.
 
 ## Authority Sources
 
@@ -71,6 +85,15 @@ L2, and L3.
 |---|---|---|---|
 |  |  |  | REQ-XXX-004 |
 
+### Edge-Case Discovery
+
+Use this before implementation and during reverse review. Promote a candidate
+into L2/L3 only after its authority basis is clear.
+
+| Candidate edge case | Authority basis | Decision | Requirement |
+|---|---|---|---|
+| duplicate submit / stale state / permission / timeout / rollback / cancellation / expiry / retry | L0 / L1 invariant / product decision / platform rule / common UX expectation / sample import | accept / reject / decide later | REQ-XXX-### |
+
 ### Open Experience Questions
 
 -
@@ -114,9 +137,11 @@ real test, guardrail, smoke check, or manual UX review records evidence.
 
 ## Review Findings
 
-Use this section for small unresolved findings. Use `spec/reviews/` and the
-review ledger template for multi-finding audits.
+Use this section only for small unresolved findings. Use `spec/reviews/` and
+the review ledger template for multi-finding audits or implementation-readiness
+work. Accepted behavior must move into L1/L2/L3; implementation status must
+stay in evidence or review artifacts.
 
-| Finding | Class | Spec status | Implementation status | Verification status | Resolution |
-|---|---|---|---|---|---|
-| GAP-XXX-001 | spec gap / code gap / both gap / decision gap | needs_refinement | unverified | not_mapped |  |
+| Finding | Class | Authority basis | Spec status | Implementation status | Verification status | Resolution |
+|---|---|---|---|---|---|---|
+| GAP-XXX-001 | spec gap / code gap / both gap / edge-case gap / decision gap | L0 / L1 invariant / product decision / platform rule / common UX expectation / sample import | needs_refinement | unverified | not_mapped |  |

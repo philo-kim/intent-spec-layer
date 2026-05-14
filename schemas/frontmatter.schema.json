@@ -14,7 +14,7 @@
     },
     "status": {
       "type": "string",
-      "enum": ["draft", "review", "active", "stable", "deprecated", "archived"]
+      "enum": ["draft", "review", "adopted", "active", "stable", "deprecated", "archived"]
     },
     "owners": {
       "type": "array",

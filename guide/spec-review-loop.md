@@ -49,12 +49,88 @@ screenshots, or runtime evidence should a finding move to `missing`, `partial`,
 This matters because reverse review can discover three different things:
 
 - the spec is too vague and needs refinement;
+- the spec contains a promise that has no real product authority;
 - the code is missing behavior that the spec already promises;
 - the spec and code are both missing a real user journey, state, or recovery
   path.
 
 Keeping status separate prevents a review artifact from becoming a premature
 accusation against the implementation.
+
+## Authoritative Specs Can Include Future Work
+
+The evidence boundary does not mean that unimplemented behavior should be
+removed from the spec. The opposite is usually true:
+
+> If the product or system decision has been accepted, the intended behavior
+> belongs in L1/L2/L3 even before code exists.
+
+What must stay out of normative L1/L2/L3 text is implementation readiness:
+`missing`, `partial`, `ready`, `implemented`, test status, backend readiness,
+and release-audit commentary. Put those in `spec/reviews/`, an evidence matrix,
+or a release tracker.
+
+When spec and code disagree, decide in this order:
+
+1. Is this requirement authoritative, or only a proposal, sample, or stale
+   imported idea?
+2. Is it in the release scope being reviewed?
+3. Has implementation evidence actually been inspected?
+4. Is the mismatch a spec gap, code gap, both gap, or decision gap?
+
+Do not weaken an accepted future spec just to match current code. Do not label a
+current code path wrong until the spec's authority has been checked.
+
+## Release Blocker Decision
+
+A finding is a release blocker only when all of these are true:
+
+- the requirement is authoritative;
+- the requirement is in the target release scope;
+- the reviewed implementation evidence is `missing` or `partial`;
+- the behavior is required for the release's core user, operator, or system
+  journey.
+
+If any condition is false, keep the finding in the ledger with the appropriate
+status instead of calling it a blocker.
+
+## Edge-Case Discovery Without Overclaiming
+
+One of the best uses of the spec layer is finding obvious edge cases that nobody
+wrote down yet. EARS `[Unwanted]` review should actively ask:
+
+- What happens on duplicate submit?
+- What happens after stale state or a refresh?
+- What happens when the actor lacks ownership or permission?
+- What happens when an external service succeeds but local persistence fails?
+- What happens when an async operation stays pending too long?
+- What does the user see next after rejection, cancellation, expiry, or retry?
+
+These are valuable findings, but they are not automatically code gaps. Treat
+them as candidate edge-case gaps until their authority is clear.
+
+Use this sequence:
+
+```text
+common-sense edge case
+  -> candidate finding in ledger
+  -> authority check against L0/L1/product/platform rules
+  -> accepted L2/L3 requirement or rejected/non-goal
+  -> implementation review
+  -> verification evidence
+```
+
+Authority basis matters:
+
+| Basis | How to handle |
+|---|---|
+| Derived from L0 value, L1 invariant, security, privacy, money, deletion, ownership, or data integrity | Usually promote directly into L2/L3 as accepted behavior. |
+| Expected by ordinary user experience but not stated by product authority | Record as an edge-case candidate, then accept or reject explicitly. |
+| Pure implementation preference | Keep out of product spec unless it affects a user, operator, contract, or failure mode. |
+| Spec imported from a sample or previous project | Re-authorize before treating it as binding. |
+
+This keeps the strength of reverse review without letting "common sense" become
+unreviewed AI invention.
 
 ## What The Spec Must Let Reviewers See
 
@@ -97,7 +173,7 @@ Every spec review finding should be classified before it is fixed:
 
 | Finding class | Meaning | Action |
 |---|---|---|
-| Spec gap | The implementation has a reasonable behavior, but the spec does not explain it. | Update L1/L2/L3, then add or update verification. |
+| Spec gap | The implementation or product authority has reasonable behavior, but the spec does not explain it; or the spec imported a promise with no authority. | Update L1/L2/L3, then add or update verification. |
 | Code gap | The spec promise is clear, but implementation does not satisfy it. | Fix code and tests without weakening the spec. |
 | Both gap | The reviewer found a user journey, state, or failure that neither spec nor code handles. | Write the missing spec, implement it, then verify. |
 | Decision gap | The correct behavior is not knowable from current product authority. | Record the question and decide before implementation. |
@@ -169,10 +245,13 @@ Each ledger row should include:
 
 - stable `GAP-ID`;
 - gap type: `intent_gap`, `experience_gap`, `contract_gap`,
-  `verification_gap`, or `method_gap`;
+  `edge_case_gap`, `verification_gap`, or `method_gap`;
 - spec evidence that led to the finding;
+- authority basis for any inferred edge case;
 - user, operator, or system risk;
 - affected specs and requirement IDs where applicable;
+- authority status and target release scope;
+- release impact: blocker, non-blocker, proposal-only, or not applicable;
 - recommended spec action;
 - implementation status and code-review target;
 - resolution notes after code review.

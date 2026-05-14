@@ -4,6 +4,12 @@
 
 - [ ] Upstream authority sources are named.
 - [ ] Generated artifacts are not treated as the source of intent.
+- [ ] Accepted future behavior remains in `spec/` even if implementation is
+      pending.
+- [ ] Implementation readiness words (`missing`, `partial`, `ready`,
+      `implemented`) are not written into normative L1/L2/L3 behavior.
+- [ ] Target release or scope is identified before any finding is called a
+      release blocker.
 - [ ] Product-local shortcuts are explicitly allowed or forbidden.
 
 ## Domain
@@ -18,6 +24,10 @@
 - [ ] The intended user journey can be reconstructed from the spec alone.
 - [ ] Each important action has a user-visible result.
 - [ ] Each failure or pending state has a user next action.
+- [ ] Duplicate submit, stale state, permission, timeout, rollback, cancellation,
+      expiry, and retry cases have been considered.
+- [ ] Common-sense edge cases are marked with an authority basis before they are
+      promoted into binding requirements.
 - [ ] Each behavior is one EARS requirement.
 - [ ] At least one `[Unwanted]` requirement exists.
 - [ ] Requirements use stable IDs.
@@ -55,8 +65,12 @@
 - [ ] Missing UX found during review has a spec action and code action.
 - [ ] Each finding is classified as spec gap, code gap, both gap, or decision
       gap.
+- [ ] Edge-case findings stay candidate findings until accepted by L0/L1,
+      product authority, platform rules, or explicit decision.
 - [ ] Spec-only findings start as `implementation_status=unverified`.
 - [ ] No finding is marked `missing`, `partial`, or `implemented` without code,
       test, design, runtime, or manual evidence.
+- [ ] No finding is marked `blocker` unless authority, target release,
+      implementation evidence, and core-journey impact have all been checked.
 - [ ] Accepted findings are moved into authoritative L1/L2/L3 specs before or
       with code changes.

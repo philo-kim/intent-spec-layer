@@ -11,6 +11,7 @@ accepted findings are moved into L1/L2/L3.
 - Review date:
 - Review type: spec_only / spec_plus_code / incident_followup / design_migration
 - Specs reviewed:
+- Target release or scope:
 - Code reviewed: no / yes
 - Runtime or screenshot evidence reviewed: no / yes
 
@@ -28,9 +29,22 @@ evidence, runtime behavior, or a named manual review has been checked.
 
 ## Findings
 
-| Gap ID | Type | Spec evidence | User/operator/system risk | Spec action | Spec status | Implementation status | Verification status | Code-review target | Resolution |
-|---|---|---|---|---|---|---|---|---|---|
-| GAP-XXX-001 | intent_gap / experience_gap / contract_gap / verification_gap / method_gap |  |  |  | needs_refinement | unverified | not_mapped |  |  |
+| Gap ID | Type | Authority status | Authority basis | Target release | Release impact | Spec evidence | User/operator/system risk | Spec action | Spec status | Implementation status | Verification status | Code-review target | Resolution |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| GAP-XXX-001 | intent_gap / experience_gap / contract_gap / edge_case_gap / verification_gap / method_gap | proposal / adopted / active / stale / unknown | L0 / L1 invariant / product decision / platform rule / common UX expectation / sample import | current / next / later / unscheduled | blocker / non_blocker / proposal_only / not_applicable / unknown |  |  |  | needs_refinement | unverified | not_mapped |  |  |
+
+Release impact must not be guessed from spec text alone. Mark `blocker` only
+after authority, target release, implementation evidence, and core-journey
+impact are all known.
+
+## Edge-Case Candidates
+
+Use this section when review finds a reasonable failure, stale-state, duplicate,
+permission, timeout, rollback, or recovery case that is not yet authoritative.
+
+| Candidate | Authority basis | Decision | Requirement impact |
+|---|---|---|---|
+|  | L0 / L1 invariant / product decision needed / common UX expectation / sample import | accept / reject / decide later | add / modify / none |
 
 ## Code Review Pass
 
@@ -40,9 +54,16 @@ Use this section after implementation evidence has been inspected.
 |---|---|---|---|
 | GAP-XXX-001 | file:line / test / screenshot / manual note | missing / partial / implemented / not_applicable |  |
 
+## Release Impact Pass
+
+Use this section after code evidence and release scope have both been checked.
+
+| Gap ID | Blocker decision | Reason |
+|---|---|---|
+| GAP-XXX-001 | blocker / non_blocker / proposal_only / not_applicable / unknown |  |
+
 ## Accepted Spec Changes
 
 | Gap ID | Requirement impact | Verification impact |
 |---|---|---|
 | GAP-XXX-001 | add / modify / keep / remove `REQ-...` | generated stub / unit / integration / guardrail / smoke / manual UX |
-

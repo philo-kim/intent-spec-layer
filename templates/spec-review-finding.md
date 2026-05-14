@@ -14,6 +14,9 @@ Choose one:
       it.
 - [ ] Both gap: neither spec nor implementation handles a real user journey,
       state, or failure.
+- [ ] Edge-case gap: review found a likely duplicate, stale-state, permission,
+      timeout, rollback, recovery, or failure case that needs authority before
+      it becomes binding.
 - [ ] Decision gap: product authority is missing; implementation should wait.
 
 ## Status
@@ -24,6 +27,10 @@ been checked.
 | Field | Value | Notes |
 |---|---|---|
 | Spec status | needs_spec / needs_refinement / accepted / rejected / closed |  |
+| Authority status | proposal / adopted / active / stale / unknown |  |
+| Authority basis | L0 / L1 invariant / product decision / platform rule / common UX expectation / sample import |  |
+| Target release | current / next / later / unscheduled |  |
+| Release impact | blocker / non_blocker / proposal_only / not_applicable / unknown | Do not mark blocker until code evidence and release scope are known. |
 | Implementation status | unverified / missing / partial / implemented / not_applicable |  |
 | Verification status | not_mapped / mapped / tested / manual_only / blocked |  |
 
@@ -46,6 +53,7 @@ been checked.
 - Spec action:
 - Code action:
 - Verification action:
+- Release action:
 - Owner:
 - Target lifecycle state:
 

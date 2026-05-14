@@ -2,6 +2,35 @@
 
 This project follows the spirit of Keep a Changelog.
 
+## [0.1.7] - 2026-05-15
+
+### Added
+
+- Root `AGENTS.md` with compact operating rules for AI coding agents.
+- Agent operating protocol guide.
+- Agent task brief template for handing work to an AI agent.
+- `check:agent` guardrail that verifies the agent entrypoints and core
+  authority/evidence/release-impact reminders remain present.
+- Authority, release scope, implementation evidence, review finding, and
+  generated-artifact boundary rules.
+- `adopted` lifecycle status for accepted behavior whose implementation may
+  still be pending.
+- Release impact fields in review finding and ledger templates.
+- Edge-case discovery guidance for duplicate submit, stale state, permission,
+  timeout, rollback, cancellation, expiry, retry, and recovery cases.
+
+### Changed
+
+- Clarified that accepted future behavior belongs in authoritative specs and
+  should not be removed merely because code has not caught up.
+- Strengthened review guidance so release blockers require authority, target
+  release scope, implementation evidence, and core-journey impact.
+- Updated checklists and templates to keep implementation readiness labels out
+  of normative L1/L2/L3 behavior.
+- Clarified that common-sense edge cases start as candidate findings until their
+  authority basis is checked.
+- Added the agent protocol guardrail to the default `npm run check` flow.
+
 ## [0.1.6] - 2026-05-15
 
 ### Added

@@ -1,6 +1,6 @@
 {
   "name": "intent-spec-layer",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "private": false,
   "type": "module",
   "scripts": {
@@ -9,8 +9,9 @@
     "req:test:generate": "node scripts/generate-req-tests.mjs --write",
     "test:reqs": "node --test generated/requirements.test.mjs",
     "check:syntax": "find experiments scripts -name '*.mjs' -print | sort | xargs -n1 node --check",
+    "check:agent": "node scripts/check-agent-protocol.mjs",
     "check:links": "node scripts/check-links.mjs",
     "check:reqs": "node scripts/generate-req-tests.mjs --check",
-    "check": "npm run check:syntax && npm run check:links && npm run check:reqs && npm run test:reqs && npm run benchmark && npm run simulate"
+    "check": "npm run check:syntax && npm run check:agent && npm run check:links && npm run check:reqs && npm run test:reqs && npm run benchmark && npm run simulate"
   }
 }

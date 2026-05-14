@@ -27,6 +27,8 @@ This repository contains:
 - a spec review loop for finding product and code gaps from the spec itself;
 - a review ledger pattern that keeps spec-only findings separate from code
   evidence;
+- an agent operating protocol that keeps AI agents from confusing intent,
+  evidence, review findings, and generated stubs;
 - a REQ-ID and statement-level test-stub bridge that keeps generated
   placeholders, planned evidence, and real verification separate;
 - a worked coupon-order example;
@@ -52,13 +54,17 @@ Minimum rule set:
    idempotency requires L3.
 5. A reviewer should be able to understand the intended user journey from the
    spec before reading implementation code.
-6. Every REQ-ID or statement ID should generate a test stub and map to
+6. Accepted future behavior belongs in `spec/`; implementation readiness belongs
+   in tests, evidence records, or review ledgers.
+7. Every REQ-ID or statement ID should generate a test stub and map to
    verification, while generated stubs remain clearly marked as pending
    evidence.
-7. Tools consume the source layer; they do not define it.
+8. Tools consume the source layer; they do not define it.
 
 ## Start Here
 
+- [Agent operating rules](AGENTS.md)
+- [Agent operating protocol](guide/agent-operating-protocol.md)
 - [Guide](guide/intent-specification-layer.md)
 - [Adoption playbook](guide/adoption.md)
 - [Spec review loop](guide/spec-review-loop.md)
@@ -70,6 +76,7 @@ Minimum rule set:
 - [Experience review template](templates/experience-review.md)
 - [Spec review finding template](templates/spec-review-finding.md)
 - [Review ledger template](templates/review-ledger.md)
+- [Agent task brief template](templates/agent-task-brief.md)
 - [Coupon-order example](examples/coupon-order-system/spec.md)
 - [Heading-style EARS example](examples/account-session-heading-style/spec.md)
 - [Frontmatter schema](schemas/frontmatter.schema.json)
@@ -102,8 +109,8 @@ npm run check
 ```
 
 This checks syntax, local Markdown links, generated requirement artifacts,
-generated statement stubs, the generated verification report, the benchmark, and
-the simulation.
+agent operating protocol guardrails, generated statement stubs, the generated
+verification report, the benchmark, and the simulation.
 
 Current diagnostic results:
 

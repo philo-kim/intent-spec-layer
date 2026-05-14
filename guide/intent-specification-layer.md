@@ -39,7 +39,46 @@ all the code. If the spec review reveals that a step, state, error, or next
 action is missing, that is a product defect until the spec and code are brought
 back into alignment.
 
-## 2. Values Provided
+## 2. Authority, Scope, And Evidence
+
+The layer has one source-of-truth job:
+
+> Record the intended product and system promises, including behavior that has
+> been decided but not implemented yet.
+
+Do not remove an accepted future behavior from `spec/` just because the current
+code does not implement it. That would turn the spec into a snapshot of the
+code, which is the opposite of its purpose.
+
+Keep these categories separate:
+
+| Category | Belongs in | Meaning |
+|---|---|---|
+| Authoritative intent | L0/L1/L2/L3 specs | What must be true for the product or system |
+| Release scope | spec frontmatter or release planning notes | Which accepted promises are targeted by a release |
+| Implementation evidence | tests, guardrails, code traces, manual evidence records | What has actually been verified |
+| Review findings | `spec/reviews/` ledger | Candidate gaps, status, and resolution trail |
+| Generated artifacts | `generated/` or project-local build output | Trace slots and derived reports, not authority |
+
+Implementation status words such as `missing`, `partial`, `ready`, or
+`implemented` should not appear as normative L1/L2/L3 behavior. Put them in a
+review ledger or evidence matrix instead.
+
+A finding becomes a release blocker only when all of these are true:
+
+1. the requirement is authoritative, not merely a proposal or sample;
+2. the requirement is in the target release scope;
+3. implementation evidence is missing or partial;
+4. the behavior is required for the release's core user, operator, or system
+   journey.
+
+This prevents two common errors:
+
+- treating every future spec requirement as a current release blocker;
+- treating every code mismatch as a code defect before checking whether the
+  spec itself has authority.
+
+## 3. Values Provided
 
 The layer provides six practical values:
 
@@ -56,7 +95,7 @@ The layer provides six practical values:
 6. **Tool independence.** It gives Spec Kit, OpenSpec, Kiro, BMAD, Augment
    Intent, plan mode, and ordinary code review a shared source layer.
 
-## 3. Source Layer Vs Tools
+## 4. Source Layer Vs Tools
 
 Spec-driven development tools are execution tools. The spec layer is the source
 layer they consume.
@@ -74,7 +113,7 @@ Do not create a new root folder just because a tool has a preferred convention.
 If a tool needs generated working files, keep them clearly separate or sync the
 accepted result back into `spec/`.
 
-## 4. Layer Model
+## 5. Layer Model
 
 | Layer | Purpose | Required when |
 |---|---|---|
@@ -91,7 +130,7 @@ Fixed rules:
 4. L3 is required when partial failure, retry, rollback, deletion, payment,
    entitlement, external service calls, or idempotency matter.
 
-## 5. Layer Selection
+## 6. Layer Selection
 
 Use this decision order:
 
@@ -121,7 +160,7 @@ Minimum viable spec by work type:
 | Auth, billing, deletion, uploads, external API, async workflow | L0 + L1 + L2 + L3 |
 | Bug caused by missing intent | Update the missing layer before or with the fix |
 
-## 6. Structure Decision
+## 7. Structure Decision
 
 There are two valid repository structures. Choose by domain shape.
 
@@ -158,7 +197,7 @@ spec/
   experiments/
 ```
 
-## 7. L2 Behavior: EARS
+## 8. L2 Behavior: EARS
 
 Layer 2 uses EARS because it keeps natural language but forces behavior shape.
 
@@ -187,7 +226,7 @@ Example:
   a partial local session.
 ```
 
-## 8. L3 Interface Contracts
+## 9. L3 Interface Contracts
 
 EARS says what must happen. L3 says how modules preserve the promise when the
 operation crosses a boundary.
@@ -218,13 +257,14 @@ Implementation hints are allowed. If exact rollback requires tracking
 `reserved_items`, write that. This is not over-specification; it is the contract
 that prevents the AI from guessing.
 
-## 9. Lifecycle
+## 10. Lifecycle
 
 | Status | Meaning |
 |---|---|
 | `draft` | Being explored; do not implement as authority yet |
 | `review` | Ready for human or agent review before code |
-| `active` | Governs current implementation |
+| `adopted` | Accepted product or system promise; implementation may still be pending |
+| `active` | Governs the target implementation for the current product line or release |
 | `stable` | Mature and rarely changed, still authoritative |
 | `deprecated` | Superseded but not removed yet |
 | `archived` | Historical only; no longer governs implementation |
@@ -233,7 +273,12 @@ Changes that are not ready to merge into active specs live under
 `spec/changes/<YYYY-MM-DD-short-name>/`. After implementation and verification,
 merge accepted behavior into the relevant feature spec.
 
-## 10. Traceability And Drift
+Lifecycle status is authority status, not implementation status. A spec can be
+`adopted` while code is still missing. A spec can be `active` while individual
+requirements are only partially verified. Use review ledgers and evidence
+matrices to record that implementation state.
+
+## 11. Traceability And Drift
 
 Spec drift is the main failure mode.
 
@@ -254,7 +299,7 @@ Recommended traceability:
 Generated artifacts such as OpenAPI JSON or generated frontend types are
 generated contracts, not the source of product intent.
 
-## 11. REQ-ID To Test Bridge
+## 12. REQ-ID To Test Bridge
 
 Every L2 requirement should be machine-extractable and convertible into a test
 stub. Multi-statement requirements should be tracked at statement level. This is
@@ -285,7 +330,7 @@ Rules:
 6. Unknown `@Spec(...)` references fail the generated artifact check.
 7. Review should ask whether each generated stub has a real verification path.
 
-## 12. Spec Review As Defect Discovery
+## 13. Spec Review As Defect Discovery
 
 The spec is also a review tool.
 
@@ -322,7 +367,10 @@ tests, screenshots, runtime behavior, or manual evidence has been checked.
 Then classify the implementation as `missing`, `partial`, `implemented`, or
 `not_applicable`.
 
-## 13. Agent Workflow
+## 14. Agent Workflow
+
+Agents should start from `AGENTS.md` when it exists. That file is the compact
+operating contract; this guide is the deeper reference.
 
 ```text
 1. Read L0.
@@ -342,7 +390,7 @@ Do not start with implementation planning when the governing behavior is still
 implicit. Plan mode answers "what steps should I take"; `spec/` answers "what
 truth must those steps preserve."
 
-## 14. Anti-Patterns
+## 15. Anti-Patterns
 
 - A PRD that describes value but omits bad states.
 - A behavior change with no EARS requirement.
@@ -351,6 +399,15 @@ truth must those steps preserve."
 - A spec that cannot reconstruct the user journey.
 - A spec-only finding labeled as "not implemented" before code evidence is
   checked.
+- An accepted future behavior removed from `spec/` because the current code has
+  not caught up yet.
+- Implementation readiness labels such as `ready`, `missing`, or `partial`
+  written into normative L1/L2/L3 behavior instead of a review ledger or
+  evidence matrix.
+- A proposal-only requirement treated as a current release blocker without
+  checking target release scope.
+- A common-sense edge case promoted into binding spec without an authority
+  basis from L0, L1, product decision, platform rule, or explicit review.
 - An error state with no user next action.
 - A shared ID with multiple aliases across modules.
 - A multi-resource mutation with no rollback or idempotency rule.
@@ -361,7 +418,7 @@ truth must those steps preserve."
 - A passing happy-path smoke test used as proof that the contract is complete.
 - A code path that exists only because the AI invented a plausible behavior.
 
-## 15. Final Operating Principles
+## 16. Final Operating Principles
 
 1. `docs/` explains; `spec/` governs.
 2. L0 always exists.
@@ -374,9 +431,11 @@ truth must those steps preserve."
 8. Tools consume the source layer; they do not define it.
 9. Code and spec must not drift silently.
 10. The spec must be reviewable as a model of the intended user journey.
-11. REQ-IDs must generate test stubs and map to verification, but generated
+11. Accepted future behavior belongs in `spec/`; implementation status belongs
+    in evidence or review artifacts.
+12. REQ-IDs must generate test stubs and map to verification, but generated
     stubs must not be counted as proof of behavior.
-12. Spec-only gap findings start as implementation-unverified until code
+13. Spec-only gap findings start as implementation-unverified until code
     evidence is reviewed.
-13. The goal is not more documents. The goal is fewer AI guesses and faster
+14. The goal is not more documents. The goal is fewer AI guesses and faster
     discovery of missing intent.
