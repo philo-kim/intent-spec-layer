@@ -5,8 +5,10 @@
 1. Copy `templates/00_constitution.md` into `spec/00_constitution.md`.
 2. Decide global or feature structure.
 3. Write the first feature spec before implementation.
-4. Run plan mode only after L1/L2/L3 are clear enough.
-5. Implement and verify every requirement ID.
+4. Review the spec as if it were the product: can the user journey be
+   reconstructed without reading code?
+5. Run plan mode only after L1/L2/L3 are clear enough.
+6. Implement and verify every requirement ID.
 
 Recommended first commit:
 
@@ -25,13 +27,16 @@ spec/
 4. Add L3 only for boundary, rollback, external-service, deletion, billing, or
    entitlement behavior.
 5. Fix code and tests against the spec.
-6. Repeat feature by feature.
+6. Review the spec again from the user's point of view.
+7. Repeat feature by feature.
 
 Do not try to spec the whole codebase in one pass. The highest-value entry point
 is the part where the AI or the team has been guessing.
 
 ## Review Checklist
 
+- Can the intended user journey be reconstructed from the spec alone?
+- Does every failure or pending state give the user a next action?
 - Does the spec name the authority source?
 - Are canonical IDs and terms explicit?
 - Does every behavior change have at least one EARS line?
@@ -39,6 +44,20 @@ is the part where the AI or the team has been guessing.
 - Does L3 cover idempotency and partial failure when boundaries are crossed?
 - Is generated output clearly marked as output, not source?
 - Is there a verification map?
+
+## Reverse Review Loop
+
+Use this loop after implementation, during UX review, or when a user says the
+flow feels wrong:
+
+```text
+Read spec only -> identify missing journey/state/failure -> update spec ->
+update code -> verify against requirement IDs
+```
+
+Do not treat "the code already does something" as proof that the behavior is
+intended. If it matters to the user or system contract, it must be visible in
+the spec.
 
 ## When To Keep It Lightweight
 
@@ -54,3 +73,4 @@ Stop implementation planning when:
 - two specs use different names for the same thing;
 - the failure mode is known but the recovery rule is not;
 - the operation can charge money, delete data, or grant access and no L3 exists.
+- a reviewer cannot tell what the user should do next from the spec.

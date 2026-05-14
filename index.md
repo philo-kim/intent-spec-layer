@@ -2,7 +2,8 @@
 
 A repository-native specification layer for AI-assisted coding.
 
-Start with the [guide](guide/intent-specification-layer.md), then use the
+Start with the [guide](guide/intent-specification-layer.md), read the
+[spec review loop](guide/spec-review-loop.md), then use the
 [templates](templates/feature-spec.md) and the
 [coupon-order example](examples/coupon-order-system/spec.md).
 

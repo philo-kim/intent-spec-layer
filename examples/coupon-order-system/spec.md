@@ -66,6 +66,27 @@ Invariants:
 - [REQ-COUPON-009][Optional] Where a premium entitlement is present, the system
   shall apply the premium discount after coupon validation.
 
+## Experience Review
+
+### Happy Path
+
+1. The user starts with a `draft` order that contains one or more line items.
+2. The user applies a `coupon_id`.
+3. The system validates expiry, used state, and minimum amount.
+4. The user sees the adjusted `total_amount`.
+5. The user confirms the order.
+6. The system reserves inventory, charges payment, and marks the order
+   `confirmed`.
+
+### Unwanted / Recovery Paths
+
+| Situation | User-visible result | Next action | Requirement |
+|---|---|---|---|
+| Coupon is already used | Rejection error | Choose another coupon or continue without one | REQ-COUPON-004 |
+| Item removal breaks minimum amount | Coupon is detached and total is recalculated | Review total or apply another coupon | REQ-COUPON-005 |
+| Cancelled order is confirmed | Rejection error | Create or use a draft order | REQ-COUPON-007 |
+| Payment fails after reservation | Payment error and inventory rollback | Retry payment with same idempotency key or choose another method | L3 |
+
 ## Layer 3: Interface Contract
 
 ### Contract: `OrderOrchestrator.confirm`

@@ -162,7 +162,7 @@ function markdownReport(results) {
 const results = specFiles.map(scoreSpec);
 fs.writeFileSync(
   resultsJson,
-  JSON.stringify({ generatedAt: new Date().toISOString(), benchmark, results }, null, 2),
+  JSON.stringify({ benchmark, results }, null, 2),
 );
 fs.writeFileSync(resultsMd, markdownReport(results));
 

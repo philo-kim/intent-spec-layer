@@ -16,6 +16,8 @@ Use `spec/` as the repository-native Intent Specification Layer.
   not have to guess.
 - `layer` is the architecture concept: L0 Constitution, L1 Domain, L2 Behavior,
   L3 Contracts.
+- The method is bidirectional: it guides implementation before code exists and
+  exposes missing user journey, failure, and recovery behavior after code exists.
 
 ## Investigated Alternatives
 

@@ -5,6 +5,8 @@
 - Add examples outside e-commerce.
 - Add a stricter frontmatter/schema validator.
 - Add a drift-detection checklist for pull requests.
+- Add automated checks that require experience-review coverage for user-facing
+  features.
 - Compare more AI coding tools and model families.
 
 ## 0.3

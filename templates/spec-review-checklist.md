@@ -15,6 +15,9 @@
 
 ## Behavior
 
+- [ ] The intended user journey can be reconstructed from the spec alone.
+- [ ] Each important action has a user-visible result.
+- [ ] Each failure or pending state has a user next action.
 - [ ] Each behavior is one EARS requirement.
 - [ ] At least one `[Unwanted]` requirement exists.
 - [ ] Requirements use stable IDs.
@@ -32,3 +35,9 @@
 - [ ] Every requirement has a verification path.
 - [ ] Existing tests or guardrails are linked.
 - [ ] Manual checks are named when automation is not yet practical.
+
+## Reverse Review
+
+- [ ] Existing code behavior maps to a requirement or contract.
+- [ ] Behavior not justified by spec is removed or specified.
+- [ ] Missing UX found during review has a spec action and code action.

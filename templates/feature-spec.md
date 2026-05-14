@@ -56,6 +56,25 @@ What user or system behavior this feature governs.
 - [REQ-XXX-004][Unwanted] If ..., then the system shall ...
 - [REQ-XXX-005][Optional] Where ..., the system shall ...
 
+## Experience Review
+
+This section is not marketing copy. It is the reviewable journey implied by L1,
+L2, and L3.
+
+### Happy Path
+
+1.
+
+### Unwanted / Recovery Paths
+
+| Situation | User-visible result | Next action | Requirement |
+|---|---|---|---|
+|  |  |  | REQ-XXX-004 |
+
+### Open Experience Questions
+
+-
+
 ## Layer 3: Interface Contract
 
 Include this section only when cross-module ordering, retry, idempotency,

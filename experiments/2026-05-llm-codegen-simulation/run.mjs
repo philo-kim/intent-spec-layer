@@ -303,7 +303,7 @@ const results = modules.map((module) => {
 
 fs.writeFileSync(
   resultsJson,
-  JSON.stringify({ generatedAt: new Date().toISOString(), results }, null, 2),
+  JSON.stringify({ results }, null, 2),
 );
 fs.writeFileSync(resultsMd, markdownReport(results));
 

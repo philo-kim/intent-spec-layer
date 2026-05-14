@@ -1,5 +1,4 @@
 {
-  "generatedAt": "2026-05-14T15:50:48.662Z",
   "benchmark": {
     "caseId": "coupon-order-transaction",
     "description": "Order/coupon/payment/inventory case used to evaluate ambiguity coverage, edge cases, vocabulary stability, and partial-failure handling.",

@@ -9,8 +9,14 @@ The core rule is simple:
 AI coding fails when unstated intent becomes implementation guesswork. PRDs,
 chat prompts, and plan-mode outputs often describe the happy path while leaving
 authority, vocabulary, unwanted behavior, rollback, and drift controls implicit.
-The Intent Specification Layer turns those implicit decisions into verifiable
-promises that code must satisfy.
+The Intent Specification Layer turns those implicit decisions into a reviewable
+model of user experience and system behavior.
+
+It is bidirectional:
+
+- before implementation, it reduces AI and human guesswork;
+- after implementation, it lets reviewers find missing UX, domain, and failure
+  behavior without reading all the code first.
 
 ## What This Is
 
@@ -18,6 +24,7 @@ This repository contains:
 
 - a practical guide to the L0-L3 spec model;
 - reusable templates for project constitutions and feature specs;
+- a spec review loop for finding product and code gaps from the spec itself;
 - a worked coupon-order example;
 - two reproducible experiments that compare PRD, BDD, EARS, Domain+EARS, and
   the full spec layer;
@@ -39,16 +46,20 @@ Minimum rule set:
 3. Shared terms require L1.
 4. Partial failure, rollback, retry, deletion, payment, entitlement, or
    idempotency requires L3.
-5. Tools consume the source layer; they do not define it.
+5. A reviewer should be able to understand the intended user journey from the
+   spec before reading implementation code.
+6. Tools consume the source layer; they do not define it.
 
 ## Start Here
 
 - [Guide](guide/intent-specification-layer.md)
 - [Adoption playbook](guide/adoption.md)
+- [Spec review loop](guide/spec-review-loop.md)
 - [Naming and structure decision](guide/naming-and-structure.md)
 - [Research notes](research/method-comparison.md)
 - [References](references.md)
 - [Feature spec template](templates/feature-spec.md)
+- [Experience review template](templates/experience-review.md)
 - [Coupon-order example](examples/coupon-order-system/spec.md)
 
 ## Repository Shape
@@ -98,7 +109,7 @@ Intent, or plan-mode workflows. It is the source layer those tools can consume.
 The distinction:
 
 - SDD tools help execute a workflow.
-- This layer defines what must remain true.
+- This layer defines and reviews what must remain true.
 
 ## Status
 
