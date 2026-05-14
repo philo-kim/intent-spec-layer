@@ -7,9 +7,10 @@
 3. Write the first feature spec before implementation.
 4. Review the spec as if it were the product: can the user journey be
    reconstructed without reading code?
-5. Run `npm run req:test:generate` so every REQ-ID has a generated test stub.
-6. Run plan mode only after L1/L2/L3 and test stubs are clear enough.
-7. Implement and verify every requirement ID.
+5. Run `npm run req:test:generate` so every EARS statement has a generated test
+   slot.
+6. Run plan mode only after L1/L2/L3 and verification slots are clear enough.
+7. Implement and verify every requirement or statement ID.
 
 Recommended first commit:
 
@@ -28,8 +29,8 @@ spec/
 4. Add L3 only for boundary, rollback, external-service, deletion, billing, or
    entitlement behavior.
 5. Fix code and tests against the spec.
-6. Generate REQ-ID test stubs and replace placeholders with real tests where
-   practical.
+6. Generate REQ-ID statement stubs and replace placeholders with real tests
+   where practical.
 7. Review the spec again from the user's point of view.
 8. Repeat feature by feature.
 
@@ -44,7 +45,8 @@ is the part where the AI or the team has been guessing.
 - Are canonical IDs and terms explicit?
 - Does every behavior change have at least one EARS line?
 - Does every feature spec include an `[Unwanted]` case?
-- Does every REQ-ID generate a test stub?
+- Does every EARS statement generate a test stub?
+- Does the verification report separate generated-only slots from real traces?
 - Does L3 cover idempotency and partial failure when boundaries are crossed?
 - Is generated output clearly marked as output, not source?
 - Is there a verification map?
@@ -55,8 +57,8 @@ Use this loop after implementation, during UX review, or when a user says the
 flow feels wrong:
 
 ```text
-Read spec only -> identify missing journey/state/failure -> update spec ->
-update code -> verify against requirement IDs
+Read spec only -> identify missing journey/state/failure -> classify finding ->
+update spec -> update code -> verify against requirement or statement IDs
 ```
 
 Do not treat "the code already does something" as proof that the behavior is

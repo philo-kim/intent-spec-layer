@@ -1,76 +1,343 @@
 {
+  "generatedBy": "scripts/generate-req-tests.mjs",
+  "totals": {
+    "requirements": 9,
+    "statements": 9,
+    "generatedStubSlots": 9,
+    "verificationMappedStatements": 9,
+    "realSpecReferences": 0,
+    "realTracedStatements": 0,
+    "pendingGeneratedOnlyStatements": 9,
+    "codeOnlyReferences": 0
+  },
   "requirements": [
     {
       "id": "REQ-COUPON-001",
+      "title": "The system shall allow maximum one coupon on an `order_id`.",
+      "source": "examples/coupon-order-system/spec.md",
+      "line": 49,
+      "statements": [
+        {
+          "requirementId": "REQ-COUPON-001",
+          "title": "The system shall allow maximum one coupon on an `order_id`.",
+          "pattern": "Ubiquitous",
+          "text": "The system shall allow maximum one coupon on an `order_id`.",
+          "source": "examples/coupon-order-system/spec.md",
+          "line": 49,
+          "style": "inline",
+          "statementIndex": 1,
+          "statementId": "REQ-COUPON-001:S1",
+          "verificationMapped": true,
+          "generatedStub": true,
+          "verificationStatus": "pending"
+        }
+      ]
+    },
+    {
+      "id": "REQ-COUPON-002",
+      "title": "When the user applies a `coupon_id`, the system shall validate expiry, used state, and minimum order amount.",
+      "source": "examples/coupon-order-system/spec.md",
+      "line": 51,
+      "statements": [
+        {
+          "requirementId": "REQ-COUPON-002",
+          "title": "When the user applies a `coupon_id`, the system shall validate expiry, used state, and minimum order amount.",
+          "pattern": "Event-driven",
+          "text": "When the user applies a `coupon_id`, the system shall validate expiry, used state, and minimum order amount.",
+          "source": "examples/coupon-order-system/spec.md",
+          "line": 51,
+          "style": "inline",
+          "statementIndex": 1,
+          "statementId": "REQ-COUPON-002:S1",
+          "verificationMapped": true,
+          "generatedStub": true,
+          "verificationStatus": "pending"
+        }
+      ]
+    },
+    {
+      "id": "REQ-COUPON-003",
+      "title": "While an order is `draft`, the system shall allow the user to apply coupon and remove coupon.",
+      "source": "examples/coupon-order-system/spec.md",
+      "line": 53,
+      "statements": [
+        {
+          "requirementId": "REQ-COUPON-003",
+          "title": "While an order is `draft`, the system shall allow the user to apply coupon and remove coupon.",
+          "pattern": "State-driven",
+          "text": "While an order is `draft`, the system shall allow the user to apply coupon and remove coupon.",
+          "source": "examples/coupon-order-system/spec.md",
+          "line": 53,
+          "style": "inline",
+          "statementIndex": 1,
+          "statementId": "REQ-COUPON-003:S1",
+          "verificationMapped": true,
+          "generatedStub": true,
+          "verificationStatus": "pending"
+        }
+      ]
+    },
+    {
+      "id": "REQ-COUPON-004",
+      "title": "If the user submits an already used coupon, then the system shall return a rejection error.",
+      "source": "examples/coupon-order-system/spec.md",
+      "line": 55,
+      "statements": [
+        {
+          "requirementId": "REQ-COUPON-004",
+          "title": "If the user submits an already used coupon, then the system shall return a rejection error.",
+          "pattern": "Unwanted",
+          "text": "If the user submits an already used coupon, then the system shall return a rejection error.",
+          "source": "examples/coupon-order-system/spec.md",
+          "line": 55,
+          "style": "inline",
+          "statementIndex": 1,
+          "statementId": "REQ-COUPON-004:S1",
+          "verificationMapped": true,
+          "generatedStub": true,
+          "verificationStatus": "pending"
+        }
+      ]
+    },
+    {
+      "id": "REQ-COUPON-005",
+      "title": "If item removal makes `total_amount` fall below the minimum order amount after coupon application, then the system shall detach the coupon and notify the user.",
+      "source": "examples/coupon-order-system/spec.md",
+      "line": 57,
+      "statements": [
+        {
+          "requirementId": "REQ-COUPON-005",
+          "title": "If item removal makes `total_amount` fall below the minimum order amount after coupon application, then the system shall detach the coupon and notify the user.",
+          "pattern": "Unwanted",
+          "text": "If item removal makes `total_amount` fall below the minimum order amount after coupon application, then the system shall detach the coupon and notify the user.",
+          "source": "examples/coupon-order-system/spec.md",
+          "line": 57,
+          "style": "inline",
+          "statementIndex": 1,
+          "statementId": "REQ-COUPON-005:S1",
+          "verificationMapped": true,
+          "generatedStub": true,
+          "verificationStatus": "pending"
+        }
+      ]
+    },
+    {
+      "id": "REQ-COUPON-006",
+      "title": "If an order is cancelled, then the system shall restore the coupon to unused state.",
+      "source": "examples/coupon-order-system/spec.md",
+      "line": 60,
+      "statements": [
+        {
+          "requirementId": "REQ-COUPON-006",
+          "title": "If an order is cancelled, then the system shall restore the coupon to unused state.",
+          "pattern": "Unwanted",
+          "text": "If an order is cancelled, then the system shall restore the coupon to unused state.",
+          "source": "examples/coupon-order-system/spec.md",
+          "line": 60,
+          "style": "inline",
+          "statementIndex": 1,
+          "statementId": "REQ-COUPON-006:S1",
+          "verificationMapped": true,
+          "generatedStub": true,
+          "verificationStatus": "pending"
+        }
+      ]
+    },
+    {
+      "id": "REQ-COUPON-007",
+      "title": "If a `cancelled` order is submitted for confirmation, then the system shall reject the transition.",
+      "source": "examples/coupon-order-system/spec.md",
+      "line": 62,
+      "statements": [
+        {
+          "requirementId": "REQ-COUPON-007",
+          "title": "If a `cancelled` order is submitted for confirmation, then the system shall reject the transition.",
+          "pattern": "Unwanted",
+          "text": "If a `cancelled` order is submitted for confirmation, then the system shall reject the transition.",
+          "source": "examples/coupon-order-system/spec.md",
+          "line": 62,
+          "style": "inline",
+          "statementIndex": 1,
+          "statementId": "REQ-COUPON-007:S1",
+          "verificationMapped": true,
+          "generatedStub": true,
+          "verificationStatus": "pending"
+        }
+      ]
+    },
+    {
+      "id": "REQ-COUPON-008",
+      "title": "If a discount would make `total_amount` negative, then the system shall set `total_amount` to zero and report the adjustment.",
+      "source": "examples/coupon-order-system/spec.md",
+      "line": 64,
+      "statements": [
+        {
+          "requirementId": "REQ-COUPON-008",
+          "title": "If a discount would make `total_amount` negative, then the system shall set `total_amount` to zero and report the adjustment.",
+          "pattern": "Unwanted",
+          "text": "If a discount would make `total_amount` negative, then the system shall set `total_amount` to zero and report the adjustment.",
+          "source": "examples/coupon-order-system/spec.md",
+          "line": 64,
+          "style": "inline",
+          "statementIndex": 1,
+          "statementId": "REQ-COUPON-008:S1",
+          "verificationMapped": true,
+          "generatedStub": true,
+          "verificationStatus": "pending"
+        }
+      ]
+    },
+    {
+      "id": "REQ-COUPON-009",
+      "title": "Where a premium entitlement is present, the system shall apply the premium discount after coupon validation.",
+      "source": "examples/coupon-order-system/spec.md",
+      "line": 66,
+      "statements": [
+        {
+          "requirementId": "REQ-COUPON-009",
+          "title": "Where a premium entitlement is present, the system shall apply the premium discount after coupon validation.",
+          "pattern": "Optional",
+          "text": "Where a premium entitlement is present, the system shall apply the premium discount after coupon validation.",
+          "source": "examples/coupon-order-system/spec.md",
+          "line": 66,
+          "style": "inline",
+          "statementIndex": 1,
+          "statementId": "REQ-COUPON-009:S1",
+          "verificationMapped": true,
+          "generatedStub": true,
+          "verificationStatus": "pending"
+        }
+      ]
+    }
+  ],
+  "statements": [
+    {
+      "requirementId": "REQ-COUPON-001",
+      "title": "The system shall allow maximum one coupon on an `order_id`.",
       "pattern": "Ubiquitous",
       "text": "The system shall allow maximum one coupon on an `order_id`.",
       "source": "examples/coupon-order-system/spec.md",
       "line": 49,
-      "verificationMapped": true
+      "style": "inline",
+      "statementIndex": 1,
+      "statementId": "REQ-COUPON-001:S1",
+      "verificationMapped": true,
+      "generatedStub": true,
+      "verificationStatus": "pending"
     },
     {
-      "id": "REQ-COUPON-002",
+      "requirementId": "REQ-COUPON-002",
+      "title": "When the user applies a `coupon_id`, the system shall validate expiry, used state, and minimum order amount.",
       "pattern": "Event-driven",
       "text": "When the user applies a `coupon_id`, the system shall validate expiry, used state, and minimum order amount.",
       "source": "examples/coupon-order-system/spec.md",
       "line": 51,
-      "verificationMapped": true
+      "style": "inline",
+      "statementIndex": 1,
+      "statementId": "REQ-COUPON-002:S1",
+      "verificationMapped": true,
+      "generatedStub": true,
+      "verificationStatus": "pending"
     },
     {
-      "id": "REQ-COUPON-003",
+      "requirementId": "REQ-COUPON-003",
+      "title": "While an order is `draft`, the system shall allow the user to apply coupon and remove coupon.",
       "pattern": "State-driven",
       "text": "While an order is `draft`, the system shall allow the user to apply coupon and remove coupon.",
       "source": "examples/coupon-order-system/spec.md",
       "line": 53,
-      "verificationMapped": true
+      "style": "inline",
+      "statementIndex": 1,
+      "statementId": "REQ-COUPON-003:S1",
+      "verificationMapped": true,
+      "generatedStub": true,
+      "verificationStatus": "pending"
     },
     {
-      "id": "REQ-COUPON-004",
+      "requirementId": "REQ-COUPON-004",
+      "title": "If the user submits an already used coupon, then the system shall return a rejection error.",
       "pattern": "Unwanted",
       "text": "If the user submits an already used coupon, then the system shall return a rejection error.",
       "source": "examples/coupon-order-system/spec.md",
       "line": 55,
-      "verificationMapped": true
+      "style": "inline",
+      "statementIndex": 1,
+      "statementId": "REQ-COUPON-004:S1",
+      "verificationMapped": true,
+      "generatedStub": true,
+      "verificationStatus": "pending"
     },
     {
-      "id": "REQ-COUPON-005",
+      "requirementId": "REQ-COUPON-005",
+      "title": "If item removal makes `total_amount` fall below the minimum order amount after coupon application, then the system shall detach the coupon and notify the user.",
       "pattern": "Unwanted",
       "text": "If item removal makes `total_amount` fall below the minimum order amount after coupon application, then the system shall detach the coupon and notify the user.",
       "source": "examples/coupon-order-system/spec.md",
       "line": 57,
-      "verificationMapped": true
+      "style": "inline",
+      "statementIndex": 1,
+      "statementId": "REQ-COUPON-005:S1",
+      "verificationMapped": true,
+      "generatedStub": true,
+      "verificationStatus": "pending"
     },
     {
-      "id": "REQ-COUPON-006",
+      "requirementId": "REQ-COUPON-006",
+      "title": "If an order is cancelled, then the system shall restore the coupon to unused state.",
       "pattern": "Unwanted",
       "text": "If an order is cancelled, then the system shall restore the coupon to unused state.",
       "source": "examples/coupon-order-system/spec.md",
       "line": 60,
-      "verificationMapped": true
+      "style": "inline",
+      "statementIndex": 1,
+      "statementId": "REQ-COUPON-006:S1",
+      "verificationMapped": true,
+      "generatedStub": true,
+      "verificationStatus": "pending"
     },
     {
-      "id": "REQ-COUPON-007",
+      "requirementId": "REQ-COUPON-007",
+      "title": "If a `cancelled` order is submitted for confirmation, then the system shall reject the transition.",
       "pattern": "Unwanted",
       "text": "If a `cancelled` order is submitted for confirmation, then the system shall reject the transition.",
       "source": "examples/coupon-order-system/spec.md",
       "line": 62,
-      "verificationMapped": true
+      "style": "inline",
+      "statementIndex": 1,
+      "statementId": "REQ-COUPON-007:S1",
+      "verificationMapped": true,
+      "generatedStub": true,
+      "verificationStatus": "pending"
     },
     {
-      "id": "REQ-COUPON-008",
+      "requirementId": "REQ-COUPON-008",
+      "title": "If a discount would make `total_amount` negative, then the system shall set `total_amount` to zero and report the adjustment.",
       "pattern": "Unwanted",
       "text": "If a discount would make `total_amount` negative, then the system shall set `total_amount` to zero and report the adjustment.",
       "source": "examples/coupon-order-system/spec.md",
       "line": 64,
-      "verificationMapped": true
+      "style": "inline",
+      "statementIndex": 1,
+      "statementId": "REQ-COUPON-008:S1",
+      "verificationMapped": true,
+      "generatedStub": true,
+      "verificationStatus": "pending"
     },
     {
-      "id": "REQ-COUPON-009",
+      "requirementId": "REQ-COUPON-009",
+      "title": "Where a premium entitlement is present, the system shall apply the premium discount after coupon validation.",
       "pattern": "Optional",
       "text": "Where a premium entitlement is present, the system shall apply the premium discount after coupon validation.",
       "source": "examples/coupon-order-system/spec.md",
       "line": 66,
-      "verificationMapped": true
+      "style": "inline",
+      "statementIndex": 1,
+      "statementId": "REQ-COUPON-009:S1",
+      "verificationMapped": true,
+      "generatedStub": true,
+      "verificationStatus": "pending"
     }
-  ]
+  ],
+  "realSpecReferences": [],
+  "codeOnlyReferences": []
 }

@@ -24,6 +24,7 @@ The layer is bidirectional:
 - [Naming and structure decision](guide/naming-and-structure.md)
 - [Feature spec template](templates/feature-spec.md)
 - [Experience review template](templates/experience-review.md)
+- [Spec review finding template](templates/spec-review-finding.md)
 - [Coupon-order example](examples/coupon-order-system/spec.md)
 - [Research notes](research/method-comparison.md)
 
@@ -44,7 +45,7 @@ Run the local experiments:
 npm run check
 ```
 
-Generate REQ-ID test stubs:
+Generate REQ-ID statement test stubs and the verification report:
 
 ```bash
 npm run req:test:generate

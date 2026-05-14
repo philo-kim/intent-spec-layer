@@ -7,8 +7,10 @@
 - Add a drift-detection checklist for pull requests.
 - Add automated checks that require experience-review coverage for user-facing
   features.
-- Add adapter examples that turn generated REQ-ID stubs into executable domain
-  tests.
+- Add concrete adapter examples that turn generated REQ-ID statement stubs into
+  executable domain tests.
+- Add stricter optional CI mode that fails when selected requirements remain
+  generated-only.
 - Compare more AI coding tools and model families.
 
 ## 0.3

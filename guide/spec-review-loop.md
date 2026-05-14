@@ -69,7 +69,19 @@ Ask these questions while reading only the spec:
 
 ## Outcomes
 
-Every spec review finding should end as one of:
+Every spec review finding should be classified before it is fixed:
+
+| Finding class | Meaning | Action |
+|---|---|---|
+| Spec gap | The implementation has a reasonable behavior, but the spec does not explain it. | Update L1/L2/L3, then add or update verification. |
+| Code gap | The spec promise is clear, but implementation does not satisfy it. | Fix code and tests without weakening the spec. |
+| Both gap | The reviewer found a user journey, state, or failure that neither spec nor code handles. | Write the missing spec, implement it, then verify. |
+| Decision gap | The correct behavior is not knowable from current product authority. | Record the question and decide before implementation. |
+
+Use [the finding template](../templates/spec-review-finding.md) for non-trivial
+reviews.
+
+Then resolve the finding as one of:
 
 | Finding | Action |
 |---|---|
@@ -85,6 +97,10 @@ When a finding adds or changes a REQ-ID, regenerate the test bridge:
 ```bash
 npm run req:test:generate
 ```
+
+Do not close a finding because a generated test stub exists. A stub only proves
+that the requirement has a verification slot. It does not prove that the
+behavior exists.
 
 ## Review Cadence
 

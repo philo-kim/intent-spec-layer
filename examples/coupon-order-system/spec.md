@@ -117,13 +117,13 @@ Partial failure:
 
 | Requirement | Verification |
 |---|---|
-| REQ-COUPON-001 | Simulation T03 |
-| REQ-COUPON-002 | Simulation T02, T09, T10 |
-| REQ-COUPON-003 | Simulation T08 |
-| REQ-COUPON-004 | Simulation T02 |
-| REQ-COUPON-005 | Simulation T04 |
-| REQ-COUPON-006 | Simulation T05 |
-| REQ-COUPON-007 | Simulation T06 |
-| REQ-COUPON-008 | Simulation T07 |
-| REQ-COUPON-009 | Generated requirement stub; premium entitlement adapter test |
+| REQ-COUPON-001:S1 | Simulation T03 |
+| REQ-COUPON-002:S1 | Simulation T02, T09, T10 |
+| REQ-COUPON-003:S1 | Simulation T08 |
+| REQ-COUPON-004:S1 | Simulation T02 |
+| REQ-COUPON-005:S1 | Simulation T04 |
+| REQ-COUPON-006:S1 | Simulation T05 |
+| REQ-COUPON-007:S1 | Simulation T06 |
+| REQ-COUPON-008:S1 | Simulation T07 |
+| REQ-COUPON-009:S1 | Generated requirement stub; premium entitlement adapter test |
 | L3 rollback/idempotency | Simulation T12, T13, T14 |

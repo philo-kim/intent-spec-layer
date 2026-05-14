@@ -34,7 +34,12 @@
 ## Verification
 
 - [ ] Every requirement has a verification path.
+- [ ] Multi-statement requirements are traceable at statement level
+      (`REQ-...:S1`, `REQ-...:S2`, ...).
 - [ ] Generated REQ-ID test stubs are current.
+- [ ] Generated skipped tests are treated as pending slots, not validation.
+- [ ] `generated/verification-report.md` has no unexpected code-only
+      references.
 - [ ] Generated skipped tests are replaced or complemented by real tests where practical.
 - [ ] Existing tests or guardrails are linked.
 - [ ] Manual checks are named when automation is not yet practical.
@@ -44,3 +49,5 @@
 - [ ] Existing code behavior maps to a requirement or contract.
 - [ ] Behavior not justified by spec is removed or specified.
 - [ ] Missing UX found during review has a spec action and code action.
+- [ ] Each finding is classified as spec gap, code gap, both gap, or decision
+      gap.

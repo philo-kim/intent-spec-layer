@@ -10,5 +10,6 @@ Layer.
 - [Spec-to-test bridge](../guide/spec-to-test-bridge.md)
 - [Feature spec template](../templates/feature-spec.md)
 - [Experience review template](../templates/experience-review.md)
+- [Spec review finding template](../templates/spec-review-finding.md)
 - [Coupon-order example](../examples/coupon-order-system/spec.md)
 - [Research notes](../research/method-comparison.md)

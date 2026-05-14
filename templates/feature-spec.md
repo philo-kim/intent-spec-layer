@@ -100,11 +100,22 @@ Rollback/compensation:
 
 ## Verification Map
 
-| Requirement | Verification |
-|---|---|
-| REQ-XXX-001 | generated test stub + implementation test / guardrail / smoke / manual |
+| Requirement / statement | Verification type | Evidence | Status |
+|---|---|---|---|
+| REQ-XXX-001 or REQ-XXX-001:S1 | generated stub / unit / integration / guardrail / smoke / manual UX |  | pending |
+
+Generated stubs are placeholders. Do not mark a requirement verified until a
+real test, guardrail, smoke check, or manual UX review records evidence.
 
 ## Drift Notes
 
 - Spec remains unchanged when:
 - Known follow-up specs or change proposals:
+
+## Review Findings
+
+Use this section or `spec/changes/` for unresolved findings.
+
+| Finding | Class | Resolution |
+|---|---|---|
+|  | spec gap / code gap / both gap / decision gap |  |

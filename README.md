@@ -25,7 +25,8 @@ This repository contains:
 - a practical guide to the L0-L3 spec model;
 - reusable templates for project constitutions and feature specs;
 - a spec review loop for finding product and code gaps from the spec itself;
-- a REQ-ID to generated test-stub bridge;
+- a REQ-ID and statement-level test-stub bridge that keeps generated
+  placeholders separate from real verification;
 - a worked coupon-order example;
 - two reproducible experiments that compare PRD, BDD, EARS, Domain+EARS, and
   the full spec layer;
@@ -49,7 +50,8 @@ Minimum rule set:
    idempotency requires L3.
 5. A reviewer should be able to understand the intended user journey from the
    spec before reading implementation code.
-6. Every REQ-ID should generate a test stub and map to verification.
+6. Every REQ-ID should generate a test stub and map to verification, while
+   generated stubs remain clearly marked as pending evidence.
 7. Tools consume the source layer; they do not define it.
 
 ## Start Here
@@ -63,6 +65,7 @@ Minimum rule set:
 - [References](references.md)
 - [Feature spec template](templates/feature-spec.md)
 - [Experience review template](templates/experience-review.md)
+- [Spec review finding template](templates/spec-review-finding.md)
 - [Coupon-order example](examples/coupon-order-system/spec.md)
 - [Frontmatter schema](schemas/frontmatter.schema.json)
 
@@ -93,7 +96,8 @@ npm run check
 ```
 
 This checks syntax, local Markdown links, generated REQ-ID test artifacts,
-generated test stubs, the benchmark, and the simulation.
+generated test stubs, the generated verification report, the benchmark, and the
+simulation.
 
 Current diagnostic results:
 

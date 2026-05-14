@@ -2,6 +2,24 @@
 
 This project follows the spirit of Keep a Changelog.
 
+## [0.1.4] - 2026-05-15
+
+### Added
+
+- Statement-level generated test stubs using IDs such as `REQ-XXX-001:S1`.
+- Generated verification report that separates generated-only placeholders from
+  real `@Spec(...)` traces.
+- Heading-style EARS extraction for requirements with multiple statements.
+- Spec review finding template with spec gap, code gap, both gap, and decision
+  gap classifications.
+
+### Changed
+
+- Strengthened the spec-to-test bridge guide to state that generated stubs are
+  not validation evidence.
+- Updated templates and review checklists to track verification status, not just
+  stub existence.
+
 ## [0.1.3] - 2026-05-15
 
 ### Added

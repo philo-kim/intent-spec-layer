@@ -41,7 +41,7 @@ back into alignment.
 
 ## 2. Values Provided
 
-The layer provides five practical values:
+The layer provides six practical values:
 
 1. **Guess reduction.** It turns unstated assumptions into explicit
    requirements, terms, authorities, and contracts.
@@ -51,8 +51,8 @@ The layer provides five practical values:
    implementation behavior that has no product justification.
 4. **Change continuity.** It preserves why behavior exists, not only what code
    currently does.
-5. **Test trace generation.** It turns each REQ-ID into a generated test stub so
-   verification work has a concrete slot.
+5. **Test trace generation.** It turns each EARS statement into a generated
+   test stub so verification work has a concrete slot.
 6. **Tool independence.** It gives Spec Kit, OpenSpec, Kiro, BMAD, Augment
    Intent, plan mode, and ordinary code review a shared source layer.
 
@@ -257,26 +257,30 @@ generated contracts, not the source of product intent.
 ## 11. REQ-ID To Test Bridge
 
 Every L2 requirement should be machine-extractable and convertible into a test
-stub. This is the minimum bridge from intent to verification.
+stub. Multi-statement requirements should be tracked at statement level. This is
+the minimum bridge from intent to verification.
 
 The bridge is:
 
 ```text
-REQ-ID in spec -> generated requirements manifest -> generated test stub ->
-adapter-backed implementation test
+REQ-ID in spec -> statement ID -> generated manifest -> generated test stub ->
+real verification evidence
 ```
 
 Generated skipped tests are not proof that the system works. They are visible
 work slots. The final proof is a real implementation test, guardrail, smoke
-check, or manual verification note that references the same REQ-ID.
+check, or manual verification note that references the same REQ-ID or statement
+ID.
 
 Rules:
 
 1. Every EARS requirement gets a stable `REQ-...` ID.
-2. Every REQ-ID appears in the Verification Map.
+2. Every REQ-ID or statement ID appears in the Verification Map.
 3. `npm run req:test:generate` updates generated requirement artifacts.
 4. `npm run check:reqs` fails when generated artifacts are missing or stale.
-5. Review should ask whether each generated stub has a real verification path.
+5. `generated/verification-report.md` separates generated-only slots from real
+   `@Spec(...)` references.
+6. Review should ask whether each generated stub has a real verification path.
 
 ## 12. Spec Review As Defect Discovery
 
@@ -359,6 +363,7 @@ truth must those steps preserve."
 8. Tools consume the source layer; they do not define it.
 9. Code and spec must not drift silently.
 10. The spec must be reviewable as a model of the intended user journey.
-11. REQ-IDs must generate test stubs and map to verification.
+11. REQ-IDs must generate test stubs and map to verification, but generated
+    stubs must not be counted as proof of behavior.
 12. The goal is not more documents. The goal is fewer AI guesses and faster
     discovery of missing intent.
