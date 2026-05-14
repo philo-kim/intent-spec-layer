@@ -30,6 +30,8 @@ This project follows the spirit of Keep a Changelog.
   of normative L1/L2/L3 behavior.
 - Updated change proposal and experience review templates so they preserve the
   authority/evidence/release-impact boundary.
+- Tightened spec review outcome language so "code gap" requires authoritative
+  in-scope spec plus inspected implementation evidence.
 - Clarified that common-sense edge cases start as candidate findings until their
   authority basis is checked.
 - Added the agent protocol guardrail to the default `npm run check` flow.

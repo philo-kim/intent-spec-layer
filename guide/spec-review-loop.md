@@ -174,7 +174,7 @@ Every spec review finding should be classified before it is fixed:
 | Finding class | Meaning | Action |
 |---|---|---|
 | Spec gap | The implementation or product authority has reasonable behavior, but the spec does not explain it; or the spec imported a promise with no authority. | Update L1/L2/L3, then add or update verification. |
-| Code gap | The spec promise is clear, but implementation does not satisfy it. | Fix code and tests without weakening the spec. |
+| Code gap | The spec promise is authoritative, in reviewed release scope, and implementation evidence does not satisfy it. | Fix code and tests without weakening the spec. |
 | Both gap | The reviewer found a user journey, state, or failure that neither spec nor code handles. | Write the missing spec, implement it, then verify. |
 | Decision gap | The correct behavior is not knowable from current product authority. | Record the question and decide before implementation. |
 
@@ -188,7 +188,7 @@ Then resolve the finding as one of:
 | Missing intended behavior | Add L2 requirement, then implement |
 | Missing domain term or state | Add L1 definition, then align code names |
 | Missing failure, retry, or rollback rule | Add L3 contract, then implement |
-| Spec says behavior exists but code lacks it | Fix code and tests |
+| Authoritative in-scope spec says behavior exists and reviewed code lacks it | Fix code and tests |
 | Code has behavior that spec does not justify | Add spec or remove behavior |
 | Spec is correct but unclear to reviewers | Rewrite the spec without changing code |
 
