@@ -2,6 +2,22 @@
 
 This project follows the spirit of Keep a Changelog.
 
+## [0.1.6] - 2026-05-15
+
+### Added
+
+- Review ledger template for multi-finding spec audits.
+- Explicit status model for reverse spec review:
+  `spec_status`, `implementation_status`, and `verification_status`.
+
+### Changed
+
+- Clarified that spec-only findings must start as
+  `implementation_status=unverified` and must not be labeled missing,
+  partial, or implemented without code/test/design/runtime evidence.
+- Updated feature and review templates to track implementation and verification
+  state separately from authoritative requirements.
+
 ## [0.1.5] - 2026-05-15
 
 ### Added

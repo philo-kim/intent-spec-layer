@@ -55,3 +55,8 @@
 - [ ] Missing UX found during review has a spec action and code action.
 - [ ] Each finding is classified as spec gap, code gap, both gap, or decision
       gap.
+- [ ] Spec-only findings start as `implementation_status=unverified`.
+- [ ] No finding is marked `missing`, `partial`, or `implemented` without code,
+      test, design, runtime, or manual evidence.
+- [ ] Accepted findings are moved into authoritative L1/L2/L3 specs before or
+      with code changes.

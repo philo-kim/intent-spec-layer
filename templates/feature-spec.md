@@ -114,8 +114,9 @@ real test, guardrail, smoke check, or manual UX review records evidence.
 
 ## Review Findings
 
-Use this section or `spec/changes/` for unresolved findings.
+Use this section for small unresolved findings. Use `spec/reviews/` and the
+review ledger template for multi-finding audits.
 
-| Finding | Class | Resolution |
-|---|---|---|
-|  | spec gap / code gap / both gap / decision gap |  |
+| Finding | Class | Spec status | Implementation status | Verification status | Resolution |
+|---|---|---|---|---|---|
+| GAP-XXX-001 | spec gap / code gap / both gap / decision gap | needs_refinement | unverified | not_mapped |  |

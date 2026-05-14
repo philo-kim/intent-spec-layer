@@ -316,6 +316,12 @@ Use it when a flow feels wrong, when a bug reveals an unstated assumption, or
 when an AI-generated implementation technically works but does not guide the
 user toward the next step.
 
+Spec-only review can identify candidate gaps, but it is not implementation
+evidence. Mark those findings `implementation_status=unverified` until code,
+tests, screenshots, runtime behavior, or manual evidence has been checked.
+Then classify the implementation as `missing`, `partial`, `implemented`, or
+`not_applicable`.
+
 ## 13. Agent Workflow
 
 ```text
@@ -343,6 +349,8 @@ truth must those steps preserve."
 - A REQ-ID that does not generate a test stub.
 - A generated skipped test treated as completed validation.
 - A spec that cannot reconstruct the user journey.
+- A spec-only finding labeled as "not implemented" before code evidence is
+  checked.
 - An error state with no user next action.
 - A shared ID with multiple aliases across modules.
 - A multi-resource mutation with no rollback or idempotency rule.
@@ -368,5 +376,7 @@ truth must those steps preserve."
 10. The spec must be reviewable as a model of the intended user journey.
 11. REQ-IDs must generate test stubs and map to verification, but generated
     stubs must not be counted as proof of behavior.
-12. The goal is not more documents. The goal is fewer AI guesses and faster
+12. Spec-only gap findings start as implementation-unverified until code
+    evidence is reviewed.
+13. The goal is not more documents. The goal is fewer AI guesses and faster
     discovery of missing intent.

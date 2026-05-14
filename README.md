@@ -25,6 +25,8 @@ This repository contains:
 - a practical guide to the L0-L3 spec model;
 - reusable templates for project constitutions and feature specs;
 - a spec review loop for finding product and code gaps from the spec itself;
+- a review ledger pattern that keeps spec-only findings separate from code
+  evidence;
 - a REQ-ID and statement-level test-stub bridge that keeps generated
   placeholders, planned evidence, and real verification separate;
 - a worked coupon-order example;
@@ -67,6 +69,7 @@ Minimum rule set:
 - [Feature spec template](templates/feature-spec.md)
 - [Experience review template](templates/experience-review.md)
 - [Spec review finding template](templates/spec-review-finding.md)
+- [Review ledger template](templates/review-ledger.md)
 - [Coupon-order example](examples/coupon-order-system/spec.md)
 - [Heading-style EARS example](examples/account-session-heading-style/spec.md)
 - [Frontmatter schema](schemas/frontmatter.schema.json)
@@ -79,6 +82,7 @@ spec/
   00_constitution.md
   features/<feature>/spec.md
   changes/
+  reviews/
   schemas/
 
 docs/

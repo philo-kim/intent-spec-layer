@@ -26,11 +26,35 @@ developer from inventing authority, terms, edge cases, and rollback rules.
 ### Reverse Direction: Spec To Defect Discovery
 
 ```text
-spec review -> missing journey/state/failure found -> update spec -> update code -> verify
+spec review -> candidate gap -> implementation review -> update spec/code -> verify
 ```
 
 Use this direction when the product feels wrong, a flow is confusing, or a bug
 suggests the implementation was technically valid but experientially incomplete.
+
+## Spec-Only Review Is Not Code Evidence
+
+The reverse loop has a strict evidence boundary:
+
+```text
+spec-only review can find candidate gaps
+code review can classify implementation status
+```
+
+Do not write "not implemented" from a spec-only review. The correct initial
+status is `implementation_status=unverified`. Only after reading code, tests,
+screenshots, or runtime evidence should a finding move to `missing`, `partial`,
+`implemented`, or `not_applicable`.
+
+This matters because reverse review can discover three different things:
+
+- the spec is too vague and needs refinement;
+- the code is missing behavior that the spec already promises;
+- the spec and code are both missing a real user journey, state, or recovery
+  path.
+
+Keeping status separate prevents a review artifact from becoming a premature
+accusation against the implementation.
 
 ## What The Spec Must Let Reviewers See
 
@@ -92,6 +116,22 @@ Then resolve the finding as one of:
 | Code has behavior that spec does not justify | Add spec or remove behavior |
 | Spec is correct but unclear to reviewers | Rewrite the spec without changing code |
 
+Use separate lifecycle fields for the finding:
+
+| Field | Values | Meaning |
+|---|---|---|
+| `spec_status` | `needs_spec`, `needs_refinement`, `accepted`, `rejected`, `closed` | Whether the authoritative spec needs work |
+| `implementation_status` | `unverified`, `missing`, `partial`, `implemented`, `not_applicable` | What code review found |
+| `verification_status` | `not_mapped`, `mapped`, `tested`, `manual_only`, `blocked` | Whether the final behavior has evidence |
+
+Recommended initial state for a spec-only audit:
+
+```text
+spec_status=needs_refinement
+implementation_status=unverified
+verification_status=not_mapped
+```
+
 When a finding adds or changes a REQ-ID, regenerate the test bridge:
 
 ```bash
@@ -112,3 +152,30 @@ Use the reverse loop:
 - after production incidents;
 - before deleting or consolidating old docs;
 - before treating a design snapshot as implementation authority.
+
+## Review Ledger
+
+For non-trivial reviews, keep a ledger separate from authoritative specs:
+
+```text
+spec/reviews/<YYYY-MM-DD-topic>.md
+```
+
+The ledger is a triage artifact, not a source of requirements. A `REQ-ID`
+mentioned there is a reference. Accepted behavior must move into L1/L2/L3 before
+or with code changes.
+
+Each ledger row should include:
+
+- stable `GAP-ID`;
+- gap type: `intent_gap`, `experience_gap`, `contract_gap`,
+  `verification_gap`, or `method_gap`;
+- spec evidence that led to the finding;
+- user, operator, or system risk;
+- affected specs and requirement IDs where applicable;
+- recommended spec action;
+- implementation status and code-review target;
+- resolution notes after code review.
+
+Use [the review ledger template](../templates/review-ledger.md) when a review
+has multiple findings.

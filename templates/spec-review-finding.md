@@ -16,6 +16,17 @@ Choose one:
       state, or failure.
 - [ ] Decision gap: product authority is missing; implementation should wait.
 
+## Status
+
+Use `unverified` until code, tests, design evidence, or runtime behavior has
+been checked.
+
+| Field | Value | Notes |
+|---|---|---|
+| Spec status | needs_spec / needs_refinement / accepted / rejected / closed |  |
+| Implementation status | unverified / missing / partial / implemented / not_applicable |  |
+| Verification status | not_mapped / mapped / tested / manual_only / blocked |  |
+
 ## Evidence
 
 | Source | Evidence |
