@@ -285,7 +285,7 @@ function markdownReport(results) {
     }
     lines.push("");
   }
-  return `${lines.join("\n")}\n`;
+  return `${lines.join("\n").replace(/\n+$/u, "")}\n`;
 }
 
 const modules = await loadImplementations();
