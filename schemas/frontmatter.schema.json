@@ -35,6 +35,10 @@
       },
       "minItems": 1,
       "uniqueItems": true
+    },
+    "target_release": {
+      "type": "string",
+      "enum": ["current", "next", "later", "unscheduled"]
     }
   },
   "additionalProperties": true

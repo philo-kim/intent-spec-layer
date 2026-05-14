@@ -12,6 +12,7 @@ Layer.
 - [Spec-to-test bridge](../guide/spec-to-test-bridge.md)
 - [Feature spec template](../templates/feature-spec.md)
 - [Experience review template](../templates/experience-review.md)
+- [Change proposal template](../templates/change-proposal.md)
 - [Spec review finding template](../templates/spec-review-finding.md)
 - [Review ledger template](../templates/review-ledger.md)
 - [Agent task brief template](../templates/agent-task-brief.md)

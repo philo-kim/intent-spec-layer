@@ -48,6 +48,26 @@ const requiredContent = [
     ],
   },
   {
+    file: "templates/change-proposal.md",
+    checks: [
+      "Authority",
+      "Target release",
+      "Edge-Case Discovery",
+      "Generated stubs create trace slots",
+      "Release Impact",
+    ],
+  },
+  {
+    file: "templates/experience-review.md",
+    checks: [
+      "Evidence Boundary",
+      "implementation_status=unverified",
+      "Edge-Case Candidates",
+      "Code Evidence Review",
+      "Release Impact",
+    ],
+  },
+  {
     file: "templates/review-ledger.md",
     checks: [
       "Authority basis",
@@ -71,6 +91,13 @@ const requiredContent = [
       "[Agent operating rules](AGENTS.md)",
       "[Agent operating protocol](guide/agent-operating-protocol.md)",
       "[Agent task brief template](templates/agent-task-brief.md)",
+    ],
+  },
+  {
+    file: "schemas/frontmatter.schema.json",
+    checks: [
+      "adopted",
+      "target_release",
     ],
   },
 ];

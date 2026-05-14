@@ -15,6 +15,7 @@ This project follows the spirit of Keep a Changelog.
   generated-artifact boundary rules.
 - `adopted` lifecycle status for accepted behavior whose implementation may
   still be pending.
+- `target_release` frontmatter schema field for release-scope review.
 - Release impact fields in review finding and ledger templates.
 - Edge-case discovery guidance for duplicate submit, stale state, permission,
   timeout, rollback, cancellation, expiry, retry, and recovery cases.
@@ -27,6 +28,8 @@ This project follows the spirit of Keep a Changelog.
   release scope, implementation evidence, and core-journey impact.
 - Updated checklists and templates to keep implementation readiness labels out
   of normative L1/L2/L3 behavior.
+- Updated change proposal and experience review templates so they preserve the
+  authority/evidence/release-impact boundary.
 - Clarified that common-sense edge cases start as candidate findings until their
   authority basis is checked.
 - Added the agent protocol guardrail to the default `npm run check` flow.
