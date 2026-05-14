@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 message: "If you use this method, please cite this repository."
 title: "Intent Specification Layer"
-version: 0.1.4
+version: 0.1.5
 date-released: 2026-05-15
 url: "https://github.com/philo-kim/intent-spec-layer"
 authors:

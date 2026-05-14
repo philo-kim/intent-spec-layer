@@ -12,4 +12,5 @@ Layer.
 - [Experience review template](../templates/experience-review.md)
 - [Spec review finding template](../templates/spec-review-finding.md)
 - [Coupon-order example](../examples/coupon-order-system/spec.md)
+- [Heading-style EARS example](../examples/account-session-heading-style/spec.md)
 - [Research notes](../research/method-comparison.md)

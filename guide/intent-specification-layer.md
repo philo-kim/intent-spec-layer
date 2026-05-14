@@ -275,12 +275,15 @@ ID.
 Rules:
 
 1. Every EARS requirement gets a stable `REQ-...` ID.
-2. Every REQ-ID or statement ID appears in the Verification Map.
+2. Every REQ-ID or statement ID appears in the Verification Map. For
+   multi-statement requirements, use statement IDs rather than only the parent
+   REQ-ID.
 3. `npm run req:test:generate` updates generated requirement artifacts.
 4. `npm run check:reqs` fails when generated artifacts are missing or stale.
 5. `generated/verification-report.md` separates generated-only slots from real
    `@Spec(...)` references.
-6. Review should ask whether each generated stub has a real verification path.
+6. Unknown `@Spec(...)` references fail the generated artifact check.
+7. Review should ask whether each generated stub has a real verification path.
 
 ## 12. Spec Review As Defect Discovery
 
@@ -323,7 +326,7 @@ user toward the next step.
 5. Add L3 only when cross-module or partial-failure semantics matter.
 6. Use plan mode or another tool to create the implementation plan.
 7. Implement.
-8. Generate or refresh REQ-ID test stubs.
+8. Generate or refresh requirement statement test stubs.
 9. Replace or complement generated stubs with real verification.
 10. Verify each relevant requirement.
 11. Update spec first when a bug reveals missing intent.

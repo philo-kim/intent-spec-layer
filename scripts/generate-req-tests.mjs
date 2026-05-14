@@ -143,6 +143,32 @@ function verificationTokensFor(text) {
   return new Set([...text.matchAll(requirementTokenPattern)].map((match) => match[0]));
 }
 
+function splitMarkdownRow(line) {
+  const trimmed = line.trim();
+  if (!trimmed.startsWith("|") || !trimmed.endsWith("|")) return null;
+  const cells = trimmed.slice(1, -1).split("|").map((cell) => cell.trim());
+  if (cells.length < 2) return null;
+  if (cells.every((cell) => /^:?-{3,}:?$/u.test(cell))) return null;
+  return cells;
+}
+
+function extractVerificationEntries(text) {
+  const entries = new Map();
+  for (const line of text.split(/\r?\n/u)) {
+    const cells = splitMarkdownRow(line);
+    if (!cells) continue;
+    const firstCell = cells[0];
+    if (/^requirements?(\s*\/\s*statement)?$/iu.test(firstCell)) continue;
+    const tokens = [...firstCell.matchAll(requirementTokenPattern)].map((match) => match[0]);
+    if (tokens.length === 0) continue;
+    const evidence = cells.slice(1).filter(Boolean).join(" | ");
+    for (const token of tokens) {
+      entries.set(token, evidence);
+    }
+  }
+  return entries;
+}
+
 function collectContinuation(lines, startIndex) {
   const textParts = [];
   let index = startIndex;
@@ -233,12 +259,17 @@ function extractRequirements(file) {
   const text = fs.readFileSync(file, "utf8");
   const lines = text.split(/\r?\n/u);
   const relativePath = path.relative(root, file).replaceAll(path.sep, "/");
-  const verificationTokens = verificationTokensFor(extractVerificationSection(text));
+  const verificationSection = extractVerificationSection(text);
+  const verificationTokens = verificationTokensFor(verificationSection);
+  const verificationEntries = extractVerificationEntries(verificationSection);
   const { statements: headingStatements, failures } = extractHeadingRequirements(lines, relativePath, verificationTokens);
   const inlineStatements = extractInlineRequirements(lines, relativePath, verificationTokens);
 
   return {
-    statements: [...inlineStatements, ...headingStatements],
+    statements: [...inlineStatements, ...headingStatements].map((statement) => ({
+      ...statement,
+      verificationEntries,
+    })),
     failures,
   };
 }
@@ -251,19 +282,30 @@ function assignStatementIds(rawStatements) {
     if (bySource !== 0) return bySource;
     return left.line - right.line;
   });
+  const totalsByRequirement = new Map();
+  for (const statement of ordered) {
+    totalsByRequirement.set(statement.requirementId, (totalsByRequirement.get(statement.requirementId) || 0) + 1);
+  }
   const counters = new Map();
 
   return ordered.map((statement) => {
     const nextIndex = (counters.get(statement.requirementId) || 0) + 1;
     counters.set(statement.requirementId, nextIndex);
     const statementId = `${statement.requirementId}:S${nextIndex}`;
+    const statementCount = totalsByRequirement.get(statement.requirementId) || 1;
+    const requirementLevelMapped = statementCount === 1 && statement.verificationTokens.has(statement.requirementId);
+    const statementLevelMapped = statement.verificationTokens.has(statementId);
+    const plannedVerification =
+      statement.verificationEntries.get(statementId) ||
+      (statementCount === 1 ? statement.verificationEntries.get(statement.requirementId) : "") ||
+      "";
     return {
       ...statement,
       statementIndex: nextIndex,
       statementId,
-      verificationMapped:
-        statement.verificationTokens.has(statement.requirementId) ||
-        statement.verificationTokens.has(statementId),
+      statementCount,
+      verificationMapped: statementLevelMapped || requirementLevelMapped,
+      plannedVerification,
     };
   });
 }
@@ -315,6 +357,7 @@ function groupRequirements(statements) {
 function stripExtractionOnlyFields(statement) {
   const {
     verificationTokens,
+    verificationEntries,
     ...publicStatement
   } = statement;
   return {
@@ -362,16 +405,55 @@ function scanSpecReferences() {
   });
 }
 
+function isStatementTraced(statement, referencedIds) {
+  return (
+    referencedIds.has(statement.statementId) ||
+    (statement.statementCount === 1 && referencedIds.has(statement.requirementId))
+  );
+}
+
+function findCodeOnlyReferences(statements, references) {
+  const requirementIds = new Set(statements.map((statement) => statement.requirementId));
+  const statementIds = new Set(statements.map((statement) => statement.statementId));
+  return references.filter(
+    (reference) => !statementIds.has(reference.id) && !requirementIds.has(reference.id),
+  );
+}
+
+function statementCountByRequirement(statements) {
+  const counts = new Map();
+  for (const statement of statements) {
+    counts.set(statement.requirementId, statement.statementCount);
+  }
+  return counts;
+}
+
+function validateReferences(statements, references) {
+  const failures = [];
+  const counts = statementCountByRequirement(statements);
+  const codeOnlyReferences = findCodeOnlyReferences(statements, references);
+
+  for (const reference of codeOnlyReferences) {
+    failures.push(`${reference.source}:${reference.line} references unknown ${reference.id}`);
+  }
+
+  for (const reference of references) {
+    const count = counts.get(reference.id) || 0;
+    if (count > 1) {
+      failures.push(
+        `${reference.source}:${reference.line} references multi-statement ${reference.id}; use a statement ID such as ${reference.id}:S1`,
+      );
+    }
+  }
+
+  return failures;
+}
+
 function buildRequirementsJson(statements, references) {
   const requirementIds = new Set(statements.map((statement) => statement.requirementId));
   const referencedIds = new Set(references.map((reference) => reference.id));
-  const statementIds = new Set(statements.map((statement) => statement.statementId));
-  const tracedStatements = statements.filter(
-    (statement) => referencedIds.has(statement.statementId) || referencedIds.has(statement.requirementId),
-  );
-  const codeOnlyReferences = references.filter(
-    (reference) => !statementIds.has(reference.id) && !requirementIds.has(reference.id),
-  );
+  const tracedStatements = statements.filter((statement) => isStatementTraced(statement, referencedIds));
+  const codeOnlyReferences = findCodeOnlyReferences(statements, references);
 
   const payload = {
     generatedBy: "scripts/generate-req-tests.mjs",
@@ -431,17 +513,10 @@ function buildTestStub(statements) {
 
 function buildVerificationReport(statements, references) {
   const requirementIds = new Set(statements.map((statement) => statement.requirementId));
-  const statementIds = new Set(statements.map((statement) => statement.statementId));
   const referencedIds = new Set(references.map((reference) => reference.id));
-  const tracedStatements = statements.filter(
-    (statement) => referencedIds.has(statement.statementId) || referencedIds.has(statement.requirementId),
-  );
-  const codeOnlyReferences = references.filter(
-    (reference) => !statementIds.has(reference.id) && !requirementIds.has(reference.id),
-  );
-  const pendingGeneratedOnly = statements.filter(
-    (statement) => !referencedIds.has(statement.statementId) && !referencedIds.has(statement.requirementId),
-  );
+  const tracedStatements = statements.filter((statement) => isStatementTraced(statement, referencedIds));
+  const codeOnlyReferences = findCodeOnlyReferences(statements, references);
+  const pendingGeneratedOnly = statements.filter((statement) => !isStatementTraced(statement, referencedIds));
 
   const lines = [
     "# Requirement Verification Report",
@@ -474,6 +549,18 @@ function buildVerificationReport(statements, references) {
     lines.push("|---|---|---|");
     for (const statement of pendingGeneratedOnly) {
       lines.push(`| ${statement.statementId} | ${statement.pattern} | ${statement.source}:${statement.line} |`);
+    }
+  }
+
+  lines.push("", "## Planned Verification Evidence", "");
+  const mappedStatements = statements.filter((statement) => statement.plannedVerification);
+  if (mappedStatements.length === 0) {
+    lines.push("None found in Verification Map tables.");
+  } else {
+    lines.push("| Statement | Planned evidence |");
+    lines.push("|---|---|");
+    for (const statement of mappedStatements) {
+      lines.push(`| ${statement.statementId} | ${statement.plannedVerification} |`);
     }
   }
 
@@ -531,6 +618,15 @@ if (validationFailures.length > 0) {
 }
 
 const references = scanSpecReferences();
+const referenceFailures = validateReferences(statements, references);
+if (referenceFailures.length > 0) {
+  console.error("Requirement trace validation failed:");
+  for (const failure of referenceFailures) {
+    console.error(`- ${failure}`);
+  }
+  process.exit(1);
+}
+
 const expectedJson = buildRequirementsJson(statements, references);
 const expectedTest = buildTestStub(statements);
 const expectedVerificationReport = buildVerificationReport(statements, references);

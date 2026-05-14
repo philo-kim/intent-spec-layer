@@ -22,7 +22,7 @@
 - [ ] At least one `[Unwanted]` requirement exists.
 - [ ] Requirements use stable IDs.
 - [ ] Requirements avoid vague phrasing.
-- [ ] Every REQ-ID is machine-extractable by `npm run req:test:generate`.
+- [ ] Every requirement is machine-extractable by `npm run req:test:generate`.
 
 ## Contracts
 
@@ -36,10 +36,14 @@
 - [ ] Every requirement has a verification path.
 - [ ] Multi-statement requirements are traceable at statement level
       (`REQ-...:S1`, `REQ-...:S2`, ...).
-- [ ] Generated REQ-ID test stubs are current.
+- [ ] Multi-statement requirements use statement IDs in the Verification Map,
+      not only the parent REQ-ID.
+- [ ] Generated requirement statement stubs are current.
 - [ ] Generated skipped tests are treated as pending slots, not validation.
 - [ ] `generated/verification-report.md` has no unexpected code-only
       references.
+- [ ] Real `@Spec(...)` traces use statement IDs for multi-statement
+      requirements.
 - [ ] Generated skipped tests are replaced or complemented by real tests where practical.
 - [ ] Existing tests or guardrails are linked.
 - [ ] Manual checks are named when automation is not yet practical.

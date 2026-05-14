@@ -20,5 +20,6 @@
 - [ ] Ran `npm run req:test:generate`
 - [ ] Reviewed `generated/verification-report.md`
 - [ ] Generated stubs are not counted as completed verification
+- [ ] Multi-statement requirements use statement-level IDs where applicable
 - [ ] Real verification or a documented follow-up references the relevant
       `@Spec(...)` ID

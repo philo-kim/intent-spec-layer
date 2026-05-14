@@ -8,13 +8,13 @@ Generated stubs are not proof of behavior. They are pending verification slots.
 
 | Metric | Count |
 |---|---:|
-| Requirements | 9 |
-| EARS statements | 9 |
-| Verification-map covered statements | 9 |
-| Generated stub slots | 9 |
+| Requirements | 10 |
+| EARS statements | 11 |
+| Verification-map covered statements | 11 |
+| Generated stub slots | 11 |
 | Real @Spec references outside generated artifacts | 0 |
 | Statements with real @Spec trace | 0 |
-| Pending generated-only statements | 9 |
+| Pending generated-only statements | 11 |
 | Code-only @Spec references | 0 |
 
 ## Pending Generated-Only Statements
@@ -30,6 +30,24 @@ Generated stubs are not proof of behavior. They are pending verification slots.
 | REQ-COUPON-007:S1 | Unwanted | examples/coupon-order-system/spec.md:62 |
 | REQ-COUPON-008:S1 | Unwanted | examples/coupon-order-system/spec.md:64 |
 | REQ-COUPON-009:S1 | Optional | examples/coupon-order-system/spec.md:66 |
+| REQ-SESSION-001:S1 | Event-driven | examples/account-session-heading-style/spec.md:44 |
+| REQ-SESSION-001:S2 | Unwanted | examples/account-session-heading-style/spec.md:48 |
+
+## Planned Verification Evidence
+
+| Statement | Planned evidence |
+|---|---|
+| REQ-COUPON-001:S1 | Simulation T03 |
+| REQ-COUPON-002:S1 | Simulation T02, T09, T10 |
+| REQ-COUPON-003:S1 | Simulation T08 |
+| REQ-COUPON-004:S1 | Simulation T02 |
+| REQ-COUPON-005:S1 | Simulation T04 |
+| REQ-COUPON-006:S1 | Simulation T05 |
+| REQ-COUPON-007:S1 | Simulation T06 |
+| REQ-COUPON-008:S1 | Simulation T07 |
+| REQ-COUPON-009:S1 | Generated requirement stub; premium entitlement adapter test |
+| REQ-SESSION-001:S1 | Integration test for successful callback exchange |
+| REQ-SESSION-001:S2 | Integration test for recoverable setup failure |
 
 ## Real @Spec References
 

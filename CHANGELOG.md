@@ -2,6 +2,24 @@
 
 This project follows the spirit of Keep a Changelog.
 
+## [0.1.5] - 2026-05-15
+
+### Added
+
+- Heading-style account session example that exercises multi-statement
+  extraction in CI.
+- Planned verification evidence in the generated verification report.
+
+### Changed
+
+- Multi-statement requirements now require statement-level Verification Map
+  entries.
+- Unknown `@Spec(...)` references now fail generated artifact checks.
+- Broad `@Spec(REQ-...)` references are rejected for multi-statement
+  requirements; use `REQ-...:S1` style IDs instead.
+- Public docs and review checklists now describe statement-level verification
+  rules more precisely.
+
 ## [0.1.4] - 2026-05-15
 
 ### Added

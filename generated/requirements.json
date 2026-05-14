@@ -1,13 +1,13 @@
 {
   "generatedBy": "scripts/generate-req-tests.mjs",
   "totals": {
-    "requirements": 9,
-    "statements": 9,
-    "generatedStubSlots": 9,
-    "verificationMappedStatements": 9,
+    "requirements": 10,
+    "statements": 11,
+    "generatedStubSlots": 11,
+    "verificationMappedStatements": 11,
     "realSpecReferences": 0,
     "realTracedStatements": 0,
-    "pendingGeneratedOnlyStatements": 9,
+    "pendingGeneratedOnlyStatements": 11,
     "codeOnlyReferences": 0
   },
   "requirements": [
@@ -27,7 +27,9 @@
           "style": "inline",
           "statementIndex": 1,
           "statementId": "REQ-COUPON-001:S1",
+          "statementCount": 1,
           "verificationMapped": true,
+          "plannedVerification": "Simulation T03",
           "generatedStub": true,
           "verificationStatus": "pending"
         }
@@ -49,7 +51,9 @@
           "style": "inline",
           "statementIndex": 1,
           "statementId": "REQ-COUPON-002:S1",
+          "statementCount": 1,
           "verificationMapped": true,
+          "plannedVerification": "Simulation T02, T09, T10",
           "generatedStub": true,
           "verificationStatus": "pending"
         }
@@ -71,7 +75,9 @@
           "style": "inline",
           "statementIndex": 1,
           "statementId": "REQ-COUPON-003:S1",
+          "statementCount": 1,
           "verificationMapped": true,
+          "plannedVerification": "Simulation T08",
           "generatedStub": true,
           "verificationStatus": "pending"
         }
@@ -93,7 +99,9 @@
           "style": "inline",
           "statementIndex": 1,
           "statementId": "REQ-COUPON-004:S1",
+          "statementCount": 1,
           "verificationMapped": true,
+          "plannedVerification": "Simulation T02",
           "generatedStub": true,
           "verificationStatus": "pending"
         }
@@ -115,7 +123,9 @@
           "style": "inline",
           "statementIndex": 1,
           "statementId": "REQ-COUPON-005:S1",
+          "statementCount": 1,
           "verificationMapped": true,
+          "plannedVerification": "Simulation T04",
           "generatedStub": true,
           "verificationStatus": "pending"
         }
@@ -137,7 +147,9 @@
           "style": "inline",
           "statementIndex": 1,
           "statementId": "REQ-COUPON-006:S1",
+          "statementCount": 1,
           "verificationMapped": true,
+          "plannedVerification": "Simulation T05",
           "generatedStub": true,
           "verificationStatus": "pending"
         }
@@ -159,7 +171,9 @@
           "style": "inline",
           "statementIndex": 1,
           "statementId": "REQ-COUPON-007:S1",
+          "statementCount": 1,
           "verificationMapped": true,
+          "plannedVerification": "Simulation T06",
           "generatedStub": true,
           "verificationStatus": "pending"
         }
@@ -181,7 +195,9 @@
           "style": "inline",
           "statementIndex": 1,
           "statementId": "REQ-COUPON-008:S1",
+          "statementCount": 1,
           "verificationMapped": true,
+          "plannedVerification": "Simulation T07",
           "generatedStub": true,
           "verificationStatus": "pending"
         }
@@ -203,7 +219,49 @@
           "style": "inline",
           "statementIndex": 1,
           "statementId": "REQ-COUPON-009:S1",
+          "statementCount": 1,
           "verificationMapped": true,
+          "plannedVerification": "Generated requirement stub; premium entitlement adapter test",
+          "generatedStub": true,
+          "verificationStatus": "pending"
+        }
+      ]
+    },
+    {
+      "id": "REQ-SESSION-001",
+      "title": "Session setup after identity callback",
+      "source": "examples/account-session-heading-style/spec.md",
+      "line": 44,
+      "statements": [
+        {
+          "requirementId": "REQ-SESSION-001",
+          "title": "Session setup after identity callback",
+          "pattern": "Event-driven",
+          "text": "When identity authorization succeeds, the system shall exchange the authorization result for an `account_id`, create a local `session_id`, and redirect to the validated `callback_url`.",
+          "source": "examples/account-session-heading-style/spec.md",
+          "line": 44,
+          "style": "heading",
+          "statementIndex": 1,
+          "statementId": "REQ-SESSION-001:S1",
+          "statementCount": 2,
+          "verificationMapped": true,
+          "plannedVerification": "Integration test for successful callback exchange",
+          "generatedStub": true,
+          "verificationStatus": "pending"
+        },
+        {
+          "requirementId": "REQ-SESSION-001",
+          "title": "Session setup after identity callback",
+          "pattern": "Unwanted",
+          "text": "If local account setup fails after identity authorization succeeds, the system shall show a recoverable setup error and shall not create an `active` session.",
+          "source": "examples/account-session-heading-style/spec.md",
+          "line": 48,
+          "style": "heading",
+          "statementIndex": 2,
+          "statementId": "REQ-SESSION-001:S2",
+          "statementCount": 2,
+          "verificationMapped": true,
+          "plannedVerification": "Integration test for recoverable setup failure",
           "generatedStub": true,
           "verificationStatus": "pending"
         }
@@ -221,7 +279,9 @@
       "style": "inline",
       "statementIndex": 1,
       "statementId": "REQ-COUPON-001:S1",
+      "statementCount": 1,
       "verificationMapped": true,
+      "plannedVerification": "Simulation T03",
       "generatedStub": true,
       "verificationStatus": "pending"
     },
@@ -235,7 +295,9 @@
       "style": "inline",
       "statementIndex": 1,
       "statementId": "REQ-COUPON-002:S1",
+      "statementCount": 1,
       "verificationMapped": true,
+      "plannedVerification": "Simulation T02, T09, T10",
       "generatedStub": true,
       "verificationStatus": "pending"
     },
@@ -249,7 +311,9 @@
       "style": "inline",
       "statementIndex": 1,
       "statementId": "REQ-COUPON-003:S1",
+      "statementCount": 1,
       "verificationMapped": true,
+      "plannedVerification": "Simulation T08",
       "generatedStub": true,
       "verificationStatus": "pending"
     },
@@ -263,7 +327,9 @@
       "style": "inline",
       "statementIndex": 1,
       "statementId": "REQ-COUPON-004:S1",
+      "statementCount": 1,
       "verificationMapped": true,
+      "plannedVerification": "Simulation T02",
       "generatedStub": true,
       "verificationStatus": "pending"
     },
@@ -277,7 +343,9 @@
       "style": "inline",
       "statementIndex": 1,
       "statementId": "REQ-COUPON-005:S1",
+      "statementCount": 1,
       "verificationMapped": true,
+      "plannedVerification": "Simulation T04",
       "generatedStub": true,
       "verificationStatus": "pending"
     },
@@ -291,7 +359,9 @@
       "style": "inline",
       "statementIndex": 1,
       "statementId": "REQ-COUPON-006:S1",
+      "statementCount": 1,
       "verificationMapped": true,
+      "plannedVerification": "Simulation T05",
       "generatedStub": true,
       "verificationStatus": "pending"
     },
@@ -305,7 +375,9 @@
       "style": "inline",
       "statementIndex": 1,
       "statementId": "REQ-COUPON-007:S1",
+      "statementCount": 1,
       "verificationMapped": true,
+      "plannedVerification": "Simulation T06",
       "generatedStub": true,
       "verificationStatus": "pending"
     },
@@ -319,7 +391,9 @@
       "style": "inline",
       "statementIndex": 1,
       "statementId": "REQ-COUPON-008:S1",
+      "statementCount": 1,
       "verificationMapped": true,
+      "plannedVerification": "Simulation T07",
       "generatedStub": true,
       "verificationStatus": "pending"
     },
@@ -333,7 +407,41 @@
       "style": "inline",
       "statementIndex": 1,
       "statementId": "REQ-COUPON-009:S1",
+      "statementCount": 1,
       "verificationMapped": true,
+      "plannedVerification": "Generated requirement stub; premium entitlement adapter test",
+      "generatedStub": true,
+      "verificationStatus": "pending"
+    },
+    {
+      "requirementId": "REQ-SESSION-001",
+      "title": "Session setup after identity callback",
+      "pattern": "Event-driven",
+      "text": "When identity authorization succeeds, the system shall exchange the authorization result for an `account_id`, create a local `session_id`, and redirect to the validated `callback_url`.",
+      "source": "examples/account-session-heading-style/spec.md",
+      "line": 44,
+      "style": "heading",
+      "statementIndex": 1,
+      "statementId": "REQ-SESSION-001:S1",
+      "statementCount": 2,
+      "verificationMapped": true,
+      "plannedVerification": "Integration test for successful callback exchange",
+      "generatedStub": true,
+      "verificationStatus": "pending"
+    },
+    {
+      "requirementId": "REQ-SESSION-001",
+      "title": "Session setup after identity callback",
+      "pattern": "Unwanted",
+      "text": "If local account setup fails after identity authorization succeeds, the system shall show a recoverable setup error and shall not create an `active` session.",
+      "source": "examples/account-session-heading-style/spec.md",
+      "line": 48,
+      "style": "heading",
+      "statementIndex": 2,
+      "statementId": "REQ-SESSION-001:S2",
+      "statementCount": 2,
+      "verificationMapped": true,
+      "plannedVerification": "Integration test for recoverable setup failure",
       "generatedStub": true,
       "verificationStatus": "pending"
     }

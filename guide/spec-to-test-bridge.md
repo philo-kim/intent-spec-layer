@@ -10,7 +10,8 @@ The bridge has six levels:
 2. **Statement coverage.** Multi-statement requirements are split into
    statement IDs such as `REQ-AUTH-004:S1` and `REQ-AUTH-004:S2`.
 3. **Verification-map coverage.** Every requirement or statement appears in the
-   feature spec's Verification Map.
+   feature spec's Verification Map. Multi-statement requirements must map each
+   statement ID explicitly.
 4. **Generated stub coverage.** Every statement becomes an executable skipped
    test slot.
 5. **Trace coverage.** Real implementation tests, guardrails, or code comments
@@ -70,8 +71,8 @@ generated/verification-report.md
 skipped test. These skipped tests should be treated as implementation work
 slots, not as completed validation.
 
-`verification-report.md` separates generated stub slots from real `@Spec(...)`
-references outside generated artifacts.
+`verification-report.md` separates generated stub slots, planned Verification
+Map evidence, and real `@Spec(...)` references outside generated artifacts.
 
 Generated files or references marked `generated_stub=true` are intentionally not
 counted as real trace evidence.
@@ -81,13 +82,17 @@ counted as real trace evidence.
 1. Every L2 EARS requirement must have a stable `REQ-...` ID.
 2. Every EARS statement must be traceable. If a requirement has multiple EARS
    statements, the tool assigns statement IDs.
-3. Every REQ-ID or statement ID must appear in the feature spec's Verification
-   Map.
+3. Single-statement requirements may use `REQ-...` in the feature spec's
+   Verification Map. Multi-statement requirements must use `REQ-...:S1`,
+   `REQ-...:S2`, and so on.
 4. Generated artifacts must be current in CI.
 5. Generated skipped tests are allowed only as placeholders.
 6. Real implementation tests, guardrails, smoke checks, or manual verification
    notes should reference the same REQ-ID or statement ID.
 7. Do not count generated stubs as runtime validation.
+8. Unknown `@Spec(...)` references fail `npm run check:reqs`.
+9. A real `@Spec(REQ-...)` reference is accepted only for single-statement
+   requirements. Multi-statement requirements must reference statement IDs.
 
 ## Supported EARS Styles
 

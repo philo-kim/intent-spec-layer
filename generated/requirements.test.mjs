@@ -83,3 +83,21 @@ test("REQ-COUPON-009:S1 [Optional] Where a premium entitlement is present, the s
   // Requirement: REQ-COUPON-009
   // Statement: Where a premium entitlement is present, the system shall apply the premium discount after coupon validation.
 });
+
+test("REQ-SESSION-001:S1 [Event-driven] When identity authorization succeeds, the system shall exchange the authorization result for an...", {
+  skip: "Generated stub from examples/account-session-heading-style/spec.md:44. Verification is still pending.",
+}, () => {
+  // @Spec(REQ-SESSION-001:S1) generated_stub=true verification_status=pending
+  // Source: examples/account-session-heading-style/spec.md:44
+  // Requirement: REQ-SESSION-001
+  // Statement: When identity authorization succeeds, the system shall exchange the authorization result for an `account_id`, create a local `session_id`, and redirect to the validated `callback_url`.
+});
+
+test("REQ-SESSION-001:S2 [Unwanted] If local account setup fails after identity authorization succeeds, the system shall show a...", {
+  skip: "Generated stub from examples/account-session-heading-style/spec.md:48. Verification is still pending.",
+}, () => {
+  // @Spec(REQ-SESSION-001:S2) generated_stub=true verification_status=pending
+  // Source: examples/account-session-heading-style/spec.md:48
+  // Requirement: REQ-SESSION-001
+  // Statement: If local account setup fails after identity authorization succeeds, the system shall show a recoverable setup error and shall not create an `active` session.
+});
