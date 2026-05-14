@@ -16,7 +16,8 @@ real-world applicability.
 1. Explain what changed and why.
 2. Link affected guide, template, example, or experiment files.
 3. Run `npm run check` when experiment code changes.
-4. Avoid adding tool-specific assumptions unless the guide clearly marks them as
+4. Run `npm run req:test:generate` when adding or changing REQ-ID requirements.
+5. Avoid adding tool-specific assumptions unless the guide clearly marks them as
    tool-specific.
 
 ## Method Standard

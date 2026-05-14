@@ -7,8 +7,9 @@
 3. Write the first feature spec before implementation.
 4. Review the spec as if it were the product: can the user journey be
    reconstructed without reading code?
-5. Run plan mode only after L1/L2/L3 are clear enough.
-6. Implement and verify every requirement ID.
+5. Run `npm run req:test:generate` so every REQ-ID has a generated test stub.
+6. Run plan mode only after L1/L2/L3 and test stubs are clear enough.
+7. Implement and verify every requirement ID.
 
 Recommended first commit:
 
@@ -27,8 +28,10 @@ spec/
 4. Add L3 only for boundary, rollback, external-service, deletion, billing, or
    entitlement behavior.
 5. Fix code and tests against the spec.
-6. Review the spec again from the user's point of view.
-7. Repeat feature by feature.
+6. Generate REQ-ID test stubs and replace placeholders with real tests where
+   practical.
+7. Review the spec again from the user's point of view.
+8. Repeat feature by feature.
 
 Do not try to spec the whole codebase in one pass. The highest-value entry point
 is the part where the AI or the team has been guessing.
@@ -41,6 +44,7 @@ is the part where the AI or the team has been guessing.
 - Are canonical IDs and terms explicit?
 - Does every behavior change have at least one EARS line?
 - Does every feature spec include an `[Unwanted]` case?
+- Does every REQ-ID generate a test stub?
 - Does L3 cover idempotency and partial failure when boundaries are crossed?
 - Is generated output clearly marked as output, not source?
 - Is there a verification map?

@@ -19,6 +19,7 @@ The layer is bidirectional:
 
 - [Guide](guide/intent-specification-layer.md)
 - [Spec review loop](guide/spec-review-loop.md)
+- [Spec-to-test bridge](guide/spec-to-test-bridge.md)
 - [Adoption playbook](guide/adoption.md)
 - [Naming and structure decision](guide/naming-and-structure.md)
 - [Feature spec template](templates/feature-spec.md)
@@ -41,6 +42,12 @@ Run the local experiments:
 
 ```bash
 npm run check
+```
+
+Generate REQ-ID test stubs:
+
+```bash
+npm run req:test:generate
 ```
 
 Current diagnostic results:

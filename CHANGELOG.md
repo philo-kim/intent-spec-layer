@@ -2,6 +2,20 @@
 
 This project follows the spirit of Keep a Changelog.
 
+## [0.1.3] - 2026-05-15
+
+### Added
+
+- REQ-ID extraction and generated test-stub tool.
+- `generated/requirements.json` and `generated/requirements.test.mjs`.
+- Spec-to-test bridge guide.
+- `npm run req:test:generate`, `npm run check:reqs`, and `npm run test:reqs`.
+
+### Changed
+
+- Full check now verifies generated REQ-ID test artifacts and runs the generated
+  test stubs.
+
 ## [0.1.2] - 2026-05-15
 
 ### Added

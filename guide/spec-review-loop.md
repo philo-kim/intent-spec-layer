@@ -80,6 +80,12 @@ Every spec review finding should end as one of:
 | Code has behavior that spec does not justify | Add spec or remove behavior |
 | Spec is correct but unclear to reviewers | Rewrite the spec without changing code |
 
+When a finding adds or changes a REQ-ID, regenerate the test bridge:
+
+```bash
+npm run req:test:generate
+```
+
 ## Review Cadence
 
 Use the reverse loop:

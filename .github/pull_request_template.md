@@ -13,3 +13,9 @@
 ## Verification
 
 -
+
+## Requirement Trace
+
+- [ ] No REQ-ID changes
+- [ ] Ran `npm run req:test:generate`
+- [ ] Generated stubs have real verification or a documented follow-up

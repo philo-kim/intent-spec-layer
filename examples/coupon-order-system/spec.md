@@ -125,4 +125,5 @@ Partial failure:
 | REQ-COUPON-006 | Simulation T05 |
 | REQ-COUPON-007 | Simulation T06 |
 | REQ-COUPON-008 | Simulation T07 |
+| REQ-COUPON-009 | Generated requirement stub; premium entitlement adapter test |
 | L3 rollback/idempotency | Simulation T12, T13, T14 |

@@ -18,6 +18,8 @@ Use `spec/` as the repository-native Intent Specification Layer.
   L3 Contracts.
 - The method is bidirectional: it guides implementation before code exists and
   exposes missing user journey, failure, and recovery behavior after code exists.
+- REQ-IDs need a generated test bridge. Otherwise traceability remains a manual
+  convention and can drift silently.
 
 ## Investigated Alternatives
 

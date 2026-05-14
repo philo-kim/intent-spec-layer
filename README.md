@@ -25,6 +25,7 @@ This repository contains:
 - a practical guide to the L0-L3 spec model;
 - reusable templates for project constitutions and feature specs;
 - a spec review loop for finding product and code gaps from the spec itself;
+- a REQ-ID to generated test-stub bridge;
 - a worked coupon-order example;
 - two reproducible experiments that compare PRD, BDD, EARS, Domain+EARS, and
   the full spec layer;
@@ -48,13 +49,15 @@ Minimum rule set:
    idempotency requires L3.
 5. A reviewer should be able to understand the intended user journey from the
    spec before reading implementation code.
-6. Tools consume the source layer; they do not define it.
+6. Every REQ-ID should generate a test stub and map to verification.
+7. Tools consume the source layer; they do not define it.
 
 ## Start Here
 
 - [Guide](guide/intent-specification-layer.md)
 - [Adoption playbook](guide/adoption.md)
 - [Spec review loop](guide/spec-review-loop.md)
+- [Spec-to-test bridge](guide/spec-to-test-bridge.md)
 - [Naming and structure decision](guide/naming-and-structure.md)
 - [Research notes](research/method-comparison.md)
 - [References](references.md)
@@ -88,6 +91,9 @@ Run the local checks:
 ```bash
 npm run check
 ```
+
+This checks syntax, local Markdown links, generated REQ-ID test artifacts,
+generated test stubs, the benchmark, and the simulation.
 
 Current diagnostic results:
 

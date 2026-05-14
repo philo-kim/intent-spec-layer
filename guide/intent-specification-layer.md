@@ -51,7 +51,9 @@ The layer provides five practical values:
    implementation behavior that has no product justification.
 4. **Change continuity.** It preserves why behavior exists, not only what code
    currently does.
-5. **Tool independence.** It gives Spec Kit, OpenSpec, Kiro, BMAD, Augment
+5. **Test trace generation.** It turns each REQ-ID into a generated test stub so
+   verification work has a concrete slot.
+6. **Tool independence.** It gives Spec Kit, OpenSpec, Kiro, BMAD, Augment
    Intent, plan mode, and ordinary code review a shared source layer.
 
 ## 3. Source Layer Vs Tools
@@ -252,7 +254,31 @@ Recommended traceability:
 Generated artifacts such as OpenAPI JSON or generated frontend types are
 generated contracts, not the source of product intent.
 
-## 11. Spec Review As Defect Discovery
+## 11. REQ-ID To Test Bridge
+
+Every L2 requirement should be machine-extractable and convertible into a test
+stub. This is the minimum bridge from intent to verification.
+
+The bridge is:
+
+```text
+REQ-ID in spec -> generated requirements manifest -> generated test stub ->
+adapter-backed implementation test
+```
+
+Generated skipped tests are not proof that the system works. They are visible
+work slots. The final proof is a real implementation test, guardrail, smoke
+check, or manual verification note that references the same REQ-ID.
+
+Rules:
+
+1. Every EARS requirement gets a stable `REQ-...` ID.
+2. Every REQ-ID appears in the Verification Map.
+3. `npm run req:test:generate` updates generated requirement artifacts.
+4. `npm run check:reqs` fails when generated artifacts are missing or stale.
+5. Review should ask whether each generated stub has a real verification path.
+
+## 12. Spec Review As Defect Discovery
 
 The spec is also a review tool.
 
@@ -283,7 +309,7 @@ Use it when a flow feels wrong, when a bug reveals an unstated assumption, or
 when an AI-generated implementation technically works but does not guide the
 user toward the next step.
 
-## 12. Agent Workflow
+## 13. Agent Workflow
 
 ```text
 1. Read L0.
@@ -293,18 +319,22 @@ user toward the next step.
 5. Add L3 only when cross-module or partial-failure semantics matter.
 6. Use plan mode or another tool to create the implementation plan.
 7. Implement.
-8. Verify each relevant requirement.
-9. Update spec first when a bug reveals missing intent.
+8. Generate or refresh REQ-ID test stubs.
+9. Replace or complement generated stubs with real verification.
+10. Verify each relevant requirement.
+11. Update spec first when a bug reveals missing intent.
 ```
 
 Do not start with implementation planning when the governing behavior is still
 implicit. Plan mode answers "what steps should I take"; `spec/` answers "what
 truth must those steps preserve."
 
-## 13. Anti-Patterns
+## 14. Anti-Patterns
 
 - A PRD that describes value but omits bad states.
 - A behavior change with no EARS requirement.
+- A REQ-ID that does not generate a test stub.
+- A generated skipped test treated as completed validation.
 - A spec that cannot reconstruct the user journey.
 - An error state with no user next action.
 - A shared ID with multiple aliases across modules.
@@ -316,7 +346,7 @@ truth must those steps preserve."
 - A passing happy-path smoke test used as proof that the contract is complete.
 - A code path that exists only because the AI invented a plausible behavior.
 
-## 14. Final Operating Principles
+## 15. Final Operating Principles
 
 1. `docs/` explains; `spec/` governs.
 2. L0 always exists.
@@ -329,5 +359,6 @@ truth must those steps preserve."
 8. Tools consume the source layer; they do not define it.
 9. Code and spec must not drift silently.
 10. The spec must be reviewable as a model of the intended user journey.
-11. The goal is not more documents. The goal is fewer AI guesses and faster
+11. REQ-IDs must generate test stubs and map to verification.
+12. The goal is not more documents. The goal is fewer AI guesses and faster
     discovery of missing intent.

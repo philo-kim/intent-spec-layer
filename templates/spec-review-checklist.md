@@ -22,6 +22,7 @@
 - [ ] At least one `[Unwanted]` requirement exists.
 - [ ] Requirements use stable IDs.
 - [ ] Requirements avoid vague phrasing.
+- [ ] Every REQ-ID is machine-extractable by `npm run req:test:generate`.
 
 ## Contracts
 
@@ -33,6 +34,8 @@
 ## Verification
 
 - [ ] Every requirement has a verification path.
+- [ ] Generated REQ-ID test stubs are current.
+- [ ] Generated skipped tests are replaced or complemented by real tests where practical.
 - [ ] Existing tests or guardrails are linked.
 - [ ] Manual checks are named when automation is not yet practical.
 

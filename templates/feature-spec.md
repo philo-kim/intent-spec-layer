@@ -102,7 +102,7 @@ Rollback/compensation:
 
 | Requirement | Verification |
 |---|---|
-| REQ-XXX-001 | test / guardrail / smoke / manual |
+| REQ-XXX-001 | generated test stub + implementation test / guardrail / smoke / manual |
 
 ## Drift Notes
 
