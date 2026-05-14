@@ -1,0 +1,26 @@
+name: Method question
+description: Ask about the model, layer selection, or adoption.
+title: "[Question]: "
+labels: ["question"]
+body:
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: What are you trying to spec or decide?
+    validations:
+      required: true
+  - type: textarea
+    id: current-structure
+    attributes:
+      label: Current structure
+      description: Describe your current docs/spec/tool setup.
+    validations:
+      required: false
+  - type: textarea
+    id: decision
+    attributes:
+      label: Decision needed
+      description: What do you need help deciding?
+    validations:
+      required: true

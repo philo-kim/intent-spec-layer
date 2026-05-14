@@ -1,0 +1,470 @@
+{
+  "generatedAt": "2026-05-14T15:47:17.589Z",
+  "results": [
+    {
+      "method": "prd",
+      "file": "01-prd.mjs",
+      "notes": [
+        "Implements the happy-path PRD: create order, apply coupon before checkout, confirm on payment, cancel by status.",
+        "Leaves unspecified behavior to simple defaults."
+      ],
+      "passed": 2,
+      "total": 15,
+      "tests": [
+        {
+          "id": "T01",
+          "name": "valid coupon discounts total",
+          "passed": true
+        },
+        {
+          "id": "T02",
+          "name": "already-used coupon is rejected",
+          "passed": false,
+          "error": "Expected operation to throw."
+        },
+        {
+          "id": "T03",
+          "name": "only one coupon can be applied",
+          "passed": false,
+          "error": "Expected operation to throw."
+        },
+        {
+          "id": "T04",
+          "name": "item removal below minimum detaches coupon",
+          "passed": false,
+          "error": "Expected values to be strictly equal:\n+ actual - expected\n\n+ {\n+   coupon_id: 'coupon-10',\n+   discount: 10,\n+   expires_at: '2026-12-31T00:00:00Z',\n+   min_amount: 50,\n+   used: false\n+ }\n- null\n"
+        },
+        {
+          "id": "T05",
+          "name": "cancel restores coupon to unused",
+          "passed": false,
+          "error": "Expected values to be strictly equal:\n\ntrue !== false\n"
+        },
+        {
+          "id": "T06",
+          "name": "cancelled order cannot be confirmed",
+          "passed": false,
+          "error": "Expected operation to throw."
+        },
+        {
+          "id": "T07",
+          "name": "discount cannot make total negative",
+          "passed": false,
+          "error": "Expected values to be strictly equal:\n\n-40 !== 0\n"
+        },
+        {
+          "id": "T08",
+          "name": "coupon mutation only while draft",
+          "passed": false,
+          "error": "Expected operation to throw."
+        },
+        {
+          "id": "T09",
+          "name": "expired coupon is rejected",
+          "passed": false,
+          "error": "Expected operation to throw."
+        },
+        {
+          "id": "T10",
+          "name": "minimum order amount is enforced on apply",
+          "passed": false,
+          "error": "Expected operation to throw."
+        },
+        {
+          "id": "T11",
+          "name": "successful payment confirms order",
+          "passed": true
+        },
+        {
+          "id": "T12",
+          "name": "partial inventory failure rolls back successful reservations",
+          "passed": false,
+          "error": "Expected operation to throw."
+        },
+        {
+          "id": "T13",
+          "name": "payment failure rolls back reservations",
+          "passed": false,
+          "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ []\n- [\n-   'line-a'\n- ]\n"
+        },
+        {
+          "id": "T14",
+          "name": "confirm idempotency prevents double charge and reservation",
+          "passed": false,
+          "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ []\n- [\n-   'line-a'\n- ]\n"
+        },
+        {
+          "id": "T15",
+          "name": "canonical terms are represented",
+          "passed": false,
+          "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ []\n- [\n-   'account_id',\n-   'order_id',\n-   'coupon_id',\n-   'line_item_id',\n-   'total_amount'\n- ]\n"
+        }
+      ]
+    },
+    {
+      "method": "bdd",
+      "file": "02-bdd.mjs",
+      "notes": [
+        "Implements the explicit scenarios in the BDD file.",
+        "Does not add behavior for scenarios that were not written."
+      ],
+      "passed": 5,
+      "total": 15,
+      "tests": [
+        {
+          "id": "T01",
+          "name": "valid coupon discounts total",
+          "passed": true
+        },
+        {
+          "id": "T02",
+          "name": "already-used coupon is rejected",
+          "passed": true
+        },
+        {
+          "id": "T03",
+          "name": "only one coupon can be applied",
+          "passed": false,
+          "error": "Expected operation to throw."
+        },
+        {
+          "id": "T04",
+          "name": "item removal below minimum detaches coupon",
+          "passed": false,
+          "error": "Expected values to be strictly equal:\n+ actual - expected\n\n+ {\n+   coupon_id: 'coupon-10',\n+   discount: 10,\n+   expires_at: '2026-12-31T00:00:00Z',\n+   min_amount: 50,\n+   used: false\n+ }\n- null\n"
+        },
+        {
+          "id": "T05",
+          "name": "cancel restores coupon to unused",
+          "passed": true
+        },
+        {
+          "id": "T06",
+          "name": "cancelled order cannot be confirmed",
+          "passed": true
+        },
+        {
+          "id": "T07",
+          "name": "discount cannot make total negative",
+          "passed": false,
+          "error": "Expected values to be strictly equal:\n\n-40 !== 0\n"
+        },
+        {
+          "id": "T08",
+          "name": "coupon mutation only while draft",
+          "passed": false,
+          "error": "Expected operation to throw."
+        },
+        {
+          "id": "T09",
+          "name": "expired coupon is rejected",
+          "passed": false,
+          "error": "Expected operation to throw."
+        },
+        {
+          "id": "T10",
+          "name": "minimum order amount is enforced on apply",
+          "passed": false,
+          "error": "Expected operation to throw."
+        },
+        {
+          "id": "T11",
+          "name": "successful payment confirms order",
+          "passed": true
+        },
+        {
+          "id": "T12",
+          "name": "partial inventory failure rolls back successful reservations",
+          "passed": false,
+          "error": "Expected operation to throw."
+        },
+        {
+          "id": "T13",
+          "name": "payment failure rolls back reservations",
+          "passed": false,
+          "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ []\n- [\n-   'line-a'\n- ]\n"
+        },
+        {
+          "id": "T14",
+          "name": "confirm idempotency prevents double charge and reservation",
+          "passed": false,
+          "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ []\n- [\n-   'line-a'\n- ]\n"
+        },
+        {
+          "id": "T15",
+          "name": "canonical terms are represented",
+          "passed": false,
+          "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ []\n- [\n-   'account_id',\n-   'order_id',\n-   'coupon_id',\n-   'line_item_id',\n-   'total_amount'\n- ]\n"
+        }
+      ]
+    },
+    {
+      "method": "ears-only",
+      "file": "03-ears-only.mjs",
+      "notes": [
+        "Implements explicit EARS behavior requirements.",
+        "No domain vocabulary map or interface rollback contract is present."
+      ],
+      "passed": 11,
+      "total": 15,
+      "tests": [
+        {
+          "id": "T01",
+          "name": "valid coupon discounts total",
+          "passed": true
+        },
+        {
+          "id": "T02",
+          "name": "already-used coupon is rejected",
+          "passed": true
+        },
+        {
+          "id": "T03",
+          "name": "only one coupon can be applied",
+          "passed": true
+        },
+        {
+          "id": "T04",
+          "name": "item removal below minimum detaches coupon",
+          "passed": true
+        },
+        {
+          "id": "T05",
+          "name": "cancel restores coupon to unused",
+          "passed": true
+        },
+        {
+          "id": "T06",
+          "name": "cancelled order cannot be confirmed",
+          "passed": true
+        },
+        {
+          "id": "T07",
+          "name": "discount cannot make total negative",
+          "passed": true
+        },
+        {
+          "id": "T08",
+          "name": "coupon mutation only while draft",
+          "passed": true
+        },
+        {
+          "id": "T09",
+          "name": "expired coupon is rejected",
+          "passed": true
+        },
+        {
+          "id": "T10",
+          "name": "minimum order amount is enforced on apply",
+          "passed": true
+        },
+        {
+          "id": "T11",
+          "name": "successful payment confirms order",
+          "passed": true
+        },
+        {
+          "id": "T12",
+          "name": "partial inventory failure rolls back successful reservations",
+          "passed": false,
+          "error": "Expected operation to throw."
+        },
+        {
+          "id": "T13",
+          "name": "payment failure rolls back reservations",
+          "passed": false,
+          "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ []\n- [\n-   'line-a'\n- ]\n"
+        },
+        {
+          "id": "T14",
+          "name": "confirm idempotency prevents double charge and reservation",
+          "passed": false,
+          "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ []\n- [\n-   'line-a'\n- ]\n"
+        },
+        {
+          "id": "T15",
+          "name": "canonical terms are represented",
+          "passed": false,
+          "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ []\n- [\n-   'account_id',\n-   'order_id',\n-   'coupon_id',\n-   'line_item_id',\n-   'total_amount'\n- ]\n"
+        }
+      ]
+    },
+    {
+      "method": "domain-ears",
+      "file": "04-domain-ears.mjs",
+      "notes": [
+        "Implements domain vocabulary and EARS behavior.",
+        "Does not include the Layer 3 interface contract for rollback/idempotency."
+      ],
+      "passed": 12,
+      "total": 15,
+      "tests": [
+        {
+          "id": "T01",
+          "name": "valid coupon discounts total",
+          "passed": true
+        },
+        {
+          "id": "T02",
+          "name": "already-used coupon is rejected",
+          "passed": true
+        },
+        {
+          "id": "T03",
+          "name": "only one coupon can be applied",
+          "passed": true
+        },
+        {
+          "id": "T04",
+          "name": "item removal below minimum detaches coupon",
+          "passed": true
+        },
+        {
+          "id": "T05",
+          "name": "cancel restores coupon to unused",
+          "passed": true
+        },
+        {
+          "id": "T06",
+          "name": "cancelled order cannot be confirmed",
+          "passed": true
+        },
+        {
+          "id": "T07",
+          "name": "discount cannot make total negative",
+          "passed": true
+        },
+        {
+          "id": "T08",
+          "name": "coupon mutation only while draft",
+          "passed": true
+        },
+        {
+          "id": "T09",
+          "name": "expired coupon is rejected",
+          "passed": true
+        },
+        {
+          "id": "T10",
+          "name": "minimum order amount is enforced on apply",
+          "passed": true
+        },
+        {
+          "id": "T11",
+          "name": "successful payment confirms order",
+          "passed": true
+        },
+        {
+          "id": "T12",
+          "name": "partial inventory failure rolls back successful reservations",
+          "passed": false,
+          "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ []\n- [\n-   'line-a'\n- ]\n"
+        },
+        {
+          "id": "T13",
+          "name": "payment failure rolls back reservations",
+          "passed": false,
+          "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ []\n- [\n-   'line-a'\n- ]\n"
+        },
+        {
+          "id": "T14",
+          "name": "confirm idempotency prevents double charge and reservation",
+          "passed": false,
+          "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n    'line-a',\n+   'line-a'\n  ]\n"
+        },
+        {
+          "id": "T15",
+          "name": "canonical terms are represented",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "method": "full-spec-layer",
+      "file": "05-full-spec-layer.mjs",
+      "notes": [
+        "Implements the full spec layer: constitution, domain truth, EARS behavior, and Layer 3 contract.",
+        "Tracks successful reservations for exact rollback and uses idempotency keys."
+      ],
+      "passed": 15,
+      "total": 15,
+      "tests": [
+        {
+          "id": "T01",
+          "name": "valid coupon discounts total",
+          "passed": true
+        },
+        {
+          "id": "T02",
+          "name": "already-used coupon is rejected",
+          "passed": true
+        },
+        {
+          "id": "T03",
+          "name": "only one coupon can be applied",
+          "passed": true
+        },
+        {
+          "id": "T04",
+          "name": "item removal below minimum detaches coupon",
+          "passed": true
+        },
+        {
+          "id": "T05",
+          "name": "cancel restores coupon to unused",
+          "passed": true
+        },
+        {
+          "id": "T06",
+          "name": "cancelled order cannot be confirmed",
+          "passed": true
+        },
+        {
+          "id": "T07",
+          "name": "discount cannot make total negative",
+          "passed": true
+        },
+        {
+          "id": "T08",
+          "name": "coupon mutation only while draft",
+          "passed": true
+        },
+        {
+          "id": "T09",
+          "name": "expired coupon is rejected",
+          "passed": true
+        },
+        {
+          "id": "T10",
+          "name": "minimum order amount is enforced on apply",
+          "passed": true
+        },
+        {
+          "id": "T11",
+          "name": "successful payment confirms order",
+          "passed": true
+        },
+        {
+          "id": "T12",
+          "name": "partial inventory failure rolls back successful reservations",
+          "passed": true
+        },
+        {
+          "id": "T13",
+          "name": "payment failure rolls back reservations",
+          "passed": true
+        },
+        {
+          "id": "T14",
+          "name": "confirm idempotency prevents double charge and reservation",
+          "passed": true
+        },
+        {
+          "id": "T15",
+          "name": "canonical terms are represented",
+          "passed": true
+        }
+      ]
+    }
+  ]
+}

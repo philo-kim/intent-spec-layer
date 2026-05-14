@@ -1,0 +1,111 @@
+{
+  "caseId": "coupon-order-transaction",
+  "description": "Order/coupon/payment/inventory case used to evaluate ambiguity coverage, edge cases, vocabulary stability, and partial-failure handling.",
+  "expectedTerms": [
+    "order_id",
+    "coupon_id",
+    "line_item_id",
+    "total_amount",
+    "account_id"
+  ],
+  "bannedAliases": [
+    "order_number",
+    "order_no",
+    "order_ref",
+    "amount_due",
+    "customer_ref"
+  ],
+  "earsPatterns": [
+    "[ubiquitous]",
+    "[event-driven]",
+    "[state-driven]",
+    "[unwanted]",
+    "[optional]"
+  ],
+  "controls": [
+    {
+      "id": "C01",
+      "category": "behavior",
+      "description": "Only one coupon can be applied to an order.",
+      "groups": [["maximum one coupon", "at most one coupon", "max 1 coupon"]]
+    },
+    {
+      "id": "C02",
+      "category": "behavior",
+      "description": "Coupon application validates expiry, used state, and minimum order amount.",
+      "groups": [["expiry", "expiration"], ["used"], ["minimum order", "minimum amount"]]
+    },
+    {
+      "id": "C03",
+      "category": "behavior",
+      "description": "Coupon mutation is allowed only while the order is draft.",
+      "groups": [["draft"], ["apply coupon", "remove coupon"]]
+    },
+    {
+      "id": "C04",
+      "category": "unwanted",
+      "description": "Used coupon submission returns an explicit rejection.",
+      "groups": [["used coupon", "already used"], ["reject", "error"]]
+    },
+    {
+      "id": "C05",
+      "category": "unwanted",
+      "description": "Removing items after coupon application can invalidate minimum order amount and must detach coupon.",
+      "groups": [["remove item", "item removal"], ["minimum order", "minimum amount"], ["detach", "remove the coupon", "auto-remove"]]
+    },
+    {
+      "id": "C06",
+      "category": "unwanted",
+      "description": "Cancelling an order restores the coupon to unused state.",
+      "groups": [["cancel"], ["restore", "unused"]]
+    },
+    {
+      "id": "C07",
+      "category": "behavior",
+      "description": "Invalid state transitions are forbidden.",
+      "groups": [["cancelled"], ["must not be confirmed", "cannot be confirmed", "no transition"]]
+    },
+    {
+      "id": "C08",
+      "category": "unwanted",
+      "description": "Discount cannot make total amount negative.",
+      "groups": [["negative"], ["total_amount", "total amount"]]
+    },
+    {
+      "id": "C09",
+      "category": "vocabulary",
+      "description": "Shared identifiers are canonical and stable.",
+      "groups": [["order_id"], ["coupon_id"], ["line_item_id"], ["total_amount"]]
+    },
+    {
+      "id": "C10",
+      "category": "interface",
+      "description": "Inventory reservation tracks successful reservations before later steps.",
+      "groups": [["track"], ["successful reservation", "reserved_items", "reduced_items"]]
+    },
+    {
+      "id": "C11",
+      "category": "interface",
+      "description": "Partial failure rolls back exactly the resources already changed.",
+      "groups": [["partial failure"], ["rollback", "compensate"], ["only", "exactly"]]
+    },
+    {
+      "id": "C12",
+      "category": "interface",
+      "description": "Confirm/cancel operations define idempotency.",
+      "groups": [["idempotency", "idempotent"], ["confirm", "cancel"]]
+    },
+    {
+      "id": "C13",
+      "category": "constitution",
+      "description": "The spec forbids speculative/local authority shortcuts.",
+      "groups": [["must not invent", "must not introduce", "no speculative"], ["source of truth", "authority"]]
+    },
+    {
+      "id": "C14",
+      "category": "traceability",
+      "description": "Requirements use stable IDs.",
+      "groups": [["req-"]]
+    }
+  ]
+}

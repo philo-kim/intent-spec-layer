@@ -1,0 +1,26 @@
+name: Experiment report
+description: Share a result from applying or testing the layer model.
+title: "[Experiment]: "
+labels: ["experiment"]
+body:
+  - type: textarea
+    id: setup
+    attributes:
+      label: Setup
+      description: Domain, model/tool, prompt/spec shape, and repository shape.
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: Result
+      description: What passed, failed, or changed?
+    validations:
+      required: true
+  - type: textarea
+    id: interpretation
+    attributes:
+      label: Interpretation
+      description: What do you think the result means?
+    validations:
+      required: false
