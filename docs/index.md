@@ -7,6 +7,7 @@ Layer.
 - [Guide](../guide/intent-specification-layer.md)
 - [Adoption playbook](../guide/adoption.md)
 - [Spec review loop](../guide/spec-review-loop.md)
-- [Templates](../templates/feature-spec.md)
+- [Feature spec template](../templates/feature-spec.md)
+- [Experience review template](../templates/experience-review.md)
 - [Coupon-order example](../examples/coupon-order-system/spec.md)
 - [Research notes](../research/method-comparison.md)

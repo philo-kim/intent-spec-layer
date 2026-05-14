@@ -2,7 +2,7 @@
 
 This repository uses a split license:
 
-- Guide, templates, examples, and research notes are licensed under Creative
-  Commons Attribution 4.0 International. See `LICENSE-DOCS.md`.
-- Scripts and executable experiment code are licensed under the MIT License.
-  See `LICENSE-CODE.md`.
+- Guide and research notes are licensed under Creative Commons Attribution 4.0
+  International. See `LICENSE-DOCS.md`.
+- Templates, examples, scripts, and executable experiment code are licensed
+  under the MIT License. See `LICENSE-CODE.md`.

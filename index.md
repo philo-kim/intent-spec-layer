@@ -2,11 +2,6 @@
 
 A repository-native specification layer for AI-assisted coding.
 
-Start with the [guide](guide/intent-specification-layer.md), read the
-[spec review loop](guide/spec-review-loop.md), then use the
-[templates](templates/feature-spec.md) and the
-[coupon-order example](examples/coupon-order-system/spec.md).
-
 The core rule:
 
 ```text
@@ -14,8 +9,46 @@ docs/ explains.
 spec/ governs.
 ```
 
+The layer is bidirectional:
+
+- before implementation, it reduces AI and human guesswork;
+- after implementation, it lets reviewers find missing UX, domain, and failure
+  behavior without reading all the code first.
+
+## Start Here
+
+- [Guide](guide/intent-specification-layer.md)
+- [Spec review loop](guide/spec-review-loop.md)
+- [Adoption playbook](guide/adoption.md)
+- [Naming and structure decision](guide/naming-and-structure.md)
+- [Feature spec template](templates/feature-spec.md)
+- [Experience review template](templates/experience-review.md)
+- [Coupon-order example](examples/coupon-order-system/spec.md)
+- [Research notes](research/method-comparison.md)
+
+## Model
+
+| Layer | Purpose | Required when |
+|---|---|---|
+| L0 Constitution | Product-wide values, authorities, forbidden shortcuts | Always |
+| L1 Domain Truth | Entities, states, vocabulary, invariants, ownership | Shared concepts or 2+ modules |
+| L2 Behavior Spec | EARS requirements for system response | Every behavior change |
+| L3 Interface Contract | Ordering, payloads, idempotency, rollback, partial failure | Multi-step or cross-resource mutation |
+
+## Evidence
+
 Run the local experiments:
 
 ```bash
 npm run check
 ```
+
+Current diagnostic results:
+
+| Method | Information sufficiency | LLM-style runtime simulation |
+|---|---:|---:|
+| PRD | 0.000 | 2/15 |
+| BDD/Gherkin | 0.100 | 5/15 |
+| EARS only | 0.513 | 11/15 |
+| Domain + EARS | 0.750 | 12/15 |
+| Full Spec Layer | 1.000 | 15/15 |

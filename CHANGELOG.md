@@ -2,6 +2,19 @@
 
 This project follows the spirit of Keep a Changelog.
 
+## [0.1.2] - 2026-05-15
+
+### Added
+
+- Frontmatter schema for feature specs.
+- Local Markdown link checker.
+
+### Changed
+
+- Expanded the GitHub Pages landing page so it can stand alone when shared.
+- Moved templates and examples under the MIT license to make reuse in real
+  projects simpler.
+
 ## [0.1.1] - 2026-05-15
 
 ### Added

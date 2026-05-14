@@ -3,7 +3,7 @@
 ## 0.2
 
 - Add examples outside e-commerce.
-- Add a stricter frontmatter/schema validator.
+- Add a stricter frontmatter validator that uses `schemas/frontmatter.schema.json`.
 - Add a drift-detection checklist for pull requests.
 - Add automated checks that require experience-review coverage for user-facing
   features.

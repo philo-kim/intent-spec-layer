@@ -1,12 +1,13 @@
 {
   "name": "intent-spec-layer",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": false,
   "type": "module",
   "scripts": {
     "benchmark": "node experiments/2026-05-sdd-method-comparison/evaluate.mjs",
     "simulate": "node experiments/2026-05-llm-codegen-simulation/run.mjs",
-    "check:syntax": "find experiments -name '*.mjs' -print | sort | xargs -n1 node --check",
-    "check": "npm run check:syntax && npm run benchmark && npm run simulate"
+    "check:syntax": "find experiments scripts -name '*.mjs' -print | sort | xargs -n1 node --check",
+    "check:links": "node scripts/check-links.mjs",
+    "check": "npm run check:syntax && npm run check:links && npm run benchmark && npm run simulate"
   }
 }

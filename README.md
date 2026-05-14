@@ -61,6 +61,7 @@ Minimum rule set:
 - [Feature spec template](templates/feature-spec.md)
 - [Experience review template](templates/experience-review.md)
 - [Coupon-order example](examples/coupon-order-system/spec.md)
+- [Frontmatter schema](schemas/frontmatter.schema.json)
 
 ## Repository Shape
 
@@ -123,6 +124,7 @@ Use the GitHub "Cite this repository" control or see [CITATION.cff](CITATION.cff
 
 ## License
 
-- Guide, templates, examples, and research notes: CC BY 4.0. See
+- Guide and research notes: CC BY 4.0. See
   [LICENSE-DOCS.md](LICENSE-DOCS.md).
-- Scripts and executable experiment code: MIT. See [LICENSE-CODE.md](LICENSE-CODE.md).
+- Templates, examples, scripts, and executable experiment code: MIT. See
+  [LICENSE-CODE.md](LICENSE-CODE.md).
