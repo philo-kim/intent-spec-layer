@@ -2,6 +2,15 @@
 
 This project follows the spirit of Keep a Changelog.
 
+## [0.2.4] - 2026-05-15
+
+### Changed
+
+- Tightened the agent operating protocol so final reports include a general
+  completion claim and the satisfied mode-specific rule.
+- Extended protocol guardrails to keep the completion-claim language present in
+  AI-facing workflow guidance.
+
 ## [0.2.3] - 2026-05-15
 
 ### Added

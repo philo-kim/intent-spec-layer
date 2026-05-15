@@ -289,4 +289,9 @@ Method update propagation:
 - Specs still pending:
 - Residual gaps:
 - Completion: complete / partial
+
+Completion claim:
+- Status: complete / partial / blocked / unverified / manual_only
+- Mode-specific rule satisfied: yes / no
+- Remaining work:
 ```

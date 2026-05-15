@@ -73,6 +73,8 @@ const requiredContent = [
       "feature-spec propagation audit",
       "pending_spec_review",
       "Completion: complete / partial",
+      "Completion claim",
+      "Mode-specific rule satisfied",
       "tests are not a later cleanup task",
     ],
   },

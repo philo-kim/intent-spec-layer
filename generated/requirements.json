@@ -1664,7 +1664,7 @@
     {
       "id": "REQ-AGENT-004:S1",
       "source": "scripts/check-agent-protocol.mjs",
-      "line": 111
+      "line": 113
     },
     {
       "id": "REQ-AGENT-004:S1",
@@ -1684,17 +1684,17 @@
     {
       "id": "REQ-AGENT-004:S2",
       "source": "scripts/check-agent-protocol.mjs",
-      "line": 111
+      "line": 113
     },
     {
       "id": "REQ-AGENT-004:S2",
       "source": "scripts/check-agent-protocol.mjs",
-      "line": 127
+      "line": 129
     },
     {
       "id": "REQ-AGENT-004:S2",
       "source": "scripts/check-agent-protocol.mjs",
-      "line": 189
+      "line": 191
     },
     {
       "id": "REQ-AGENT-004:S2",
@@ -1719,17 +1719,17 @@
     {
       "id": "REQ-AGENT-004:S3",
       "source": "scripts/check-agent-protocol.mjs",
-      "line": 111
+      "line": 113
     },
     {
       "id": "REQ-AGENT-004:S3",
       "source": "scripts/check-agent-protocol.mjs",
-      "line": 127
+      "line": 129
     },
     {
       "id": "REQ-AGENT-004:S3",
       "source": "scripts/check-agent-protocol.mjs",
-      "line": 189
+      "line": 191
     },
     {
       "id": "REQ-AGENT-004:S3",
@@ -1754,17 +1754,17 @@
     {
       "id": "REQ-AGENT-005:S1",
       "source": "scripts/check-agent-protocol.mjs",
-      "line": 97
+      "line": 99
     },
     {
       "id": "REQ-AGENT-005:S1",
       "source": "scripts/check-agent-protocol.mjs",
-      "line": 128
+      "line": 130
     },
     {
       "id": "REQ-AGENT-005:S1",
       "source": "scripts/check-agent-protocol.mjs",
-      "line": 153
+      "line": 155
     },
     {
       "id": "REQ-AGENT-005:S1",
@@ -1779,12 +1779,12 @@
     {
       "id": "REQ-AGENT-005:S2",
       "source": "scripts/check-agent-protocol.mjs",
-      "line": 97
+      "line": 99
     },
     {
       "id": "REQ-AGENT-005:S2",
       "source": "scripts/check-agent-protocol.mjs",
-      "line": 153
+      "line": 155
     },
     {
       "id": "REQ-AGENT-005:S2",
@@ -1799,17 +1799,17 @@
     {
       "id": "REQ-AGENT-005:S3",
       "source": "scripts/check-agent-protocol.mjs",
-      "line": 97
+      "line": 99
     },
     {
       "id": "REQ-AGENT-005:S3",
       "source": "scripts/check-agent-protocol.mjs",
-      "line": 128
+      "line": 130
     },
     {
       "id": "REQ-AGENT-005:S3",
       "source": "scripts/check-agent-protocol.mjs",
-      "line": 153
+      "line": 155
     },
     {
       "id": "REQ-AGENT-005:S3",
@@ -1829,12 +1829,12 @@
     {
       "id": "REQ-AGENT-006:S1",
       "source": "scripts/check-agent-protocol.mjs",
-      "line": 81
+      "line": 83
     },
     {
       "id": "REQ-AGENT-006:S1",
       "source": "scripts/check-agent-protocol.mjs",
-      "line": 129
+      "line": 131
     },
     {
       "id": "REQ-AGENT-006:S1",
@@ -1844,7 +1844,7 @@
     {
       "id": "REQ-AGENT-006:S2",
       "source": "scripts/check-agent-protocol.mjs",
-      "line": 81
+      "line": 83
     },
     {
       "id": "REQ-AGENT-006:S2",
@@ -1859,12 +1859,12 @@
     {
       "id": "REQ-AGENT-006:S3",
       "source": "scripts/check-agent-protocol.mjs",
-      "line": 81
+      "line": 83
     },
     {
       "id": "REQ-AGENT-006:S3",
       "source": "scripts/check-agent-protocol.mjs",
-      "line": 129
+      "line": 131
     },
     {
       "id": "REQ-AGENT-006:S3",
