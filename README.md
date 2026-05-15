@@ -62,6 +62,10 @@ This repository contains:
   evidence;
 - a spec-as-product-standard rule that prevents agents from weakening accepted
   requirements just because implementation is missing;
+- a method-update propagation protocol that prevents agents from stopping after
+  governance files change while feature specs remain unaudited;
+- an agent mode router that makes broad user requests choose a concrete
+  workflow and completion rule before the agent acts;
 - an agent operating protocol that keeps AI agents from confusing intent,
   evidence, review findings, and generated stubs;
 - feature archetype packs that force predictable edge cases into review before
@@ -115,6 +119,11 @@ Minimum rule set:
 13. Customer-visible work that can outlive the generic API timeout needs an
     explicit latency contract: synchronous, endpoint-specific long request,
     polling, background job, or streaming.
+14. Applying a new ILS version or upstream rule to an existing project requires
+    a propagation audit across in-scope authoritative feature specs. Governance
+    updates alone are not completion.
+15. Broad completion language (`done`, `complete`, `ready`) is allowed only when
+    the selected task mode's completion rule is satisfied.
 
 ## Standard, Not Snapshot
 
@@ -130,9 +139,11 @@ agent is unsure whether to update the spec, code, tests, or review ledger.
 
 - [Agent operating rules](AGENTS.md)
 - [Project specs](spec/README.md)
+- [Agent mode router](guide/agent-mode-router.md)
 - [Agent operating protocol](guide/agent-operating-protocol.md)
 - [Guide](guide/intent-specification-layer.md)
 - [Spec as product standard](guide/spec-as-product-standard.md)
+- [Method update propagation](guide/method-update-propagation.md)
 - [Spec authoring quality](guide/spec-authoring-quality.md)
 - [Adoption playbook](guide/adoption.md)
 - [Spec review loop](guide/spec-review-loop.md)
@@ -147,6 +158,7 @@ agent is unsure whether to update the spec, code, tests, or review ledger.
 - [Change proposal template](templates/change-proposal.md)
 - [Spec review finding template](templates/spec-review-finding.md)
 - [Review ledger template](templates/review-ledger.md)
+- [Method update propagation template](templates/method-update-propagation.md)
 - [Agent task brief template](templates/agent-task-brief.md)
 - [Coupon-order example](examples/coupon-order-system/spec.md)
 - [Heading-style EARS example](examples/account-session-heading-style/spec.md)
@@ -219,6 +231,17 @@ If implementation evidence shows a behavior is missing, the agent should not
 weaken the accepted spec. It should classify the mismatch as
 `missing_implementation`, `partial_implementation`, `missing_test`, or
 `wrong_code`, then update code and evidence or record the blocker.
+
+If the task is to apply a newer ILS rule to a project, the agent should not
+claim completion after updating AGENTS, README, templates, or generated files.
+It must inventory the authoritative specs, audit in-scope feature specs under
+the new rule, update accepted L1/L2/L3 text, regenerate artifacts, and list any
+residual `pending_spec_review` or gap entries.
+
+For broad requests, the agent should route the work through
+[Agent mode router](guide/agent-mode-router.md) before editing. This makes the
+completion claim depend on a mode-specific rule instead of the agent's memory or
+confidence.
 
 ## Status
 

@@ -1,14 +1,14 @@
 {
   "generatedBy": "scripts/generate-req-tests.mjs",
   "totals": {
-    "requirements": 33,
-    "statements": 36,
-    "generatedStubSlots": 36,
-    "verificationMappedStatements": 36,
-    "nonGeneratedSpecReferences": 51,
-    "nonGeneratedTracedStatements": 24,
-    "realSpecReferences": 51,
-    "realTracedStatements": 24,
+    "requirements": 35,
+    "statements": 42,
+    "generatedStubSlots": 42,
+    "verificationMappedStatements": 42,
+    "nonGeneratedSpecReferences": 76,
+    "nonGeneratedTracedStatements": 30,
+    "realSpecReferences": 76,
+    "realTracedStatements": 30,
     "pendingGeneratedOnlyStatements": 12,
     "codeOnlyReferences": 0
   },
@@ -17,7 +17,7 @@
       "id": "REQ-AGENT-001",
       "title": "Agent-facing entrypoints shall state that generated stubs are trace slots and not validation evidence.",
       "source": "spec/features/agent-operating-protocol/spec.md",
-      "line": 38,
+      "line": 46,
       "statements": [
         {
           "requirementId": "REQ-AGENT-001",
@@ -25,7 +25,7 @@
           "pattern": "Ubiquitous",
           "text": "Agent-facing entrypoints shall state that generated stubs are trace slots and not validation evidence.",
           "source": "spec/features/agent-operating-protocol/spec.md",
-          "line": 38,
+          "line": 46,
           "style": "inline",
           "statementIndex": 1,
           "statementId": "REQ-AGENT-001:S1",
@@ -41,7 +41,7 @@
       "id": "REQ-AGENT-002",
       "title": "When an agent implements accepted behavior, the agent protocol shall require the governing statement IDs and verification plan before or alongside code changes.",
       "source": "spec/features/agent-operating-protocol/spec.md",
-      "line": 40,
+      "line": 48,
       "statements": [
         {
           "requirementId": "REQ-AGENT-002",
@@ -49,7 +49,7 @@
           "pattern": "Event-driven",
           "text": "When an agent implements accepted behavior, the agent protocol shall require the governing statement IDs and verification plan before or alongside code changes.",
           "source": "spec/features/agent-operating-protocol/spec.md",
-          "line": 40,
+          "line": 48,
           "style": "inline",
           "statementIndex": 1,
           "statementId": "REQ-AGENT-002:S1",
@@ -65,7 +65,7 @@
       "id": "REQ-AGENT-003",
       "title": "If a review finding lacks authority, release scope, implementation evidence, or core-journey impact, then agent-facing guidance shall not classify it as a release blocker.",
       "source": "spec/features/agent-operating-protocol/spec.md",
-      "line": 43,
+      "line": 51,
       "statements": [
         {
           "requirementId": "REQ-AGENT-003",
@@ -73,7 +73,7 @@
           "pattern": "Unwanted",
           "text": "If a review finding lacks authority, release scope, implementation evidence, or core-journey impact, then agent-facing guidance shall not classify it as a release blocker.",
           "source": "spec/features/agent-operating-protocol/spec.md",
-          "line": 43,
+          "line": 51,
           "style": "inline",
           "statementIndex": 1,
           "statementId": "REQ-AGENT-003:S1",
@@ -89,7 +89,7 @@
       "id": "REQ-AGENT-004",
       "title": "Agent-facing guidance shall state that accepted specs are product standards, not implementation inventories.",
       "source": "spec/features/agent-operating-protocol/spec.md",
-      "line": 46,
+      "line": 54,
       "statements": [
         {
           "requirementId": "REQ-AGENT-004",
@@ -97,7 +97,7 @@
           "pattern": "Ubiquitous",
           "text": "Agent-facing guidance shall state that accepted specs are product standards, not implementation inventories.",
           "source": "spec/features/agent-operating-protocol/spec.md",
-          "line": 46,
+          "line": 54,
           "style": "inline",
           "statementIndex": 1,
           "statementId": "REQ-AGENT-004:S1",
@@ -113,7 +113,7 @@
           "pattern": "Unwanted",
           "text": "If reviewed implementation lacks accepted spec behavior, then agent-facing guidance shall keep the spec and classify an evidence gap instead of downgrading the requirement.",
           "source": "spec/features/agent-operating-protocol/spec.md",
-          "line": 48,
+          "line": 56,
           "style": "inline",
           "statementIndex": 2,
           "statementId": "REQ-AGENT-004:S2",
@@ -129,10 +129,122 @@
           "pattern": "Event-driven",
           "text": "When spec and code disagree, the agent protocol shall use the gap taxonomy: `missing_implementation`, `partial_implementation`, `missing_test`, `wrong_spec`, `wrong_code`, and `decision_gap`.",
           "source": "spec/features/agent-operating-protocol/spec.md",
-          "line": 51,
+          "line": 59,
           "style": "inline",
           "statementIndex": 3,
           "statementId": "REQ-AGENT-004:S3",
+          "statementCount": 3,
+          "verificationMapped": true,
+          "plannedVerification": "guardrail | `scripts/check-agent-protocol.mjs` | `npm run check:agent` | verified",
+          "generatedStub": true,
+          "verificationStatus": "pending"
+        }
+      ]
+    },
+    {
+      "id": "REQ-AGENT-005",
+      "title": "When applying a new ILS version, upstream rule, or template to an existing project, agent-facing guidance shall require both governance install and feature-spec propagation audit before reporting completion.",
+      "source": "spec/features/agent-operating-protocol/spec.md",
+      "line": 63,
+      "statements": [
+        {
+          "requirementId": "REQ-AGENT-005",
+          "title": "When applying a new ILS version, upstream rule, or template to an existing project, agent-facing guidance shall require both governance install and feature-spec propagation audit before reporting completion.",
+          "pattern": "Event-driven",
+          "text": "When applying a new ILS version, upstream rule, or template to an existing project, agent-facing guidance shall require both governance install and feature-spec propagation audit before reporting completion.",
+          "source": "spec/features/agent-operating-protocol/spec.md",
+          "line": 63,
+          "style": "inline",
+          "statementIndex": 1,
+          "statementId": "REQ-AGENT-005:S1",
+          "statementCount": 3,
+          "verificationMapped": true,
+          "plannedVerification": "guardrail | `scripts/check-agent-protocol.mjs` | `npm run check:agent` | verified",
+          "generatedStub": true,
+          "verificationStatus": "pending"
+        },
+        {
+          "requirementId": "REQ-AGENT-005",
+          "title": "If any in-scope authoritative spec was not reviewed under the new method rule, then the final status shall be `partial` and the unreviewed files shall be recorded as `pending_spec_review`.",
+          "pattern": "Unwanted",
+          "text": "If any in-scope authoritative spec was not reviewed under the new method rule, then the final status shall be `partial` and the unreviewed files shall be recorded as `pending_spec_review`.",
+          "source": "spec/features/agent-operating-protocol/spec.md",
+          "line": 67,
+          "style": "inline",
+          "statementIndex": 2,
+          "statementId": "REQ-AGENT-005:S2",
+          "statementCount": 3,
+          "verificationMapped": true,
+          "plannedVerification": "test | `tests/method-update-propagation.test.mjs` | `npm run test:project` | verified",
+          "generatedStub": true,
+          "verificationStatus": "pending"
+        },
+        {
+          "requirementId": "REQ-AGENT-005",
+          "title": "Method-update reports shall list the upstream rule/version, authoritative spec inventory, reviewed specs, excluded specs, residual gaps, generated artifact updates, and verification commands.",
+          "pattern": "Ubiquitous",
+          "text": "Method-update reports shall list the upstream rule/version, authoritative spec inventory, reviewed specs, excluded specs, residual gaps, generated artifact updates, and verification commands.",
+          "source": "spec/features/agent-operating-protocol/spec.md",
+          "line": 70,
+          "style": "inline",
+          "statementIndex": 3,
+          "statementId": "REQ-AGENT-005:S3",
+          "statementCount": 3,
+          "verificationMapped": true,
+          "plannedVerification": "test | `tests/method-update-propagation.test.mjs` | `npm run test:project` | verified",
+          "generatedStub": true,
+          "verificationStatus": "pending"
+        }
+      ]
+    },
+    {
+      "id": "REQ-AGENT-006",
+      "title": "Agent-facing guidance shall route broad or ambiguous user requests into a named task mode before acting.",
+      "source": "spec/features/agent-operating-protocol/spec.md",
+      "line": 73,
+      "statements": [
+        {
+          "requirementId": "REQ-AGENT-006",
+          "title": "Agent-facing guidance shall route broad or ambiguous user requests into a named task mode before acting.",
+          "pattern": "Ubiquitous",
+          "text": "Agent-facing guidance shall route broad or ambiguous user requests into a named task mode before acting.",
+          "source": "spec/features/agent-operating-protocol/spec.md",
+          "line": 73,
+          "style": "inline",
+          "statementIndex": 1,
+          "statementId": "REQ-AGENT-006:S1",
+          "statementCount": 3,
+          "verificationMapped": true,
+          "plannedVerification": "test | `tests/agent-mode-router.test.mjs` | `npm run test:project` | verified",
+          "generatedStub": true,
+          "verificationStatus": "pending"
+        },
+        {
+          "requirementId": "REQ-AGENT-006",
+          "title": "When a request asks to apply a latest ILS version, upstream rule, or new template, the agent shall select Method update mode and follow its propagation completion rule.",
+          "pattern": "Event-driven",
+          "text": "When a request asks to apply a latest ILS version, upstream rule, or new template, the agent shall select Method update mode and follow its propagation completion rule.",
+          "source": "spec/features/agent-operating-protocol/spec.md",
+          "line": 75,
+          "style": "inline",
+          "statementIndex": 2,
+          "statementId": "REQ-AGENT-006:S2",
+          "statementCount": 3,
+          "verificationMapped": true,
+          "plannedVerification": "test | `tests/agent-mode-router.test.mjs` | `npm run test:project` | verified",
+          "generatedStub": true,
+          "verificationStatus": "pending"
+        },
+        {
+          "requirementId": "REQ-AGENT-006",
+          "title": "If the selected mode's completion rule is not satisfied, then the agent shall report `partial`, `blocked`, `unverified`, or `manual_only` instead of claiming `complete`.",
+          "pattern": "Unwanted",
+          "text": "If the selected mode's completion rule is not satisfied, then the agent shall report `partial`, `blocked`, `unverified`, or `manual_only` instead of claiming `complete`.",
+          "source": "spec/features/agent-operating-protocol/spec.md",
+          "line": 78,
+          "style": "inline",
+          "statementIndex": 3,
+          "statementId": "REQ-AGENT-006:S3",
           "statementCount": 3,
           "verificationMapped": true,
           "plannedVerification": "guardrail | `scripts/check-agent-protocol.mjs` | `npm run check:agent` | verified",
@@ -861,7 +973,7 @@
       "pattern": "Ubiquitous",
       "text": "Agent-facing entrypoints shall state that generated stubs are trace slots and not validation evidence.",
       "source": "spec/features/agent-operating-protocol/spec.md",
-      "line": 38,
+      "line": 46,
       "style": "inline",
       "statementIndex": 1,
       "statementId": "REQ-AGENT-001:S1",
@@ -877,7 +989,7 @@
       "pattern": "Event-driven",
       "text": "When an agent implements accepted behavior, the agent protocol shall require the governing statement IDs and verification plan before or alongside code changes.",
       "source": "spec/features/agent-operating-protocol/spec.md",
-      "line": 40,
+      "line": 48,
       "style": "inline",
       "statementIndex": 1,
       "statementId": "REQ-AGENT-002:S1",
@@ -893,7 +1005,7 @@
       "pattern": "Unwanted",
       "text": "If a review finding lacks authority, release scope, implementation evidence, or core-journey impact, then agent-facing guidance shall not classify it as a release blocker.",
       "source": "spec/features/agent-operating-protocol/spec.md",
-      "line": 43,
+      "line": 51,
       "style": "inline",
       "statementIndex": 1,
       "statementId": "REQ-AGENT-003:S1",
@@ -909,7 +1021,7 @@
       "pattern": "Ubiquitous",
       "text": "Agent-facing guidance shall state that accepted specs are product standards, not implementation inventories.",
       "source": "spec/features/agent-operating-protocol/spec.md",
-      "line": 46,
+      "line": 54,
       "style": "inline",
       "statementIndex": 1,
       "statementId": "REQ-AGENT-004:S1",
@@ -925,7 +1037,7 @@
       "pattern": "Unwanted",
       "text": "If reviewed implementation lacks accepted spec behavior, then agent-facing guidance shall keep the spec and classify an evidence gap instead of downgrading the requirement.",
       "source": "spec/features/agent-operating-protocol/spec.md",
-      "line": 48,
+      "line": 56,
       "style": "inline",
       "statementIndex": 2,
       "statementId": "REQ-AGENT-004:S2",
@@ -941,10 +1053,106 @@
       "pattern": "Event-driven",
       "text": "When spec and code disagree, the agent protocol shall use the gap taxonomy: `missing_implementation`, `partial_implementation`, `missing_test`, `wrong_spec`, `wrong_code`, and `decision_gap`.",
       "source": "spec/features/agent-operating-protocol/spec.md",
-      "line": 51,
+      "line": 59,
       "style": "inline",
       "statementIndex": 3,
       "statementId": "REQ-AGENT-004:S3",
+      "statementCount": 3,
+      "verificationMapped": true,
+      "plannedVerification": "guardrail | `scripts/check-agent-protocol.mjs` | `npm run check:agent` | verified",
+      "generatedStub": true,
+      "verificationStatus": "pending"
+    },
+    {
+      "requirementId": "REQ-AGENT-005",
+      "title": "When applying a new ILS version, upstream rule, or template to an existing project, agent-facing guidance shall require both governance install and feature-spec propagation audit before reporting completion.",
+      "pattern": "Event-driven",
+      "text": "When applying a new ILS version, upstream rule, or template to an existing project, agent-facing guidance shall require both governance install and feature-spec propagation audit before reporting completion.",
+      "source": "spec/features/agent-operating-protocol/spec.md",
+      "line": 63,
+      "style": "inline",
+      "statementIndex": 1,
+      "statementId": "REQ-AGENT-005:S1",
+      "statementCount": 3,
+      "verificationMapped": true,
+      "plannedVerification": "guardrail | `scripts/check-agent-protocol.mjs` | `npm run check:agent` | verified",
+      "generatedStub": true,
+      "verificationStatus": "pending"
+    },
+    {
+      "requirementId": "REQ-AGENT-005",
+      "title": "If any in-scope authoritative spec was not reviewed under the new method rule, then the final status shall be `partial` and the unreviewed files shall be recorded as `pending_spec_review`.",
+      "pattern": "Unwanted",
+      "text": "If any in-scope authoritative spec was not reviewed under the new method rule, then the final status shall be `partial` and the unreviewed files shall be recorded as `pending_spec_review`.",
+      "source": "spec/features/agent-operating-protocol/spec.md",
+      "line": 67,
+      "style": "inline",
+      "statementIndex": 2,
+      "statementId": "REQ-AGENT-005:S2",
+      "statementCount": 3,
+      "verificationMapped": true,
+      "plannedVerification": "test | `tests/method-update-propagation.test.mjs` | `npm run test:project` | verified",
+      "generatedStub": true,
+      "verificationStatus": "pending"
+    },
+    {
+      "requirementId": "REQ-AGENT-005",
+      "title": "Method-update reports shall list the upstream rule/version, authoritative spec inventory, reviewed specs, excluded specs, residual gaps, generated artifact updates, and verification commands.",
+      "pattern": "Ubiquitous",
+      "text": "Method-update reports shall list the upstream rule/version, authoritative spec inventory, reviewed specs, excluded specs, residual gaps, generated artifact updates, and verification commands.",
+      "source": "spec/features/agent-operating-protocol/spec.md",
+      "line": 70,
+      "style": "inline",
+      "statementIndex": 3,
+      "statementId": "REQ-AGENT-005:S3",
+      "statementCount": 3,
+      "verificationMapped": true,
+      "plannedVerification": "test | `tests/method-update-propagation.test.mjs` | `npm run test:project` | verified",
+      "generatedStub": true,
+      "verificationStatus": "pending"
+    },
+    {
+      "requirementId": "REQ-AGENT-006",
+      "title": "Agent-facing guidance shall route broad or ambiguous user requests into a named task mode before acting.",
+      "pattern": "Ubiquitous",
+      "text": "Agent-facing guidance shall route broad or ambiguous user requests into a named task mode before acting.",
+      "source": "spec/features/agent-operating-protocol/spec.md",
+      "line": 73,
+      "style": "inline",
+      "statementIndex": 1,
+      "statementId": "REQ-AGENT-006:S1",
+      "statementCount": 3,
+      "verificationMapped": true,
+      "plannedVerification": "test | `tests/agent-mode-router.test.mjs` | `npm run test:project` | verified",
+      "generatedStub": true,
+      "verificationStatus": "pending"
+    },
+    {
+      "requirementId": "REQ-AGENT-006",
+      "title": "When a request asks to apply a latest ILS version, upstream rule, or new template, the agent shall select Method update mode and follow its propagation completion rule.",
+      "pattern": "Event-driven",
+      "text": "When a request asks to apply a latest ILS version, upstream rule, or new template, the agent shall select Method update mode and follow its propagation completion rule.",
+      "source": "spec/features/agent-operating-protocol/spec.md",
+      "line": 75,
+      "style": "inline",
+      "statementIndex": 2,
+      "statementId": "REQ-AGENT-006:S2",
+      "statementCount": 3,
+      "verificationMapped": true,
+      "plannedVerification": "test | `tests/agent-mode-router.test.mjs` | `npm run test:project` | verified",
+      "generatedStub": true,
+      "verificationStatus": "pending"
+    },
+    {
+      "requirementId": "REQ-AGENT-006",
+      "title": "If the selected mode's completion rule is not satisfied, then the agent shall report `partial`, `blocked`, `unverified`, or `manual_only` instead of claiming `complete`.",
+      "pattern": "Unwanted",
+      "text": "If the selected mode's completion rule is not satisfied, then the agent shall report `partial`, `blocked`, `unverified`, or `manual_only` instead of claiming `complete`.",
+      "source": "spec/features/agent-operating-protocol/spec.md",
+      "line": 78,
+      "style": "inline",
+      "statementIndex": 3,
+      "statementId": "REQ-AGENT-006:S3",
       "statementCount": 3,
       "verificationMapped": true,
       "plannedVerification": "guardrail | `scripts/check-agent-protocol.mjs` | `npm run check:agent` | verified",
@@ -1436,27 +1644,27 @@
     {
       "id": "REQ-AGENT-001:S1",
       "source": "scripts/check-agent-protocol.mjs",
-      "line": 20
+      "line": 23
     },
     {
       "id": "REQ-AGENT-002:S1",
       "source": "scripts/check-agent-protocol.mjs",
-      "line": 21
+      "line": 24
     },
     {
       "id": "REQ-AGENT-003:S1",
       "source": "scripts/check-agent-protocol.mjs",
-      "line": 40
+      "line": 48
     },
     {
       "id": "REQ-AGENT-004:S1",
       "source": "scripts/check-agent-protocol.mjs",
-      "line": 41
+      "line": 49
     },
     {
       "id": "REQ-AGENT-004:S1",
       "source": "scripts/check-agent-protocol.mjs",
-      "line": 65
+      "line": 111
     },
     {
       "id": "REQ-AGENT-004:S1",
@@ -1471,22 +1679,22 @@
     {
       "id": "REQ-AGENT-004:S2",
       "source": "scripts/check-agent-protocol.mjs",
-      "line": 41
+      "line": 49
     },
     {
       "id": "REQ-AGENT-004:S2",
       "source": "scripts/check-agent-protocol.mjs",
-      "line": 65
+      "line": 111
     },
     {
       "id": "REQ-AGENT-004:S2",
       "source": "scripts/check-agent-protocol.mjs",
-      "line": 81
+      "line": 127
     },
     {
       "id": "REQ-AGENT-004:S2",
       "source": "scripts/check-agent-protocol.mjs",
-      "line": 123
+      "line": 189
     },
     {
       "id": "REQ-AGENT-004:S2",
@@ -1506,22 +1714,22 @@
     {
       "id": "REQ-AGENT-004:S3",
       "source": "scripts/check-agent-protocol.mjs",
-      "line": 41
+      "line": 49
     },
     {
       "id": "REQ-AGENT-004:S3",
       "source": "scripts/check-agent-protocol.mjs",
-      "line": 65
+      "line": 111
     },
     {
       "id": "REQ-AGENT-004:S3",
       "source": "scripts/check-agent-protocol.mjs",
-      "line": 81
+      "line": 127
     },
     {
       "id": "REQ-AGENT-004:S3",
       "source": "scripts/check-agent-protocol.mjs",
-      "line": 123
+      "line": 189
     },
     {
       "id": "REQ-AGENT-004:S3",
@@ -1537,6 +1745,131 @@
       "id": "REQ-AGENT-004:S3",
       "source": "tests/spec-authoring-quality.test.mjs",
       "line": 47
+    },
+    {
+      "id": "REQ-AGENT-005:S1",
+      "source": "scripts/check-agent-protocol.mjs",
+      "line": 50
+    },
+    {
+      "id": "REQ-AGENT-005:S1",
+      "source": "scripts/check-agent-protocol.mjs",
+      "line": 97
+    },
+    {
+      "id": "REQ-AGENT-005:S1",
+      "source": "scripts/check-agent-protocol.mjs",
+      "line": 128
+    },
+    {
+      "id": "REQ-AGENT-005:S1",
+      "source": "scripts/check-agent-protocol.mjs",
+      "line": 153
+    },
+    {
+      "id": "REQ-AGENT-005:S1",
+      "source": "tests/method-update-propagation.test.mjs",
+      "line": 13
+    },
+    {
+      "id": "REQ-AGENT-005:S1",
+      "source": "tests/method-update-propagation.test.mjs",
+      "line": 36
+    },
+    {
+      "id": "REQ-AGENT-005:S2",
+      "source": "scripts/check-agent-protocol.mjs",
+      "line": 97
+    },
+    {
+      "id": "REQ-AGENT-005:S2",
+      "source": "scripts/check-agent-protocol.mjs",
+      "line": 153
+    },
+    {
+      "id": "REQ-AGENT-005:S2",
+      "source": "tests/method-update-propagation.test.mjs",
+      "line": 13
+    },
+    {
+      "id": "REQ-AGENT-005:S2",
+      "source": "tests/method-update-propagation.test.mjs",
+      "line": 25
+    },
+    {
+      "id": "REQ-AGENT-005:S3",
+      "source": "scripts/check-agent-protocol.mjs",
+      "line": 97
+    },
+    {
+      "id": "REQ-AGENT-005:S3",
+      "source": "scripts/check-agent-protocol.mjs",
+      "line": 128
+    },
+    {
+      "id": "REQ-AGENT-005:S3",
+      "source": "scripts/check-agent-protocol.mjs",
+      "line": 153
+    },
+    {
+      "id": "REQ-AGENT-005:S3",
+      "source": "tests/method-update-propagation.test.mjs",
+      "line": 13
+    },
+    {
+      "id": "REQ-AGENT-005:S3",
+      "source": "tests/method-update-propagation.test.mjs",
+      "line": 25
+    },
+    {
+      "id": "REQ-AGENT-006:S1",
+      "source": "scripts/check-agent-protocol.mjs",
+      "line": 51
+    },
+    {
+      "id": "REQ-AGENT-006:S1",
+      "source": "scripts/check-agent-protocol.mjs",
+      "line": 81
+    },
+    {
+      "id": "REQ-AGENT-006:S1",
+      "source": "scripts/check-agent-protocol.mjs",
+      "line": 129
+    },
+    {
+      "id": "REQ-AGENT-006:S1",
+      "source": "tests/agent-mode-router.test.mjs",
+      "line": 13
+    },
+    {
+      "id": "REQ-AGENT-006:S2",
+      "source": "scripts/check-agent-protocol.mjs",
+      "line": 81
+    },
+    {
+      "id": "REQ-AGENT-006:S2",
+      "source": "tests/agent-mode-router.test.mjs",
+      "line": 25
+    },
+    {
+      "id": "REQ-AGENT-006:S3",
+      "source": "scripts/check-agent-protocol.mjs",
+      "line": 51
+    },
+    {
+      "id": "REQ-AGENT-006:S3",
+      "source": "scripts/check-agent-protocol.mjs",
+      "line": 81
+    },
+    {
+      "id": "REQ-AGENT-006:S3",
+      "source": "scripts/check-agent-protocol.mjs",
+      "line": 129
+    },
+    {
+      "id": "REQ-AGENT-006:S3",
+      "source": "tests/agent-mode-router.test.mjs",
+      "line": 35
     },
     {
       "id": "REQ-AUTHOR-001:S1",

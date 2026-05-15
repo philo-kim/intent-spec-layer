@@ -18,9 +18,11 @@ The layer is bidirectional:
 ## Start Here
 
 - [Agent operating rules](AGENTS.md)
+- [Agent mode router](guide/agent-mode-router.md)
 - [Agent operating protocol](guide/agent-operating-protocol.md)
 - [Guide](guide/intent-specification-layer.md)
 - [Spec as product standard](guide/spec-as-product-standard.md)
+- [Method update propagation](guide/method-update-propagation.md)
 - [Spec authoring quality](guide/spec-authoring-quality.md)
 - [Spec review loop](guide/spec-review-loop.md)
 - [Spec-to-test bridge](guide/spec-to-test-bridge.md)

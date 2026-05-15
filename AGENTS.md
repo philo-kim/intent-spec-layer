@@ -8,15 +8,18 @@ Read in this order before making decisions:
 
 1. `AGENTS.md`
 2. `README.md`
-3. `guide/agent-operating-protocol.md`
-4. `guide/spec-as-product-standard.md`
-5. `guide/intent-specification-layer.md`
-6. `guide/spec-review-loop.md`
-7. `guide/spec-to-test-bridge.md`
-8. The relevant template or example for the task
+3. `guide/agent-mode-router.md`
+4. `guide/agent-operating-protocol.md`
+5. `guide/spec-as-product-standard.md`
+6. `guide/intent-specification-layer.md`
+7. `guide/spec-review-loop.md`
+8. `guide/spec-to-test-bridge.md`
+9. The relevant template or example for the task
 
 For a compact workflow after this file, use
 `guide/agent-operating-protocol.md`.
+For method updates or upstream rule propagation, also read
+`guide/method-update-propagation.md`.
 
 ## Non-Negotiable Rules
 
@@ -53,6 +56,11 @@ For a compact workflow after this file, use
 15. Customer-visible work that can outlive the generic API timeout needs a
     latency contract: synchronous, endpoint-specific long request, polling,
     background job, or streaming.
+16. A method update is not complete after governance files are changed. It
+    requires an authoritative spec inventory, propagation audit across in-scope
+    feature specs, generated artifact update, and residual gap ledger.
+17. Do not claim `done`, `complete`, or `ready` until the selected task mode's
+    completion rule in `guide/agent-mode-router.md` is satisfied.
 
 ## Decision Flow
 
@@ -60,12 +68,14 @@ Before implementing or reviewing, classify the task:
 
 | Task type | Required action |
 |---|---|
+| Ambiguous broad request | Route through `guide/agent-mode-router.md` before acting. |
 | New behavior | Create or update L2; add L1/L3 when required. |
 | Existing behavior feels wrong | Run reverse spec review before code changes. |
 | Code differs from spec | Check spec authority before deciding spec gap or code gap. |
 | Code lacks accepted spec behavior | Keep the spec; record `missing_implementation`, `partial_implementation`, `missing_test`, or `wrong_code` after evidence review. |
 | Edge case found | Record authority basis before promoting to binding REQ. |
 | Test/verification work | Map REQ or statement IDs to real evidence, not only generated stubs. |
+| Method update / upstream upgrade | Install governance, inventory specs, audit propagation, update L1/L2/L3, regenerate artifacts, and report residual gaps. |
 
 ## Feature Archetype Reflex
 
@@ -112,6 +122,25 @@ authority check
   -> update spec, code, and verification in that order
 ```
 
+## Method Update Propagation Reflex
+
+When applying a new ILS version, upstream rule, template, or authoring-quality
+standard to an existing repository, do not stop after updating AGENTS, README,
+templates, scripts, or generated artifacts.
+
+Use `guide/method-update-propagation.md` and complete this sequence:
+
+1. Name the upstream rule or version.
+2. List the authoritative spec inventory.
+3. Mark every spec as reviewed, excluded, or still pending.
+4. Apply archetype packs and edge-case prompts to each in-scope feature spec.
+5. Update accepted L1/L2/L3 requirements and L3 contracts.
+6. Keep implementation readiness in Verification Maps, review ledgers, or
+   release trackers.
+7. Regenerate requirement artifacts and run checks.
+8. Report `complete` only if every in-scope authoritative spec was reviewed or
+   explicitly excluded.
+
 ## Edge-Case Review Prompts
 
 For every meaningful action, ask:
@@ -151,6 +180,10 @@ When reporting work, include these compact sections when relevant:
 - Verification: commands run and generated-vs-real evidence status.
 - Unverified statements: any `REQ-...:Sx` still lacking executed or recorded
   evidence.
+- Method update propagation: spec inventory reviewed, exclusions, pending
+  specs, residual gaps, and whether completion is `complete` or `partial`.
+- Completion claim: `complete`, `partial`, `blocked`, `unverified`, or
+  `manual_only`, with the reason from the selected task mode.
 
 ## Do Not
 
@@ -167,3 +200,7 @@ When reporting work, include these compact sections when relevant:
   recorded.
 - Do not let a plan-mode output become source of truth unless it is merged back
   into `spec/`.
+- Do not report "updated to latest" when only governance files changed and
+  feature specs were not inventoried and audited.
+- Do not use broad completion language when the mode-specific completion rule
+  has not been satisfied.

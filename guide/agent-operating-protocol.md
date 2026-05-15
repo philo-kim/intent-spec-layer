@@ -12,6 +12,9 @@ ledger = review and readiness trail
 generated = trace scaffolding
 ```
 
+First route the request with [Agent Mode Router](agent-mode-router.md). Then use
+this protocol for the selected mode.
+
 ## 0. Spec Standard Reflex
 
 Before comparing code to a requirement, treat accepted L1/L2/L3 specs as the
@@ -44,6 +47,7 @@ Classify the request before reading implementation code.
 | Reverse review | Flow feels wrong or code already exists | Review spec as user journey first. |
 | Evidence mapping | Tests or CI requested | Map REQ IDs to real tests, guardrails, runtime, or manual evidence. |
 | Release audit | "Ready?", "blocker?", "launch?" | Check authority, release scope, implementation evidence, and core journey impact. |
+| Method update | New ILS version, upstream rule, or template applied to an existing repo | Install governance, inventory specs, run propagation audit, and report residual gaps. |
 
 If the mode is unclear, default to reverse review. It exposes missing intent
 without prematurely accusing the implementation.
@@ -139,6 +143,30 @@ The two checks most likely to prevent false completion are:
   fails, with draft, still-processing, retry, or actionable error recovery;
 - **latency contract**: work that can outlive the generic timeout declares
   synchronous, long request, polling, background job, or streaming behavior.
+
+## 4B. Method Update Propagation
+
+A method update is not complete when governance files are updated. Governance
+install is only the first step.
+
+Use [Method Update Propagation](method-update-propagation.md) for this mode:
+
+```text
+upstream rule/version
+  -> governance install
+  -> authoritative spec inventory
+  -> feature-spec propagation audit
+  -> accepted L1/L2/L3 edits
+  -> generated artifacts and checks
+  -> residual gap ledger
+```
+
+The agent must not report `complete` unless every in-scope authoritative spec
+was inventoried, reviewed under the new rule, updated or explicitly excluded,
+and the verification bridge was regenerated.
+
+If feature specs remain unreviewed, report `partial` and list
+`pending_spec_review` entries.
 
 ## 5. Release Blocker Test
 
@@ -253,4 +281,12 @@ Verification:
 - Non-generated traces:
 - Real evidence:
 - Still unverified:
+
+Method update propagation:
+- Upstream rule/version:
+- Specs reviewed:
+- Specs excluded:
+- Specs still pending:
+- Residual gaps:
+- Completion: complete / partial
 ```

@@ -4,57 +4,111 @@
 import { test } from "node:test";
 
 test("REQ-AGENT-001:S1 [Ubiquitous] Agent-facing entrypoints shall state that generated stubs are trace slots and not validation evidence.", {
-  skip: "Generated stub from spec/features/agent-operating-protocol/spec.md:38. Verification is still pending.",
+  skip: "Generated stub from spec/features/agent-operating-protocol/spec.md:46. Verification is still pending.",
 }, () => {
   // @Spec(REQ-AGENT-001:S1) generated_stub=true verification_status=pending
-  // Source: spec/features/agent-operating-protocol/spec.md:38
+  // Source: spec/features/agent-operating-protocol/spec.md:46
   // Requirement: REQ-AGENT-001
   // Statement: Agent-facing entrypoints shall state that generated stubs are trace slots and not validation evidence.
 });
 
 test("REQ-AGENT-002:S1 [Event-driven] When an agent implements accepted behavior, the agent protocol shall require the governing statement...", {
-  skip: "Generated stub from spec/features/agent-operating-protocol/spec.md:40. Verification is still pending.",
+  skip: "Generated stub from spec/features/agent-operating-protocol/spec.md:48. Verification is still pending.",
 }, () => {
   // @Spec(REQ-AGENT-002:S1) generated_stub=true verification_status=pending
-  // Source: spec/features/agent-operating-protocol/spec.md:40
+  // Source: spec/features/agent-operating-protocol/spec.md:48
   // Requirement: REQ-AGENT-002
   // Statement: When an agent implements accepted behavior, the agent protocol shall require the governing statement IDs and verification plan before or alongside code changes.
 });
 
 test("REQ-AGENT-003:S1 [Unwanted] If a review finding lacks authority, release scope, implementation evidence, or core-journey impact,...", {
-  skip: "Generated stub from spec/features/agent-operating-protocol/spec.md:43. Verification is still pending.",
+  skip: "Generated stub from spec/features/agent-operating-protocol/spec.md:51. Verification is still pending.",
 }, () => {
   // @Spec(REQ-AGENT-003:S1) generated_stub=true verification_status=pending
-  // Source: spec/features/agent-operating-protocol/spec.md:43
+  // Source: spec/features/agent-operating-protocol/spec.md:51
   // Requirement: REQ-AGENT-003
   // Statement: If a review finding lacks authority, release scope, implementation evidence, or core-journey impact, then agent-facing guidance shall not classify it as a release blocker.
 });
 
 test("REQ-AGENT-004:S1 [Ubiquitous] Agent-facing guidance shall state that accepted specs are product standards, not implementation...", {
-  skip: "Generated stub from spec/features/agent-operating-protocol/spec.md:46. Verification is still pending.",
+  skip: "Generated stub from spec/features/agent-operating-protocol/spec.md:54. Verification is still pending.",
 }, () => {
   // @Spec(REQ-AGENT-004:S1) generated_stub=true verification_status=pending
-  // Source: spec/features/agent-operating-protocol/spec.md:46
+  // Source: spec/features/agent-operating-protocol/spec.md:54
   // Requirement: REQ-AGENT-004
   // Statement: Agent-facing guidance shall state that accepted specs are product standards, not implementation inventories.
 });
 
 test("REQ-AGENT-004:S2 [Unwanted] If reviewed implementation lacks accepted spec behavior, then agent-facing guidance shall keep the...", {
-  skip: "Generated stub from spec/features/agent-operating-protocol/spec.md:48. Verification is still pending.",
+  skip: "Generated stub from spec/features/agent-operating-protocol/spec.md:56. Verification is still pending.",
 }, () => {
   // @Spec(REQ-AGENT-004:S2) generated_stub=true verification_status=pending
-  // Source: spec/features/agent-operating-protocol/spec.md:48
+  // Source: spec/features/agent-operating-protocol/spec.md:56
   // Requirement: REQ-AGENT-004
   // Statement: If reviewed implementation lacks accepted spec behavior, then agent-facing guidance shall keep the spec and classify an evidence gap instead of downgrading the requirement.
 });
 
 test("REQ-AGENT-004:S3 [Event-driven] When spec and code disagree, the agent protocol shall use the gap taxonomy: `missing_implementation`,...", {
-  skip: "Generated stub from spec/features/agent-operating-protocol/spec.md:51. Verification is still pending.",
+  skip: "Generated stub from spec/features/agent-operating-protocol/spec.md:59. Verification is still pending.",
 }, () => {
   // @Spec(REQ-AGENT-004:S3) generated_stub=true verification_status=pending
-  // Source: spec/features/agent-operating-protocol/spec.md:51
+  // Source: spec/features/agent-operating-protocol/spec.md:59
   // Requirement: REQ-AGENT-004
   // Statement: When spec and code disagree, the agent protocol shall use the gap taxonomy: `missing_implementation`, `partial_implementation`, `missing_test`, `wrong_spec`, `wrong_code`, and `decision_gap`.
+});
+
+test("REQ-AGENT-005:S1 [Event-driven] When applying a new ILS version, upstream rule, or template to an existing project, agent-facing...", {
+  skip: "Generated stub from spec/features/agent-operating-protocol/spec.md:63. Verification is still pending.",
+}, () => {
+  // @Spec(REQ-AGENT-005:S1) generated_stub=true verification_status=pending
+  // Source: spec/features/agent-operating-protocol/spec.md:63
+  // Requirement: REQ-AGENT-005
+  // Statement: When applying a new ILS version, upstream rule, or template to an existing project, agent-facing guidance shall require both governance install and feature-spec propagation audit before reporting completion.
+});
+
+test("REQ-AGENT-005:S2 [Unwanted] If any in-scope authoritative spec was not reviewed under the new method rule, then the final status...", {
+  skip: "Generated stub from spec/features/agent-operating-protocol/spec.md:67. Verification is still pending.",
+}, () => {
+  // @Spec(REQ-AGENT-005:S2) generated_stub=true verification_status=pending
+  // Source: spec/features/agent-operating-protocol/spec.md:67
+  // Requirement: REQ-AGENT-005
+  // Statement: If any in-scope authoritative spec was not reviewed under the new method rule, then the final status shall be `partial` and the unreviewed files shall be recorded as `pending_spec_review`.
+});
+
+test("REQ-AGENT-005:S3 [Ubiquitous] Method-update reports shall list the upstream rule/version, authoritative spec inventory, reviewed...", {
+  skip: "Generated stub from spec/features/agent-operating-protocol/spec.md:70. Verification is still pending.",
+}, () => {
+  // @Spec(REQ-AGENT-005:S3) generated_stub=true verification_status=pending
+  // Source: spec/features/agent-operating-protocol/spec.md:70
+  // Requirement: REQ-AGENT-005
+  // Statement: Method-update reports shall list the upstream rule/version, authoritative spec inventory, reviewed specs, excluded specs, residual gaps, generated artifact updates, and verification commands.
+});
+
+test("REQ-AGENT-006:S1 [Ubiquitous] Agent-facing guidance shall route broad or ambiguous user requests into a named task mode before acting.", {
+  skip: "Generated stub from spec/features/agent-operating-protocol/spec.md:73. Verification is still pending.",
+}, () => {
+  // @Spec(REQ-AGENT-006:S1) generated_stub=true verification_status=pending
+  // Source: spec/features/agent-operating-protocol/spec.md:73
+  // Requirement: REQ-AGENT-006
+  // Statement: Agent-facing guidance shall route broad or ambiguous user requests into a named task mode before acting.
+});
+
+test("REQ-AGENT-006:S2 [Event-driven] When a request asks to apply a latest ILS version, upstream rule, or new template, the agent shall...", {
+  skip: "Generated stub from spec/features/agent-operating-protocol/spec.md:75. Verification is still pending.",
+}, () => {
+  // @Spec(REQ-AGENT-006:S2) generated_stub=true verification_status=pending
+  // Source: spec/features/agent-operating-protocol/spec.md:75
+  // Requirement: REQ-AGENT-006
+  // Statement: When a request asks to apply a latest ILS version, upstream rule, or new template, the agent shall select Method update mode and follow its propagation completion rule.
+});
+
+test("REQ-AGENT-006:S3 [Unwanted] If the selected mode's completion rule is not satisfied, then the agent shall report `partial`,...", {
+  skip: "Generated stub from spec/features/agent-operating-protocol/spec.md:78. Verification is still pending.",
+}, () => {
+  // @Spec(REQ-AGENT-006:S3) generated_stub=true verification_status=pending
+  // Source: spec/features/agent-operating-protocol/spec.md:78
+  // Requirement: REQ-AGENT-006
+  // Statement: If the selected mode's completion rule is not satisfied, then the agent shall report `partial`, `blocked`, `unverified`, or `manual_only` instead of claiming `complete`.
 });
 
 test("REQ-AUTHOR-001:S1 [Ubiquitous] Agent-facing guides and templates shall require feature archetype packs before implementation so...", {

@@ -2,6 +2,23 @@
 
 This project follows the spirit of Keep a Changelog.
 
+## [0.2.3] - 2026-05-15
+
+### Added
+
+- Added Method Update Propagation guidance for applying newer ILS rules to
+  existing projects without stopping at governance-file updates.
+- Added a method-update propagation ledger template for authoritative spec
+  inventory, feature-spec propagation audit, residual gaps, and completion
+  status.
+- Added `REQ-AGENT-005` and project tests for method-update propagation.
+
+### Changed
+
+- Updated AI-facing entrypoints so "updated to latest" requires an inventory of
+  in-scope authoritative specs, propagation audit, generated artifact refresh,
+  and residual gap reporting.
+
 ## [0.2.2] - 2026-05-15
 
 ### Added

@@ -15,6 +15,24 @@
       release blocker.
 - [ ] Product-local shortcuts are explicitly allowed or forbidden.
 
+## Method Update Propagation
+
+Use this section when a newer ILS version, upstream rule, or template is being
+applied to an existing project.
+
+- [ ] The upstream rule/version is named.
+- [ ] Governance files were updated separately from feature specs.
+- [ ] The authoritative spec inventory is listed.
+- [ ] Every in-scope feature spec was reviewed under the new rule.
+- [ ] Every excluded spec has a reason.
+- [ ] Every unreviewed spec is listed as `pending_spec_review`.
+- [ ] Accepted L1/L2/L3 changes were written into the spec, not only described
+      in the final answer.
+- [ ] Residual findings are recorded in a review ledger.
+- [ ] Generated artifacts were regenerated after spec edits.
+- [ ] The final report says `partial` unless the inventory is fully reviewed or
+      explicitly excluded.
+
 ## Domain
 
 - [ ] Canonical terms are listed.

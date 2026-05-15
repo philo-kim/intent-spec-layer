@@ -4,9 +4,9 @@ theme: minima
 header_pages:
   - index.md
   - AGENTS.md
+  - guide/agent-mode-router.md
   - guide/intent-specification-layer.md
   - guide/spec-as-product-standard.md
   - guide/spec-authoring-quality.md
-  - guide/spec-to-test-bridge.md
   - guide/spec-review-loop.md
   - generated/verification-report.md

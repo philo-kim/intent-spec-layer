@@ -1,6 +1,6 @@
 {
   "name": "intent-spec-layer",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Spec layer for AI coding agents: turn intent into EARS requirements and verification obligations",
   "private": false,
   "type": "module",

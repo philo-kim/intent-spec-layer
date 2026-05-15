@@ -5,7 +5,7 @@ status: active
 owners: [maintainers]
 updated: 2026-05-15
 layers: [L0, L1, L2]
-target_release: v0.2.2
+target_release: v0.2.3
 ---
 
 # Agent Operating Protocol Spec
@@ -18,8 +18,11 @@ implementation status, generated artifacts, traces, and executed evidence.
 ## Authority Sources
 
 - `AGENTS.md`
+- `guide/agent-mode-router.md`
 - `guide/agent-operating-protocol.md`
+- `guide/method-update-propagation.md`
 - `templates/agent-task-brief.md`
+- `templates/method-update-propagation.md`
 - `scripts/check-agent-protocol.mjs`
 
 ## Layer 1: Domain Truth
@@ -32,6 +35,11 @@ implementation status, generated artifacts, traces, and executed evidence.
 | `generated` | Derived scaffold, not authority or proof | `generated/` |
 | `product standard` | Accepted behavior the implementation must satisfy, even when code is not ready yet | `spec/` |
 | `evidence gap` | Reviewed implementation or verification does not yet satisfy accepted spec | `guide/spec-as-product-standard.md` |
+| `method update` | Applying a newer ILS version, upstream rule, template, or guardrail to an existing project | `guide/method-update-propagation.md` |
+| `propagation audit` | Review that proves the new method rule reached in-scope authoritative feature specs | `guide/method-update-propagation.md` |
+| `pending_spec_review` | Residual status for an authoritative spec not yet reviewed under the new method rule | `templates/method-update-propagation.md` |
+| `task mode` | Named workflow selected before acting on an ambiguous request | `guide/agent-mode-router.md` |
+| `completion rule` | Mode-specific condition that must be satisfied before claiming complete | `guide/agent-mode-router.md` |
 
 ## Layer 2: Behavior Spec
 
@@ -52,6 +60,24 @@ implementation status, generated artifacts, traces, and executed evidence.
   shall use the gap taxonomy: `missing_implementation`,
   `partial_implementation`, `missing_test`, `wrong_spec`, `wrong_code`, and
   `decision_gap`.
+- [REQ-AGENT-005][Event-driven] When applying a new ILS version, upstream rule,
+  or template to an existing project, agent-facing guidance shall require both
+  governance install and feature-spec propagation audit before reporting
+  completion.
+- [REQ-AGENT-005][Unwanted] If any in-scope authoritative spec was not reviewed
+  under the new method rule, then the final status shall be `partial` and the
+  unreviewed files shall be recorded as `pending_spec_review`.
+- [REQ-AGENT-005][Ubiquitous] Method-update reports shall list the upstream
+  rule/version, authoritative spec inventory, reviewed specs, excluded specs,
+  residual gaps, generated artifact updates, and verification commands.
+- [REQ-AGENT-006][Ubiquitous] Agent-facing guidance shall route broad or
+  ambiguous user requests into a named task mode before acting.
+- [REQ-AGENT-006][Event-driven] When a request asks to apply a latest ILS
+  version, upstream rule, or new template, the agent shall select Method update
+  mode and follow its propagation completion rule.
+- [REQ-AGENT-006][Unwanted] If the selected mode's completion rule is not
+  satisfied, then the agent shall report `partial`, `blocked`, `unverified`, or
+  `manual_only` instead of claiming `complete`.
 
 ## Verification Map
 
@@ -63,3 +89,9 @@ implementation status, generated artifacts, traces, and executed evidence.
 | REQ-AGENT-004:S1 | guardrail | `scripts/check-agent-protocol.mjs` | `npm run check:agent` | verified |
 | REQ-AGENT-004:S2 | guardrail | `scripts/check-agent-protocol.mjs` | `npm run check:agent` | verified |
 | REQ-AGENT-004:S3 | guardrail | `scripts/check-agent-protocol.mjs` | `npm run check:agent` | verified |
+| REQ-AGENT-005:S1 | guardrail | `scripts/check-agent-protocol.mjs` | `npm run check:agent` | verified |
+| REQ-AGENT-005:S2 | test | `tests/method-update-propagation.test.mjs` | `npm run test:project` | verified |
+| REQ-AGENT-005:S3 | test | `tests/method-update-propagation.test.mjs` | `npm run test:project` | verified |
+| REQ-AGENT-006:S1 | test | `tests/agent-mode-router.test.mjs` | `npm run test:project` | verified |
+| REQ-AGENT-006:S2 | test | `tests/agent-mode-router.test.mjs` | `npm run test:project` | verified |
+| REQ-AGENT-006:S3 | guardrail | `scripts/check-agent-protocol.mjs` | `npm run check:agent` | verified |

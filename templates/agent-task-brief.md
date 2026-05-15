@@ -15,7 +15,12 @@ Choose one:
 - [ ] Reverse spec review
 - [ ] Evidence mapping / test bridge
 - [ ] Release audit
+- [ ] Method update / upstream rule propagation
 - [ ] Repository maintenance
+
+Selected mode completion rule:
+
+-
 
 ## Authority
 
@@ -50,6 +55,26 @@ implementation evidence is missing or partial, classify
 | L1 | none / update |
 | L2 | none / update |
 | L3 | none / update |
+
+## Method Update Propagation
+
+Fill this section when applying a newer ILS version, upstream rule, or template
+to an existing project. Governance updates alone are not completion.
+
+| Item | Answer |
+|---|---|
+| Upstream rule/version applied |  |
+| Governance installed | AGENTS / README / guide / template / script / generated |
+| Authoritative spec inventory command or list |  |
+| In-scope specs reviewed |  |
+| Specs excluded and why |  |
+| Specs still pending |  |
+| Residual gap ledger path |  |
+| Completion status | complete / partial |
+
+Do not mark `complete` until every in-scope authoritative spec was inventoried,
+reviewed under the new rule, updated or explicitly excluded, and regenerated
+artifacts/checks have passed.
 
 ## Feature Archetype Packs
 
@@ -126,6 +151,17 @@ Release impact: blocker / non_blocker / proposal_only / not_applicable / unknown
 Generated stubs create work slots. A statement is not verified until the mapped
 test, guardrail, smoke check, or named manual UX/runtime review has executed or
 been recorded.
+
+## Completion Status
+
+Use the selected mode's completion rule from
+`guide/agent-mode-router.md`.
+
+Completion status: complete / partial / blocked / unverified / manual_only
+
+Reason:
+
+-
 
 ## Stop Conditions
 

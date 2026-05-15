@@ -20,6 +20,8 @@ explicit intent, explicit behavior, and explicit verification obligations.
 7. Accepted specs are product standards, not implementation inventories.
    Missing implementation creates an evidence or code gap; it does not weaken
    the standard.
+8. Method updates must reach the feature specs they govern. Governance-file
+   changes alone are not evidence that existing specs were reviewed.
 
 ## Forbidden Shortcuts
 
@@ -34,6 +36,8 @@ explicit intent, explicit behavior, and explicit verification obligations.
 - Do not let GitHub Pages expose every internal template as primary navigation.
 - Do not publish a release while package version, changelog entry, and tag are
   knowingly out of sync.
+- Do not claim a project is "updated to latest" when the authoritative spec
+  inventory has not been reviewed or explicitly scoped.
 
 ## Authority
 
