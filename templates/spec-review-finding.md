@@ -32,7 +32,7 @@ been checked.
 | Target release | current / next / later / unscheduled |  |
 | Release impact | blocker / non_blocker / proposal_only / not_applicable / unknown | Do not mark blocker until code evidence and release scope are known. |
 | Implementation status | unverified / missing / partial / implemented / not_applicable |  |
-| Verification status | not_mapped / mapped / tested / manual_only / blocked |  |
+| Verification status | not_mapped / mapped / traced / verified / manual_only / blocked |  |
 
 ## Evidence
 
@@ -63,3 +63,5 @@ been checked.
 - [ ] Generated stubs are not counted as completed verification.
 - [ ] Real test, guardrail, smoke check, or manual UX evidence references the
       relevant `@Spec(...)` ID.
+- [ ] Verification is marked `verified` only after the command ran or the manual
+      review was recorded with reviewer, date, scope, and artifact.

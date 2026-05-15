@@ -58,7 +58,8 @@ is the part where the AI or the team has been guessing.
 - Does every behavior change have at least one EARS line?
 - Does every feature spec include an `[Unwanted]` case?
 - Does every EARS statement generate a test stub?
-- Does the verification report separate generated-only slots from real traces?
+- Does the verification report separate generated-only slots, non-generated
+  traces, and executed or manually recorded evidence?
 - Does L3 cover idempotency and partial failure when boundaries are crossed?
 - Is generated output clearly marked as output, not source?
 - Is there a verification map?

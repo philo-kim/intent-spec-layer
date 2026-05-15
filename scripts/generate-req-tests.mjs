@@ -462,6 +462,8 @@ function buildRequirementsJson(statements, references) {
       statements: statements.length,
       generatedStubSlots: statements.length,
       verificationMappedStatements: statements.filter((statement) => statement.verificationMapped).length,
+      nonGeneratedSpecReferences: references.length,
+      nonGeneratedTracedStatements: tracedStatements.length,
       realSpecReferences: references.length,
       realTracedStatements: tracedStatements.length,
       pendingGeneratedOnlyStatements: statements.length - tracedStatements.length,
@@ -533,10 +535,12 @@ function buildVerificationReport(statements, references) {
     `| EARS statements | ${statements.length} |`,
     `| Verification-map covered statements | ${statements.filter((statement) => statement.verificationMapped).length} |`,
     `| Generated stub slots | ${statements.length} |`,
-    `| Real @Spec references outside generated artifacts | ${references.length} |`,
-    `| Statements with real @Spec trace | ${tracedStatements.length} |`,
+    `| Non-generated @Spec references outside generated artifacts | ${references.length} |`,
+    `| Statements with non-generated @Spec trace | ${tracedStatements.length} |`,
     `| Pending generated-only statements | ${pendingGeneratedOnly.length} |`,
     `| Code-only @Spec references | ${codeOnlyReferences.length} |`,
+    "",
+    "A non-generated trace is not automatically execution proof. Mark a statement verified only after the referenced test, guardrail, smoke check, or manual review has run or been recorded.",
     "",
     "## Pending Generated-Only Statements",
     "",
@@ -564,7 +568,7 @@ function buildVerificationReport(statements, references) {
     }
   }
 
-  lines.push("", "## Real @Spec References", "");
+  lines.push("", "## Non-Generated @Spec References", "");
   if (references.length === 0) {
     lines.push("None found outside generated artifacts.");
   } else {

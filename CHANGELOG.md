@@ -2,6 +2,42 @@
 
 This project follows the spirit of Keep a Changelog.
 
+## [0.1.9] - 2026-05-15
+
+### Changed
+
+- Strengthened AI-facing entrypoints so implementation from accepted specs now
+  explicitly starts by listing governing statement IDs and planning verification
+  evidence.
+- Added an "Implementation Reflex" to `AGENTS.md` and an "Implementation
+  Verification Reflex" to the agent protocol.
+- Updated the agent task brief and feature spec template so AI agents fill
+  verification obligations before or alongside code changes.
+- Moved the README's first-screen positioning toward the AI-agent verification
+  problem and added a quick local check command.
+- Added a Korean community launch draft for OKKY-style short posts and
+  Velog/blog-style longer posts.
+- Added a GitHub discovery setup note with repository topics and awesome-list
+  submission candidates.
+- Added guardrail phrases that keep the test-creation expectation present in
+  the agent-facing documents.
+
+## [0.1.8] - 2026-05-15
+
+### Changed
+
+- Strengthened the spec-to-test bridge around proof obligations:
+  generated stubs, planned evidence, non-generated traces, and executed
+  verification are now described as separate states.
+- Updated agent guidance so `@Spec(...)` traces are treated as navigation and
+  trace evidence, not final proof unless the associated test, guardrail, smoke
+  check, or manual review has run or been recorded.
+- Updated templates to record evidence target, execution or manual record, and
+  verification status separately.
+- Updated generated verification report language from "real trace" to
+  "non-generated trace" and added an explicit warning that trace is not
+  execution proof.
+
 ## [0.1.7] - 2026-05-15
 
 ### Added

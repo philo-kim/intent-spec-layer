@@ -218,6 +218,23 @@ Do not close a finding because a generated test stub exists. A stub only proves
 that the requirement has a verification slot. It does not prove that the
 behavior exists.
 
+Likewise, do not close a finding only because a non-generated `@Spec(...)`
+reference exists. A trace proves that a code path, test, guardrail, or manual
+note knows about the statement. The finding closes only when the referenced
+evidence has run or been recorded and the result satisfies the statement for
+the reviewed scope.
+
+For each accepted finding, the final handoff should be:
+
+```text
+accepted REQ/S ID
+  -> Verification Map row
+  -> generated stub slot
+  -> non-generated trace where practical
+  -> executed test/guardrail/smoke or named manual evidence
+  -> finding closed
+```
+
 ## Review Cadence
 
 Use the reverse loop:

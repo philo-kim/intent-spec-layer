@@ -25,7 +25,9 @@ verification_status=not_mapped
 ```
 
 Do not use `missing`, `partial`, or `implemented` until code, tests, design
-evidence, runtime behavior, or a named manual review has been checked.
+evidence, runtime behavior, or a named manual review has been checked. Do not
+use `verified` until the mapped test, guardrail, smoke check, or manual review
+has executed or been recorded.
 
 ## Findings
 
@@ -66,4 +68,4 @@ Use this section after code evidence and release scope have both been checked.
 
 | Gap ID | Requirement impact | Verification impact |
 |---|---|---|
-| GAP-XXX-001 | add / modify / keep / remove `REQ-...` | generated stub / unit / integration / guardrail / smoke / manual UX |
+| GAP-XXX-001 | add / modify / keep / remove `REQ-...` | generated stub / mapped / traced / verified / manual_only / blocked |

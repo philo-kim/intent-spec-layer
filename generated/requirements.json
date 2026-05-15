@@ -5,6 +5,8 @@
     "statements": 11,
     "generatedStubSlots": 11,
     "verificationMappedStatements": 11,
+    "nonGeneratedSpecReferences": 0,
+    "nonGeneratedTracedStatements": 0,
     "realSpecReferences": 0,
     "realTracedStatements": 0,
     "pendingGeneratedOnlyStatements": 11,

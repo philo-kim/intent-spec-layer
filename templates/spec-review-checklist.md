@@ -54,9 +54,12 @@
       references.
 - [ ] Real `@Spec(...)` traces use statement IDs for multi-statement
       requirements.
+- [ ] Real `@Spec(...)` traces are treated as trace evidence, not final
+      verification unless the associated command or manual record is present.
 - [ ] Generated skipped tests are replaced or complemented by real tests where practical.
 - [ ] Existing tests or guardrails are linked.
-- [ ] Manual checks are named when automation is not yet practical.
+- [ ] Manual checks are named with reviewer, date, scope, and artifact when
+      automation is not yet practical.
 
 ## Reverse Review
 

@@ -2,6 +2,9 @@
 
 A repository-native specification layer for AI-assisted coding.
 
+Intent Specification Layer helps AI coding agents stop guessing, and stop
+calling work done before behavior is verified.
+
 The core rule is simple:
 
 > `docs/` explains. `spec/` governs.
@@ -18,6 +21,35 @@ It is bidirectional:
 - after implementation, it lets reviewers find missing UX, domain, and failure
   behavior without reading all the code first.
 
+## The Problem It Solves
+
+AI agents can produce plausible code from vague natural language. The dangerous
+failure is not that the code never runs. The dangerous failure is that the code
+runs while unstated intent, edge cases, rollback rules, and verification remain
+implicit.
+
+This layer makes the agent work against explicit obligations:
+
+```text
+intent -> EARS behavior -> REQ/S statement ID -> verification obligation
+       -> generated stub -> non-generated trace -> executed evidence
+```
+
+A generated test stub is not evidence. A code comment is not evidence. The
+behavior is only complete when a real test, guardrail, smoke check, or named
+manual UX/runtime review has run or been recorded.
+
+## Quick Try
+
+```bash
+npm install
+npm run check
+```
+
+The check regenerates and validates requirement artifacts, verifies local links,
+runs agent protocol guardrails, runs generated requirement slots, and executes
+the included method-comparison simulations.
+
 ## What This Is
 
 This repository contains:
@@ -29,8 +61,9 @@ This repository contains:
   evidence;
 - an agent operating protocol that keeps AI agents from confusing intent,
   evidence, review findings, and generated stubs;
-- a REQ-ID and statement-level test-stub bridge that keeps generated
-  placeholders, planned evidence, and real verification separate;
+- a REQ-ID and statement-level verification bridge that turns each intent
+  statement into a proof obligation, while keeping generated placeholders,
+  planned evidence, non-generated traces, and executed verification separate;
 - a worked coupon-order example;
 - two reproducible experiments that compare PRD, BDD, EARS, Domain+EARS, and
   the full spec layer;
@@ -56,10 +89,13 @@ Minimum rule set:
    spec before reading implementation code.
 6. Accepted future behavior belongs in `spec/`; implementation readiness belongs
    in tests, evidence records, or review ledgers.
-7. Every REQ-ID or statement ID should generate a test stub and map to
-   verification, while generated stubs remain clearly marked as pending
+7. Every REQ-ID or statement ID should generate a test stub and map to a
+   verification path, while generated stubs remain clearly marked as pending
    evidence.
-8. Tools consume the source layer; they do not define it.
+8. A statement is not complete because a stub exists or an `@Spec(...)` trace is
+   present. It is complete only when a real test, guardrail, smoke check, or
+   named manual UX review has executed or recorded evidence for that statement.
+9. Tools consume the source layer; they do not define it.
 
 ## Start Here
 
@@ -72,6 +108,8 @@ Minimum rule set:
 - [Naming and structure decision](guide/naming-and-structure.md)
 - [Research notes](research/method-comparison.md)
 - [References](references.md)
+- [GitHub discovery setup](docs/github-discovery.md)
+- [Korean community launch draft](docs/korean-community-launch.md)
 - [Feature spec template](templates/feature-spec.md)
 - [Experience review template](templates/experience-review.md)
 - [Change proposal template](templates/change-proposal.md)
@@ -135,6 +173,15 @@ The distinction:
 
 - SDD tools help execute a workflow.
 - This layer defines and reviews what must remain true.
+
+## For AI Agents
+
+If an AI agent implements accepted behavior from this layer, the default action
+is to create or update verification evidence in the same change. The agent
+should not finish with only generated stubs, planned evidence, or `@Spec(...)`
+breadcrumbs. Those are intermediate states. The implementation is complete only
+when each touched statement is verified, manually recorded, or explicitly left
+blocked with a reason.
 
 ## Status
 

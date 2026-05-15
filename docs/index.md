@@ -10,6 +10,8 @@ Layer.
 - [Adoption playbook](../guide/adoption.md)
 - [Spec review loop](../guide/spec-review-loop.md)
 - [Spec-to-test bridge](../guide/spec-to-test-bridge.md)
+- [GitHub discovery setup](github-discovery.md)
+- [Korean community launch draft](korean-community-launch.md)
 - [Feature spec template](../templates/feature-spec.md)
 - [Experience review template](../templates/experience-review.md)
 - [Change proposal template](../templates/change-proposal.md)

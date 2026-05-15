@@ -57,7 +57,7 @@ Use this section only after implementation evidence is inspected.
 
 | Requirement | Code/test/runtime evidence | Implementation status | Verification status |
 |---|---|---|---|
-| REQ-... | file:line / test / screenshot / manual note | unverified / missing / partial / implemented / not_applicable | not_mapped / mapped / tested / manual_only / blocked |
+| REQ-... | file:line / test / screenshot / manual note | unverified / missing / partial / implemented / not_applicable | not_mapped / mapped / traced / verified / manual_only / blocked |
 
 ## Release Impact
 

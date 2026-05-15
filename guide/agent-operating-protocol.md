@@ -19,7 +19,7 @@ Classify the request before reading implementation code.
 | Mode | Trigger | First move |
 |---|---|---|
 | Spec authoring | New behavior or changed product promise | Write or update L1/L2/L3. |
-| Implementation | Build behavior from accepted spec | Load governing REQ IDs before code. |
+| Implementation | Build behavior from accepted spec | Load governing REQ IDs and write the verification obligation before code. |
 | Reverse review | Flow feels wrong or code already exists | Review spec as user journey first. |
 | Evidence mapping | Tests or CI requested | Map REQ IDs to real tests, guardrails, runtime, or manual evidence. |
 | Release audit | "Ready?", "blocker?", "launch?" | Check authority, release scope, implementation evidence, and core journey impact. |
@@ -105,7 +105,7 @@ If any condition is unknown, the release impact is `unknown`, not `blocker`.
 Generated stubs are required but insufficient.
 
 ```text
-REQ-ID -> statement ID -> generated stub -> real evidence
+REQ-ID -> statement ID -> generated stub -> mapped evidence -> non-generated trace -> executed evidence
 ```
 
 Real evidence can be:
@@ -118,7 +118,56 @@ Real evidence can be:
 
 Use statement IDs such as `REQ-AUTH-004:S1` for multi-statement requirements.
 
-## 7. Agent Report Template
+Do not report a statement as verified only because:
+
+- it appears in the Verification Map;
+- `generated/requirements.test.*` contains a skipped placeholder;
+- a non-generated `@Spec(...)` comment exists.
+
+Those are useful intermediate states. The final state requires an executed test
+or guardrail, a passing smoke check, or a named manual UX/runtime record with
+reviewer, date, scope, and artifact.
+
+When filling a Verification Map or task brief, use this status language:
+
+| Status | Meaning |
+|---|---|
+| `generated_stub` | Placeholder exists; no proof yet. |
+| `mapped` | Intended evidence target is named. |
+| `traced` | Non-generated code, test, guardrail, or manual note references the statement. |
+| `verified` | Evidence ran or was manually recorded and satisfies the statement. |
+| `manual_only` | Manual review is the accepted evidence for this statement. |
+| `blocked` | Evidence path is known but cannot currently run. |
+
+## 7. Implementation Verification Reflex
+
+When the mode is Implementation, tests are not a later cleanup task. Treat each
+touched statement as an obligation that must be closed or explicitly left open.
+
+Before editing application code:
+
+1. Copy the governing `REQ-...` or `REQ-...:Sx` IDs into the task notes.
+2. Mark which statements are already verified and which need new evidence.
+3. Choose the evidence type for each changed statement: unit, integration, API,
+   UI, guardrail, smoke, or manual UX/runtime record.
+4. If no practical verification path exists, mark the statement `blocked` or
+   `manual_only` with a reason before implementation continues.
+
+During implementation:
+
+- write or update the test/guardrail in the same change as the code;
+- include the statement ID in the non-generated test, guardrail, or manual
+  evidence record where practical;
+- keep generated stubs as visible backlog only, never as completion evidence.
+
+Before reporting done:
+
+- run the relevant verification commands;
+- list any touched statement still at `generated_stub`, `mapped`, or `traced`;
+- do not call the implementation complete if an authoritative in-scope statement
+  lacks executed or recorded evidence.
+
+## 8. Agent Report Template
 
 Use this shape in the final report for non-trivial work:
 
@@ -146,5 +195,8 @@ Release impact:
 Verification:
 - Commands:
 - Generated stubs:
+- Mapped evidence:
+- Non-generated traces:
 - Real evidence:
+- Still unverified:
 ```

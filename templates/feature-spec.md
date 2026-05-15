@@ -123,12 +123,22 @@ Rollback/compensation:
 
 ## Verification Map
 
-| Requirement / statement | Verification type | Evidence | Status |
-|---|---|---|---|
-| REQ-XXX-001 or REQ-XXX-001:S1 | generated stub / unit / integration / guardrail / smoke / manual UX |  | pending |
+For AI agents implementing this feature: treat every touched row as work to
+close. Add or update the mapped test, guardrail, smoke check, or manual evidence
+record in the same change as the implementation. A generated stub or unmapped
+row means implementation is not complete.
+
+| Requirement / statement | Verification type | Evidence target | Execution / record | Status |
+|---|---|---|---|---|
+| REQ-XXX-001 or REQ-XXX-001:S1 | generated stub / unit / integration / guardrail / smoke / manual UX | test path, guardrail name, smoke command, or manual review artifact | command/result, reviewer/date, or block reason | generated_stub / mapped / traced / verified / manual_only / blocked |
 
 Generated stubs are placeholders. Do not mark a requirement verified until a
 real test, guardrail, smoke check, or manual UX review records evidence.
+
+Use `mapped` when the evidence target is named but not yet executed. Use
+`traced` when a non-generated `@Spec(...)` reference exists but the command or
+review result is not recorded. Use `verified` only when execution or manual
+evidence satisfies the statement.
 
 ## Drift Notes
 

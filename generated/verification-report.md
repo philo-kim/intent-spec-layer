@@ -12,10 +12,12 @@ Generated stubs are not proof of behavior. They are pending verification slots.
 | EARS statements | 11 |
 | Verification-map covered statements | 11 |
 | Generated stub slots | 11 |
-| Real @Spec references outside generated artifacts | 0 |
-| Statements with real @Spec trace | 0 |
+| Non-generated @Spec references outside generated artifacts | 0 |
+| Statements with non-generated @Spec trace | 0 |
 | Pending generated-only statements | 11 |
 | Code-only @Spec references | 0 |
+
+A non-generated trace is not automatically execution proof. Mark a statement verified only after the referenced test, guardrail, smoke check, or manual review has run or been recorded.
 
 ## Pending Generated-Only Statements
 
@@ -49,6 +51,6 @@ Generated stubs are not proof of behavior. They are pending verification slots.
 | REQ-SESSION-001:S1 | Integration test for successful callback exchange |
 | REQ-SESSION-001:S2 | Integration test for recoverable setup failure |
 
-## Real @Spec References
+## Non-Generated @Spec References
 
 None found outside generated artifacts.

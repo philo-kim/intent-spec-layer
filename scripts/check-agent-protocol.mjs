@@ -20,8 +20,11 @@ const requiredContent = [
       "guide/agent-operating-protocol.md",
       "Accepted future behavior belongs in `spec/`",
       "Generated requirement stubs are trace slots, not validation evidence.",
+      "Do not treat a non-generated `@Spec(...)` trace as final proof",
       "A finding is a release blocker only after authority, target release scope",
       "Common-sense edge cases are valuable",
+      "Implementation Reflex",
+      "If no verification is added for changed behavior",
     ],
   },
   {
@@ -34,6 +37,9 @@ const requiredContent = [
       "Release Blocker Test",
       "Edge-Case Discovery Loop",
       "Generated stubs are required but insufficient.",
+      "non-generated trace -> executed evidence",
+      "Implementation Verification Reflex",
+      "tests are not a later cleanup task",
     ],
   },
   {
@@ -41,9 +47,11 @@ const requiredContent = [
     checks: [
       "Task Mode",
       "Authority",
+      "Implementation Verification Obligation",
       "Edge-Case Prompt",
       "Release Impact",
       "Verification Plan",
+      "command/result, reviewer/date, or block reason",
       "Stop Conditions",
     ],
   },
@@ -54,6 +62,7 @@ const requiredContent = [
       "Target release",
       "Edge-Case Discovery",
       "Generated stubs create trace slots",
+      "command/result, reviewer/date, or block reason",
       "Release Impact",
     ],
   },
@@ -82,6 +91,7 @@ const requiredContent = [
     checks: [
       "Accepted future behavior remains in `spec/`",
       "Common-sense edge cases are marked with an authority basis",
+      "Real `@Spec(...)` traces are treated as trace evidence",
       "No finding is marked `blocker` unless authority",
     ],
   },
@@ -91,6 +101,7 @@ const requiredContent = [
       "[Agent operating rules](AGENTS.md)",
       "[Agent operating protocol](guide/agent-operating-protocol.md)",
       "[Agent task brief template](templates/agent-task-brief.md)",
+      "For AI Agents",
     ],
   },
   {

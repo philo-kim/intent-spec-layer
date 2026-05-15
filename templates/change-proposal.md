@@ -48,9 +48,9 @@ What changed, broke, or became newly understood?
 
 ## Verification
 
-| Requirement / statement | Evidence type | Evidence target |
-|---|---|---|
-| REQ-XXX-001:S1 | generated stub / unit / integration / guardrail / smoke / manual UX |  |
+| Requirement / statement | Evidence type | Evidence target | Execution / record | Status |
+|---|---|---|---|---|
+| REQ-XXX-001:S1 | generated stub / unit / integration / guardrail / smoke / manual UX |  | command/result, reviewer/date, or block reason | generated_stub / mapped / traced / verified / manual_only / blocked |
 
 Generated stubs create trace slots. They are not behavior verification.
 

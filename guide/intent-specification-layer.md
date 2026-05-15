@@ -309,13 +309,14 @@ The bridge is:
 
 ```text
 REQ-ID in spec -> statement ID -> generated manifest -> generated test stub ->
-real verification evidence
+mapped evidence -> non-generated trace -> executed verification evidence
 ```
 
 Generated skipped tests are not proof that the system works. They are visible
 work slots. The final proof is a real implementation test, guardrail, smoke
 check, or manual verification note that references the same REQ-ID or statement
-ID.
+ID and has run or been recorded. A non-generated `@Spec(...)` trace is useful
+for navigation, but it is not enough by itself to mark a statement verified.
 
 Rules:
 
@@ -325,10 +326,11 @@ Rules:
    REQ-ID.
 3. `npm run req:test:generate` updates generated requirement artifacts.
 4. `npm run check:reqs` fails when generated artifacts are missing or stale.
-5. `generated/verification-report.md` separates generated-only slots from real
-   `@Spec(...)` references.
+5. `generated/verification-report.md` separates generated-only slots from
+   non-generated `@Spec(...)` references.
 6. Unknown `@Spec(...)` references fail the generated artifact check.
-7. Review should ask whether each generated stub has a real verification path.
+7. Review should ask whether each generated stub has a mapped evidence path,
+   a non-generated trace where practical, and executed evidence.
 
 ## 13. Spec Review As Defect Discovery
 
@@ -435,7 +437,9 @@ truth must those steps preserve."
     in evidence or review artifacts.
 12. REQ-IDs must generate test stubs and map to verification, but generated
     stubs must not be counted as proof of behavior.
-13. Spec-only gap findings start as implementation-unverified until code
+13. Non-generated `@Spec(...)` traces are evidence links, not final proof,
+    until their associated verification has run or been recorded.
+14. Spec-only gap findings start as implementation-unverified until code
     evidence is reviewed.
-14. The goal is not more documents. The goal is fewer AI guesses and faster
+15. The goal is not more documents. The goal is fewer AI guesses and faster
     discovery of missing intent.

@@ -36,6 +36,9 @@ For a compact workflow after this file, use
    implementation evidence, and core-journey impact are all checked.
 10. Common-sense edge cases are valuable, but they start as candidates until
     their authority basis is clear.
+11. Implementation from accepted spec is not done until each touched statement
+    has real verification evidence or an explicit `blocked` / `manual_only`
+    record.
 
 ## Decision Flow
 
@@ -48,6 +51,22 @@ Before implementing or reviewing, classify the task:
 | Code differs from spec | Check spec authority before deciding spec gap or code gap. |
 | Edge case found | Record authority basis before promoting to binding REQ. |
 | Test/verification work | Map REQ or statement IDs to real evidence, not only generated stubs. |
+
+## Implementation Reflex
+
+When implementing accepted behavior, do this before editing application code:
+
+1. List the governing `REQ-...` or `REQ-...:Sx` IDs.
+2. Identify which statements need new or changed verification.
+3. Decide where the evidence belongs: unit, integration, API, UI, guardrail,
+   smoke, or manual UX/runtime record.
+4. Add or update the test/guardrail together with the code, not after the
+   implementation is "done."
+5. Run the relevant verification and report any statement that remains
+   `generated_stub`, `mapped`, `traced`, `blocked`, or `manual_only`.
+
+If no verification is added for changed behavior, report the behavior as
+unverified. Do not imply completion.
 
 Use this sequence for mismatches:
 
@@ -93,6 +112,8 @@ When reporting work, include these compact sections when relevant:
 - Edge cases considered: accepted, rejected, or still candidate.
 - Release impact: blocker only if the four blocker conditions were checked.
 - Verification: commands run and generated-vs-real evidence status.
+- Unverified statements: any `REQ-...:Sx` still lacking executed or recorded
+  evidence.
 
 ## Do Not
 
@@ -102,5 +123,8 @@ When reporting work, include these compact sections when relevant:
   spec behavior.
 - Do not treat proposal-only requirements as current release blockers.
 - Do not count generated skipped tests as behavior verification.
+- Do not treat a non-generated `@Spec(...)` trace as final proof until the
+  matching test, guardrail, smoke check, or manual review has executed or been
+  recorded.
 - Do not let a plan-mode output become source of truth unless it is merged back
   into `spec/`.
