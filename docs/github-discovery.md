@@ -81,3 +81,9 @@ Shorter variant:
 
 This avoids looking like bulk self-promotion and gives maintainers a clearer
 reason to include the project.
+
+## Submitted PRs
+
+| Repository | PR | Status |
+|---|---|---|
+| `filipecalegario/awesome-vibe-coding` | https://github.com/filipecalegario/awesome-vibe-coding/pull/184 | Opened |
