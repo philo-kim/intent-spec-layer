@@ -4,30 +4,57 @@
 import { test } from "node:test";
 
 test("REQ-AGENT-001:S1 [Ubiquitous] Agent-facing entrypoints shall state that generated stubs are trace slots and not validation evidence.", {
-  skip: "Generated stub from spec/features/agent-operating-protocol/spec.md:36. Verification is still pending.",
+  skip: "Generated stub from spec/features/agent-operating-protocol/spec.md:38. Verification is still pending.",
 }, () => {
   // @Spec(REQ-AGENT-001:S1) generated_stub=true verification_status=pending
-  // Source: spec/features/agent-operating-protocol/spec.md:36
+  // Source: spec/features/agent-operating-protocol/spec.md:38
   // Requirement: REQ-AGENT-001
   // Statement: Agent-facing entrypoints shall state that generated stubs are trace slots and not validation evidence.
 });
 
 test("REQ-AGENT-002:S1 [Event-driven] When an agent implements accepted behavior, the agent protocol shall require the governing statement...", {
-  skip: "Generated stub from spec/features/agent-operating-protocol/spec.md:38. Verification is still pending.",
+  skip: "Generated stub from spec/features/agent-operating-protocol/spec.md:40. Verification is still pending.",
 }, () => {
   // @Spec(REQ-AGENT-002:S1) generated_stub=true verification_status=pending
-  // Source: spec/features/agent-operating-protocol/spec.md:38
+  // Source: spec/features/agent-operating-protocol/spec.md:40
   // Requirement: REQ-AGENT-002
   // Statement: When an agent implements accepted behavior, the agent protocol shall require the governing statement IDs and verification plan before or alongside code changes.
 });
 
 test("REQ-AGENT-003:S1 [Unwanted] If a review finding lacks authority, release scope, implementation evidence, or core-journey impact,...", {
-  skip: "Generated stub from spec/features/agent-operating-protocol/spec.md:41. Verification is still pending.",
+  skip: "Generated stub from spec/features/agent-operating-protocol/spec.md:43. Verification is still pending.",
 }, () => {
   // @Spec(REQ-AGENT-003:S1) generated_stub=true verification_status=pending
-  // Source: spec/features/agent-operating-protocol/spec.md:41
+  // Source: spec/features/agent-operating-protocol/spec.md:43
   // Requirement: REQ-AGENT-003
   // Statement: If a review finding lacks authority, release scope, implementation evidence, or core-journey impact, then agent-facing guidance shall not classify it as a release blocker.
+});
+
+test("REQ-AGENT-004:S1 [Ubiquitous] Agent-facing guidance shall state that accepted specs are product standards, not implementation...", {
+  skip: "Generated stub from spec/features/agent-operating-protocol/spec.md:46. Verification is still pending.",
+}, () => {
+  // @Spec(REQ-AGENT-004:S1) generated_stub=true verification_status=pending
+  // Source: spec/features/agent-operating-protocol/spec.md:46
+  // Requirement: REQ-AGENT-004
+  // Statement: Agent-facing guidance shall state that accepted specs are product standards, not implementation inventories.
+});
+
+test("REQ-AGENT-004:S2 [Unwanted] If reviewed implementation lacks accepted spec behavior, then agent-facing guidance shall keep the...", {
+  skip: "Generated stub from spec/features/agent-operating-protocol/spec.md:48. Verification is still pending.",
+}, () => {
+  // @Spec(REQ-AGENT-004:S2) generated_stub=true verification_status=pending
+  // Source: spec/features/agent-operating-protocol/spec.md:48
+  // Requirement: REQ-AGENT-004
+  // Statement: If reviewed implementation lacks accepted spec behavior, then agent-facing guidance shall keep the spec and classify an evidence gap instead of downgrading the requirement.
+});
+
+test("REQ-AGENT-004:S3 [Event-driven] When spec and code disagree, the agent protocol shall use the gap taxonomy: `missing_implementation`,...", {
+  skip: "Generated stub from spec/features/agent-operating-protocol/spec.md:51. Verification is still pending.",
+}, () => {
+  // @Spec(REQ-AGENT-004:S3) generated_stub=true verification_status=pending
+  // Source: spec/features/agent-operating-protocol/spec.md:51
+  // Requirement: REQ-AGENT-004
+  // Statement: When spec and code disagree, the agent protocol shall use the gap taxonomy: `missing_implementation`, `partial_implementation`, `missing_test`, `wrong_spec`, `wrong_code`, and `decision_gap`.
 });
 
 test("REQ-AUTHOR-001:S1 [Ubiquitous] Agent-facing guides and templates shall require feature archetype packs before implementation so...", {

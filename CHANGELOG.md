@@ -2,6 +2,25 @@
 
 This project follows the spirit of Keep a Changelog.
 
+## [0.2.2] - 2026-05-15
+
+### Added
+
+- Added the `Spec As Product Standard` guide so agents treat accepted specs as
+  product standards, not current-code summaries.
+- Added an implementation gap taxonomy:
+  `missing_implementation`, `partial_implementation`, `missing_edge_case`,
+  `missing_test`, `wrong_spec`, `wrong_code`, and `decision_gap`.
+- Added project-level agent protocol requirements and tests for the
+  do-not-downgrade rule.
+
+### Changed
+
+- Updated README, AGENTS, review loop, authoring guide, and templates so missing
+  implementation is recorded in evidence/review artifacts instead of weakening
+  authoritative L1/L2/L3 specs.
+- Updated GitHub Pages navigation to expose the spec-as-standard guidance.
+
 ## [0.2.1] - 2026-05-15
 
 ### Added

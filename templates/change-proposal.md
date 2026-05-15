@@ -20,6 +20,11 @@ What changed, broke, or became newly understood?
 
 ## Proposed Spec Changes
 
+Do not use this proposal to downgrade accepted specs merely because current
+implementation is incomplete. Use `Removed` only when the requirement itself is
+`wrong_spec`: unauthoritative, stale, out of scope, or contradicted by stronger
+authority.
+
 ### Added
 
 -

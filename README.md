@@ -60,6 +60,8 @@ This repository contains:
 - a spec review loop for finding product and code gaps from the spec itself;
 - a review ledger pattern that keeps spec-only findings separate from code
   evidence;
+- a spec-as-product-standard rule that prevents agents from weakening accepted
+  requirements just because implementation is missing;
 - an agent operating protocol that keeps AI agents from confusing intent,
   evidence, review findings, and generated stubs;
 - feature archetype packs that force predictable edge cases into review before
@@ -92,24 +94,37 @@ Minimum rule set:
    spec before reading implementation code.
 6. Accepted future behavior belongs in `spec/`; implementation readiness belongs
    in tests, evidence records, or review ledgers.
-7. Every REQ-ID or statement ID should generate a test stub and map to a
+7. Do not downgrade accepted specs to match incomplete code. If code is
+   missing, record an implementation or evidence gap and keep the standard
+   visible.
+8. Every REQ-ID or statement ID should generate a test stub and map to a
    verification path, while generated stubs remain clearly marked as pending
    evidence.
-8. A statement is not complete because a stub exists or an `@Spec(...)` trace is
+9. A statement is not complete because a stub exists or an `@Spec(...)` trace is
    present. It is complete only when a real test, guardrail, smoke check, or
    named manual UX review has executed or recorded evidence for that statement.
-9. Tools consume the source layer; they do not define it.
-10. Use feature archetype packs to force common-sense edge-case discovery before
+10. Tools consume the source layer; they do not define it.
+11. Use feature archetype packs to force common-sense edge-case discovery before
     implementation. Async work, source ingestion, external AI, approval,
     payment, auth, deletion, and external integration each have predictable
     failure surfaces.
-11. If a user provides valid input and automation fails, the system must
+12. If a user provides valid input and automation fails, the system must
     preserve that input and provide a recoverable draft, still-processing state,
     retry path, or actionable error. Do not collapse valid input into an empty
     manual-only fallback.
-12. Customer-visible work that can outlive the generic API timeout needs an
+13. Customer-visible work that can outlive the generic API timeout needs an
     explicit latency contract: synchronous, endpoint-specific long request,
     polling, background job, or streaming.
+
+## Standard, Not Snapshot
+
+ILS specs are product and system standards, not implementation inventories.
+When accepted spec and current code disagree, keep the accepted spec and record
+an implementation or evidence gap. Do not downgrade accepted specs to match
+incomplete code.
+
+Use [Spec as product standard](guide/spec-as-product-standard.md) when an AI
+agent is unsure whether to update the spec, code, tests, or review ledger.
 
 ## Start Here
 
@@ -117,6 +132,7 @@ Minimum rule set:
 - [Project specs](spec/README.md)
 - [Agent operating protocol](guide/agent-operating-protocol.md)
 - [Guide](guide/intent-specification-layer.md)
+- [Spec as product standard](guide/spec-as-product-standard.md)
 - [Spec authoring quality](guide/spec-authoring-quality.md)
 - [Adoption playbook](guide/adoption.md)
 - [Spec review loop](guide/spec-review-loop.md)
@@ -198,6 +214,11 @@ should not finish with only generated stubs, planned evidence, or `@Spec(...)`
 breadcrumbs. Those are intermediate states. The implementation is complete only
 when each touched statement is verified, manually recorded, or explicitly left
 blocked with a reason.
+
+If implementation evidence shows a behavior is missing, the agent should not
+weaken the accepted spec. It should classify the mismatch as
+`missing_implementation`, `partial_implementation`, `missing_test`, or
+`wrong_code`, then update code and evidence or record the blocker.
 
 ## Status
 

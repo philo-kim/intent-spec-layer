@@ -27,6 +27,18 @@ This section records product and system intent. Do not record implementation
 readiness here. Use the Verification Map, evidence records, or `spec/reviews/`
 for `missing`, `partial`, `implemented`, or `blocked` status.
 
+### Normative Boundary
+
+This spec defines the expected product and system behavior. If current code
+lacks an accepted requirement, do not downgrade accepted specs to match
+incomplete code. Record `missing_implementation`, `partial_implementation`,
+`missing_test`, or `wrong_code` in the Verification Map or review ledger, then
+fix implementation and evidence.
+
+Only weaken or remove a requirement when the requirement itself is
+`wrong_spec`: unauthoritative, stale, out of scope, sample-imported without
+approval, or contradicted by stronger L0/L1/platform authority.
+
 ## Authority Sources
 
 - Product authority:
@@ -188,6 +200,16 @@ Use this section only for small unresolved findings. Use `spec/reviews/` and
 the review ledger template for multi-finding audits or implementation-readiness
 work. Accepted behavior must move into L1/L2/L3; implementation status must
 stay in evidence or review artifacts.
+
+### Implementation Gap Handling
+
+| Evidence result | Label | Spec action | Evidence / code action |
+|---|---|---|---|
+| Accepted behavior has no code | `missing_implementation` | keep | implement and verify |
+| Accepted behavior is only partly covered | `partial_implementation` | keep or clarify | complete branches and verify |
+| Code exists but no executed proof exists | `missing_test` | keep | add/run evidence |
+| Code contradicts authoritative spec | `wrong_code` | keep | fix code and tests |
+| Requirement lacks authority | `wrong_spec` | modify / demote / remove | wait for decision |
 
 | Finding | Class | Authority basis | Spec status | Implementation status | Verification status | Resolution |
 |---|---|---|---|---|---|---|

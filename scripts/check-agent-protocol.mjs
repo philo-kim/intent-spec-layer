@@ -7,6 +7,7 @@ const root = process.cwd();
 const requiredFiles = [
   "AGENTS.md",
   "guide/agent-operating-protocol.md",
+  "guide/spec-as-product-standard.md",
   "templates/agent-task-brief.md",
   "README.md",
   "index.md",
@@ -20,7 +21,9 @@ const requiredContent = [
     // @Spec(REQ-AGENT-002:S1) verification_status=verified
     checks: [
       "guide/agent-operating-protocol.md",
+      "guide/spec-as-product-standard.md",
       "Accepted future behavior belongs in `spec/`",
+      "Do not downgrade accepted specs",
       "Generated requirement stubs are trace slots, not validation evidence.",
       "Do not treat a non-generated `@Spec(...)` trace as final proof",
       "A finding is a release blocker only after authority, target release scope",
@@ -35,11 +38,17 @@ const requiredContent = [
   {
     file: "guide/agent-operating-protocol.md",
     // @Spec(REQ-AGENT-003:S1) verification_status=verified
+    // @Spec(REQ-AGENT-004:S1, REQ-AGENT-004:S2, REQ-AGENT-004:S3) verification_status=verified
     checks: [
       "spec = authoritative intent",
       "evidence = implementation proof",
       "ledger = review and readiness trail",
       "generated = trace scaffolding",
+      "Spec Standard Reflex",
+      "Do not downgrade accepted specs",
+      "missing_implementation",
+      "wrong_spec",
+      "wrong_code",
       "Release Blocker Test",
       "Edge-Case Discovery Loop",
       "feature archetype packs",
@@ -52,10 +61,30 @@ const requiredContent = [
     ],
   },
   {
+    file: "guide/spec-as-product-standard.md",
+    // @Spec(REQ-AGENT-004:S1, REQ-AGENT-004:S2, REQ-AGENT-004:S3) verification_status=verified
+    checks: [
+      "Spec As Product Standard",
+      "not implementation inventories",
+      "Do not downgrade accepted specs",
+      "implementation or evidence gap",
+      "missing_implementation",
+      "partial_implementation",
+      "missing_test",
+      "wrong_spec",
+      "wrong_code",
+      "decision_gap",
+    ],
+  },
+  {
     file: "templates/agent-task-brief.md",
+    // @Spec(REQ-AGENT-004:S2, REQ-AGENT-004:S3) verification_status=verified
     checks: [
       "Task Mode",
       "Authority",
+      "Standard / Evidence Boundary",
+      "Do Not Downgrade",
+      "missing_implementation",
       "Implementation Verification Obligation",
       "Edge-Case Prompt",
       "Feature Archetype Packs",
@@ -91,9 +120,14 @@ const requiredContent = [
   },
   {
     file: "templates/review-ledger.md",
+    // @Spec(REQ-AGENT-004:S2, REQ-AGENT-004:S3) verification_status=verified
     checks: [
       "Authority basis",
       "Release impact",
+      "Gap Taxonomy",
+      "missing_implementation",
+      "wrong_spec",
+      "wrong_code",
       "edge_case_gap",
       "Edge-Case Candidates",
       "Release Impact Pass",
@@ -103,6 +137,7 @@ const requiredContent = [
     file: "templates/spec-review-checklist.md",
     checks: [
       "Accepted future behavior remains in `spec/`",
+      "Do not downgrade accepted specs",
       "Common-sense edge cases are marked with an authority basis",
       "feature archetype packs",
       "empty manual-only fallback",

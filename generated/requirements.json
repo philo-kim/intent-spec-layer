@@ -1,14 +1,14 @@
 {
   "generatedBy": "scripts/generate-req-tests.mjs",
   "totals": {
-    "requirements": 32,
-    "statements": 33,
-    "generatedStubSlots": 33,
-    "verificationMappedStatements": 33,
-    "nonGeneratedSpecReferences": 33,
-    "nonGeneratedTracedStatements": 21,
-    "realSpecReferences": 33,
-    "realTracedStatements": 21,
+    "requirements": 33,
+    "statements": 36,
+    "generatedStubSlots": 36,
+    "verificationMappedStatements": 36,
+    "nonGeneratedSpecReferences": 51,
+    "nonGeneratedTracedStatements": 24,
+    "realSpecReferences": 51,
+    "realTracedStatements": 24,
     "pendingGeneratedOnlyStatements": 12,
     "codeOnlyReferences": 0
   },
@@ -17,7 +17,7 @@
       "id": "REQ-AGENT-001",
       "title": "Agent-facing entrypoints shall state that generated stubs are trace slots and not validation evidence.",
       "source": "spec/features/agent-operating-protocol/spec.md",
-      "line": 36,
+      "line": 38,
       "statements": [
         {
           "requirementId": "REQ-AGENT-001",
@@ -25,7 +25,7 @@
           "pattern": "Ubiquitous",
           "text": "Agent-facing entrypoints shall state that generated stubs are trace slots and not validation evidence.",
           "source": "spec/features/agent-operating-protocol/spec.md",
-          "line": 36,
+          "line": 38,
           "style": "inline",
           "statementIndex": 1,
           "statementId": "REQ-AGENT-001:S1",
@@ -41,7 +41,7 @@
       "id": "REQ-AGENT-002",
       "title": "When an agent implements accepted behavior, the agent protocol shall require the governing statement IDs and verification plan before or alongside code changes.",
       "source": "spec/features/agent-operating-protocol/spec.md",
-      "line": 38,
+      "line": 40,
       "statements": [
         {
           "requirementId": "REQ-AGENT-002",
@@ -49,7 +49,7 @@
           "pattern": "Event-driven",
           "text": "When an agent implements accepted behavior, the agent protocol shall require the governing statement IDs and verification plan before or alongside code changes.",
           "source": "spec/features/agent-operating-protocol/spec.md",
-          "line": 38,
+          "line": 40,
           "style": "inline",
           "statementIndex": 1,
           "statementId": "REQ-AGENT-002:S1",
@@ -65,7 +65,7 @@
       "id": "REQ-AGENT-003",
       "title": "If a review finding lacks authority, release scope, implementation evidence, or core-journey impact, then agent-facing guidance shall not classify it as a release blocker.",
       "source": "spec/features/agent-operating-protocol/spec.md",
-      "line": 41,
+      "line": 43,
       "statements": [
         {
           "requirementId": "REQ-AGENT-003",
@@ -73,11 +73,67 @@
           "pattern": "Unwanted",
           "text": "If a review finding lacks authority, release scope, implementation evidence, or core-journey impact, then agent-facing guidance shall not classify it as a release blocker.",
           "source": "spec/features/agent-operating-protocol/spec.md",
-          "line": 41,
+          "line": 43,
           "style": "inline",
           "statementIndex": 1,
           "statementId": "REQ-AGENT-003:S1",
           "statementCount": 1,
+          "verificationMapped": true,
+          "plannedVerification": "guardrail | `scripts/check-agent-protocol.mjs` | `npm run check:agent` | verified",
+          "generatedStub": true,
+          "verificationStatus": "pending"
+        }
+      ]
+    },
+    {
+      "id": "REQ-AGENT-004",
+      "title": "Agent-facing guidance shall state that accepted specs are product standards, not implementation inventories.",
+      "source": "spec/features/agent-operating-protocol/spec.md",
+      "line": 46,
+      "statements": [
+        {
+          "requirementId": "REQ-AGENT-004",
+          "title": "Agent-facing guidance shall state that accepted specs are product standards, not implementation inventories.",
+          "pattern": "Ubiquitous",
+          "text": "Agent-facing guidance shall state that accepted specs are product standards, not implementation inventories.",
+          "source": "spec/features/agent-operating-protocol/spec.md",
+          "line": 46,
+          "style": "inline",
+          "statementIndex": 1,
+          "statementId": "REQ-AGENT-004:S1",
+          "statementCount": 3,
+          "verificationMapped": true,
+          "plannedVerification": "guardrail | `scripts/check-agent-protocol.mjs` | `npm run check:agent` | verified",
+          "generatedStub": true,
+          "verificationStatus": "pending"
+        },
+        {
+          "requirementId": "REQ-AGENT-004",
+          "title": "If reviewed implementation lacks accepted spec behavior, then agent-facing guidance shall keep the spec and classify an evidence gap instead of downgrading the requirement.",
+          "pattern": "Unwanted",
+          "text": "If reviewed implementation lacks accepted spec behavior, then agent-facing guidance shall keep the spec and classify an evidence gap instead of downgrading the requirement.",
+          "source": "spec/features/agent-operating-protocol/spec.md",
+          "line": 48,
+          "style": "inline",
+          "statementIndex": 2,
+          "statementId": "REQ-AGENT-004:S2",
+          "statementCount": 3,
+          "verificationMapped": true,
+          "plannedVerification": "guardrail | `scripts/check-agent-protocol.mjs` | `npm run check:agent` | verified",
+          "generatedStub": true,
+          "verificationStatus": "pending"
+        },
+        {
+          "requirementId": "REQ-AGENT-004",
+          "title": "When spec and code disagree, the agent protocol shall use the gap taxonomy: `missing_implementation`, `partial_implementation`, `missing_test`, `wrong_spec`, `wrong_code`, and `decision_gap`.",
+          "pattern": "Event-driven",
+          "text": "When spec and code disagree, the agent protocol shall use the gap taxonomy: `missing_implementation`, `partial_implementation`, `missing_test`, `wrong_spec`, `wrong_code`, and `decision_gap`.",
+          "source": "spec/features/agent-operating-protocol/spec.md",
+          "line": 51,
+          "style": "inline",
+          "statementIndex": 3,
+          "statementId": "REQ-AGENT-004:S3",
+          "statementCount": 3,
           "verificationMapped": true,
           "plannedVerification": "guardrail | `scripts/check-agent-protocol.mjs` | `npm run check:agent` | verified",
           "generatedStub": true,
@@ -805,7 +861,7 @@
       "pattern": "Ubiquitous",
       "text": "Agent-facing entrypoints shall state that generated stubs are trace slots and not validation evidence.",
       "source": "spec/features/agent-operating-protocol/spec.md",
-      "line": 36,
+      "line": 38,
       "style": "inline",
       "statementIndex": 1,
       "statementId": "REQ-AGENT-001:S1",
@@ -821,7 +877,7 @@
       "pattern": "Event-driven",
       "text": "When an agent implements accepted behavior, the agent protocol shall require the governing statement IDs and verification plan before or alongside code changes.",
       "source": "spec/features/agent-operating-protocol/spec.md",
-      "line": 38,
+      "line": 40,
       "style": "inline",
       "statementIndex": 1,
       "statementId": "REQ-AGENT-002:S1",
@@ -837,11 +893,59 @@
       "pattern": "Unwanted",
       "text": "If a review finding lacks authority, release scope, implementation evidence, or core-journey impact, then agent-facing guidance shall not classify it as a release blocker.",
       "source": "spec/features/agent-operating-protocol/spec.md",
-      "line": 41,
+      "line": 43,
       "style": "inline",
       "statementIndex": 1,
       "statementId": "REQ-AGENT-003:S1",
       "statementCount": 1,
+      "verificationMapped": true,
+      "plannedVerification": "guardrail | `scripts/check-agent-protocol.mjs` | `npm run check:agent` | verified",
+      "generatedStub": true,
+      "verificationStatus": "pending"
+    },
+    {
+      "requirementId": "REQ-AGENT-004",
+      "title": "Agent-facing guidance shall state that accepted specs are product standards, not implementation inventories.",
+      "pattern": "Ubiquitous",
+      "text": "Agent-facing guidance shall state that accepted specs are product standards, not implementation inventories.",
+      "source": "spec/features/agent-operating-protocol/spec.md",
+      "line": 46,
+      "style": "inline",
+      "statementIndex": 1,
+      "statementId": "REQ-AGENT-004:S1",
+      "statementCount": 3,
+      "verificationMapped": true,
+      "plannedVerification": "guardrail | `scripts/check-agent-protocol.mjs` | `npm run check:agent` | verified",
+      "generatedStub": true,
+      "verificationStatus": "pending"
+    },
+    {
+      "requirementId": "REQ-AGENT-004",
+      "title": "If reviewed implementation lacks accepted spec behavior, then agent-facing guidance shall keep the spec and classify an evidence gap instead of downgrading the requirement.",
+      "pattern": "Unwanted",
+      "text": "If reviewed implementation lacks accepted spec behavior, then agent-facing guidance shall keep the spec and classify an evidence gap instead of downgrading the requirement.",
+      "source": "spec/features/agent-operating-protocol/spec.md",
+      "line": 48,
+      "style": "inline",
+      "statementIndex": 2,
+      "statementId": "REQ-AGENT-004:S2",
+      "statementCount": 3,
+      "verificationMapped": true,
+      "plannedVerification": "guardrail | `scripts/check-agent-protocol.mjs` | `npm run check:agent` | verified",
+      "generatedStub": true,
+      "verificationStatus": "pending"
+    },
+    {
+      "requirementId": "REQ-AGENT-004",
+      "title": "When spec and code disagree, the agent protocol shall use the gap taxonomy: `missing_implementation`, `partial_implementation`, `missing_test`, `wrong_spec`, `wrong_code`, and `decision_gap`.",
+      "pattern": "Event-driven",
+      "text": "When spec and code disagree, the agent protocol shall use the gap taxonomy: `missing_implementation`, `partial_implementation`, `missing_test`, `wrong_spec`, `wrong_code`, and `decision_gap`.",
+      "source": "spec/features/agent-operating-protocol/spec.md",
+      "line": 51,
+      "style": "inline",
+      "statementIndex": 3,
+      "statementId": "REQ-AGENT-004:S3",
+      "statementCount": 3,
       "verificationMapped": true,
       "plannedVerification": "guardrail | `scripts/check-agent-protocol.mjs` | `npm run check:agent` | verified",
       "generatedStub": true,
@@ -1332,47 +1436,137 @@
     {
       "id": "REQ-AGENT-001:S1",
       "source": "scripts/check-agent-protocol.mjs",
-      "line": 19
+      "line": 20
     },
     {
       "id": "REQ-AGENT-002:S1",
       "source": "scripts/check-agent-protocol.mjs",
-      "line": 20
+      "line": 21
     },
     {
       "id": "REQ-AGENT-003:S1",
       "source": "scripts/check-agent-protocol.mjs",
+      "line": 40
+    },
+    {
+      "id": "REQ-AGENT-004:S1",
+      "source": "scripts/check-agent-protocol.mjs",
+      "line": 41
+    },
+    {
+      "id": "REQ-AGENT-004:S1",
+      "source": "scripts/check-agent-protocol.mjs",
+      "line": 65
+    },
+    {
+      "id": "REQ-AGENT-004:S1",
+      "source": "scripts/check-spec-authoring.mjs",
+      "line": 15
+    },
+    {
+      "id": "REQ-AGENT-004:S1",
+      "source": "tests/spec-authoring-quality.test.mjs",
+      "line": 23
+    },
+    {
+      "id": "REQ-AGENT-004:S2",
+      "source": "scripts/check-agent-protocol.mjs",
+      "line": 41
+    },
+    {
+      "id": "REQ-AGENT-004:S2",
+      "source": "scripts/check-agent-protocol.mjs",
+      "line": 65
+    },
+    {
+      "id": "REQ-AGENT-004:S2",
+      "source": "scripts/check-agent-protocol.mjs",
+      "line": 81
+    },
+    {
+      "id": "REQ-AGENT-004:S2",
+      "source": "scripts/check-agent-protocol.mjs",
+      "line": 123
+    },
+    {
+      "id": "REQ-AGENT-004:S2",
+      "source": "scripts/check-spec-authoring.mjs",
+      "line": 15
+    },
+    {
+      "id": "REQ-AGENT-004:S2",
+      "source": "tests/spec-authoring-quality.test.mjs",
+      "line": 23
+    },
+    {
+      "id": "REQ-AGENT-004:S2",
+      "source": "tests/spec-authoring-quality.test.mjs",
+      "line": 47
+    },
+    {
+      "id": "REQ-AGENT-004:S3",
+      "source": "scripts/check-agent-protocol.mjs",
+      "line": 41
+    },
+    {
+      "id": "REQ-AGENT-004:S3",
+      "source": "scripts/check-agent-protocol.mjs",
+      "line": 65
+    },
+    {
+      "id": "REQ-AGENT-004:S3",
+      "source": "scripts/check-agent-protocol.mjs",
+      "line": 81
+    },
+    {
+      "id": "REQ-AGENT-004:S3",
+      "source": "scripts/check-agent-protocol.mjs",
+      "line": 123
+    },
+    {
+      "id": "REQ-AGENT-004:S3",
+      "source": "scripts/check-spec-authoring.mjs",
+      "line": 15
+    },
+    {
+      "id": "REQ-AGENT-004:S3",
+      "source": "tests/spec-authoring-quality.test.mjs",
+      "line": 23
+    },
+    {
+      "id": "REQ-AGENT-004:S3",
+      "source": "tests/spec-authoring-quality.test.mjs",
+      "line": 47
+    },
+    {
+      "id": "REQ-AUTHOR-001:S1",
+      "source": "scripts/check-spec-authoring.mjs",
+      "line": 31
+    },
+    {
+      "id": "REQ-AUTHOR-001:S1",
+      "source": "scripts/check-spec-authoring.mjs",
+      "line": 45
+    },
+    {
+      "id": "REQ-AUTHOR-001:S1",
+      "source": "tests/spec-authoring-quality.test.mjs",
+      "line": 13
+    },
+    {
+      "id": "REQ-AUTHOR-001:S1",
+      "source": "tests/spec-authoring-quality.test.mjs",
       "line": 37
     },
     {
-      "id": "REQ-AUTHOR-001:S1",
+      "id": "REQ-AUTHOR-002:S1",
       "source": "scripts/check-spec-authoring.mjs",
-      "line": 15
-    },
-    {
-      "id": "REQ-AUTHOR-001:S1",
-      "source": "scripts/check-spec-authoring.mjs",
-      "line": 27
-    },
-    {
-      "id": "REQ-AUTHOR-001:S1",
-      "source": "tests/spec-authoring-quality.test.mjs",
-      "line": 13
-    },
-    {
-      "id": "REQ-AUTHOR-001:S1",
-      "source": "tests/spec-authoring-quality.test.mjs",
-      "line": 23
+      "line": 31
     },
     {
       "id": "REQ-AUTHOR-002:S1",
       "source": "scripts/check-spec-authoring.mjs",
-      "line": 15
-    },
-    {
-      "id": "REQ-AUTHOR-002:S1",
-      "source": "scripts/check-spec-authoring.mjs",
-      "line": 27
+      "line": 45
     },
     {
       "id": "REQ-AUTHOR-002:S1",
@@ -1382,17 +1576,17 @@
     {
       "id": "REQ-AUTHOR-002:S1",
       "source": "tests/spec-authoring-quality.test.mjs",
-      "line": 23
+      "line": 37
     },
     {
       "id": "REQ-AUTHOR-003:S1",
       "source": "scripts/check-spec-authoring.mjs",
-      "line": 15
+      "line": 31
     },
     {
       "id": "REQ-AUTHOR-003:S1",
       "source": "scripts/check-spec-authoring.mjs",
-      "line": 27
+      "line": 45
     },
     {
       "id": "REQ-AUTHOR-003:S1",
@@ -1402,32 +1596,32 @@
     {
       "id": "REQ-AUTHOR-003:S1",
       "source": "tests/spec-authoring-quality.test.mjs",
-      "line": 23
+      "line": 37
     },
     {
       "id": "REQ-AUTHOR-004:S1",
       "source": "scripts/check-spec-authoring.mjs",
-      "line": 15
+      "line": 31
     },
     {
       "id": "REQ-AUTHOR-004:S1",
       "source": "scripts/check-spec-authoring.mjs",
-      "line": 39
+      "line": 61
     },
     {
       "id": "REQ-AUTHOR-004:S1",
       "source": "tests/spec-authoring-quality.test.mjs",
-      "line": 23
+      "line": 37
     },
     {
       "id": "REQ-AUTHOR-005:S1",
       "source": "scripts/check-spec-authoring.mjs",
-      "line": 59
+      "line": 84
     },
     {
       "id": "REQ-AUTHOR-005:S1",
       "source": "tests/spec-authoring-quality.test.mjs",
-      "line": 33
+      "line": 62
     },
     {
       "id": "REQ-BRIDGE-001:S1",

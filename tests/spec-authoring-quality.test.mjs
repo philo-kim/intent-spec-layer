@@ -19,6 +19,20 @@ test("authoring guide exposes archetype packs and recovery rules", () => {
   assert.match(guide, /empty\s+manual-only fallback/u);
 });
 
+test("standard guide prevents code-summary downgrade", () => {
+  // @Spec(REQ-AGENT-004:S1, REQ-AGENT-004:S2, REQ-AGENT-004:S3) verification_status=verified
+  const guide = read("guide/spec-as-product-standard.md");
+
+  assert.match(guide, /Spec As Product Standard/u);
+  assert.match(guide, /not implementation inventories/u);
+  assert.match(guide, /Do not downgrade accepted specs/u);
+  assert.match(guide, /missing_implementation/u);
+  assert.match(guide, /partial_implementation/u);
+  assert.match(guide, /missing_test/u);
+  assert.match(guide, /wrong_spec/u);
+  assert.match(guide, /wrong_code/u);
+});
+
 test("feature template forces archetype, latency, and valid-input review", () => {
   // @Spec(REQ-AUTHOR-001:S1, REQ-AUTHOR-002:S1, REQ-AUTHOR-003:S1, REQ-AUTHOR-004:S1) verification_status=verified
   const template = read("templates/feature-spec.md");
@@ -27,6 +41,21 @@ test("feature template forces archetype, latency, and valid-input review", () =>
   assert.match(template, /### Latency \/ Processing Contract/u);
   assert.match(template, /### Valid Input Failure Rule/u);
   assert.match(template, /under-decomposition|valid input failure|empty manual fallback/iu);
+});
+
+test("agent templates preserve standard and evidence boundary", () => {
+  // @Spec(REQ-AGENT-004:S2, REQ-AGENT-004:S3) verification_status=verified
+  const taskBrief = read("templates/agent-task-brief.md");
+  const ledger = read("templates/review-ledger.md");
+  const finding = read("templates/spec-review-finding.md");
+
+  assert.match(taskBrief, /Standard \/ Evidence Boundary/u);
+  assert.match(taskBrief, /Do Not Downgrade/u);
+  assert.match(ledger, /Gap Taxonomy/u);
+  assert.match(ledger, /missing_implementation/u);
+  assert.match(ledger, /wrong_code/u);
+  assert.match(finding, /Implementation Gap Label/u);
+  assert.match(finding, /Use `remove` only for `wrong_spec`/u);
 });
 
 test("authoring guardrail is part of the repository check suite", () => {

@@ -8,12 +8,12 @@ Generated stubs are not proof of behavior. They are pending verification slots.
 
 | Metric | Count |
 |---|---:|
-| Requirements | 32 |
-| EARS statements | 33 |
-| Verification-map covered statements | 33 |
-| Generated stub slots | 33 |
-| Non-generated @Spec references outside generated artifacts | 33 |
-| Statements with non-generated @Spec trace | 21 |
+| Requirements | 33 |
+| EARS statements | 36 |
+| Verification-map covered statements | 36 |
+| Generated stub slots | 36 |
+| Non-generated @Spec references outside generated artifacts | 51 |
+| Statements with non-generated @Spec trace | 24 |
 | Pending generated-only statements | 12 |
 | Code-only @Spec references | 0 |
 
@@ -43,6 +43,9 @@ A non-generated trace is not automatically execution proof. Mark a statement ver
 | REQ-AGENT-001:S1 | guardrail \| `scripts/check-agent-protocol.mjs` \| `npm run check:agent` \| verified |
 | REQ-AGENT-002:S1 | guardrail \| `scripts/check-agent-protocol.mjs` \| `npm run check:agent` \| verified |
 | REQ-AGENT-003:S1 | guardrail \| `scripts/check-agent-protocol.mjs` \| `npm run check:agent` \| verified |
+| REQ-AGENT-004:S1 | guardrail \| `scripts/check-agent-protocol.mjs` \| `npm run check:agent` \| verified |
+| REQ-AGENT-004:S2 | guardrail \| `scripts/check-agent-protocol.mjs` \| `npm run check:agent` \| verified |
+| REQ-AGENT-004:S3 | guardrail \| `scripts/check-agent-protocol.mjs` \| `npm run check:agent` \| verified |
 | REQ-AUTHOR-001:S1 | guardrail \| `scripts/check-spec-authoring.mjs` \| `npm run check:authoring` \| verified |
 | REQ-AUTHOR-002:S1 | guardrail \| `scripts/check-spec-authoring.mjs` \| `npm run check:authoring` \| verified |
 | REQ-AUTHOR-003:S1 | guardrail \| `scripts/check-spec-authoring.mjs` \| `npm run check:authoring` \| verified |
@@ -78,26 +81,44 @@ A non-generated trace is not automatically execution proof. Mark a statement ver
 
 | Reference | Source |
 |---|---|
-| REQ-AGENT-001:S1 | scripts/check-agent-protocol.mjs:19 |
-| REQ-AGENT-002:S1 | scripts/check-agent-protocol.mjs:20 |
-| REQ-AGENT-003:S1 | scripts/check-agent-protocol.mjs:37 |
-| REQ-AUTHOR-001:S1 | scripts/check-spec-authoring.mjs:15 |
-| REQ-AUTHOR-001:S1 | scripts/check-spec-authoring.mjs:27 |
+| REQ-AGENT-001:S1 | scripts/check-agent-protocol.mjs:20 |
+| REQ-AGENT-002:S1 | scripts/check-agent-protocol.mjs:21 |
+| REQ-AGENT-003:S1 | scripts/check-agent-protocol.mjs:40 |
+| REQ-AGENT-004:S1 | scripts/check-agent-protocol.mjs:41 |
+| REQ-AGENT-004:S1 | scripts/check-agent-protocol.mjs:65 |
+| REQ-AGENT-004:S1 | scripts/check-spec-authoring.mjs:15 |
+| REQ-AGENT-004:S1 | tests/spec-authoring-quality.test.mjs:23 |
+| REQ-AGENT-004:S2 | scripts/check-agent-protocol.mjs:41 |
+| REQ-AGENT-004:S2 | scripts/check-agent-protocol.mjs:65 |
+| REQ-AGENT-004:S2 | scripts/check-agent-protocol.mjs:81 |
+| REQ-AGENT-004:S2 | scripts/check-agent-protocol.mjs:123 |
+| REQ-AGENT-004:S2 | scripts/check-spec-authoring.mjs:15 |
+| REQ-AGENT-004:S2 | tests/spec-authoring-quality.test.mjs:23 |
+| REQ-AGENT-004:S2 | tests/spec-authoring-quality.test.mjs:47 |
+| REQ-AGENT-004:S3 | scripts/check-agent-protocol.mjs:41 |
+| REQ-AGENT-004:S3 | scripts/check-agent-protocol.mjs:65 |
+| REQ-AGENT-004:S3 | scripts/check-agent-protocol.mjs:81 |
+| REQ-AGENT-004:S3 | scripts/check-agent-protocol.mjs:123 |
+| REQ-AGENT-004:S3 | scripts/check-spec-authoring.mjs:15 |
+| REQ-AGENT-004:S3 | tests/spec-authoring-quality.test.mjs:23 |
+| REQ-AGENT-004:S3 | tests/spec-authoring-quality.test.mjs:47 |
+| REQ-AUTHOR-001:S1 | scripts/check-spec-authoring.mjs:31 |
+| REQ-AUTHOR-001:S1 | scripts/check-spec-authoring.mjs:45 |
 | REQ-AUTHOR-001:S1 | tests/spec-authoring-quality.test.mjs:13 |
-| REQ-AUTHOR-001:S1 | tests/spec-authoring-quality.test.mjs:23 |
-| REQ-AUTHOR-002:S1 | scripts/check-spec-authoring.mjs:15 |
-| REQ-AUTHOR-002:S1 | scripts/check-spec-authoring.mjs:27 |
+| REQ-AUTHOR-001:S1 | tests/spec-authoring-quality.test.mjs:37 |
+| REQ-AUTHOR-002:S1 | scripts/check-spec-authoring.mjs:31 |
+| REQ-AUTHOR-002:S1 | scripts/check-spec-authoring.mjs:45 |
 | REQ-AUTHOR-002:S1 | tests/spec-authoring-quality.test.mjs:13 |
-| REQ-AUTHOR-002:S1 | tests/spec-authoring-quality.test.mjs:23 |
-| REQ-AUTHOR-003:S1 | scripts/check-spec-authoring.mjs:15 |
-| REQ-AUTHOR-003:S1 | scripts/check-spec-authoring.mjs:27 |
+| REQ-AUTHOR-002:S1 | tests/spec-authoring-quality.test.mjs:37 |
+| REQ-AUTHOR-003:S1 | scripts/check-spec-authoring.mjs:31 |
+| REQ-AUTHOR-003:S1 | scripts/check-spec-authoring.mjs:45 |
 | REQ-AUTHOR-003:S1 | tests/spec-authoring-quality.test.mjs:13 |
-| REQ-AUTHOR-003:S1 | tests/spec-authoring-quality.test.mjs:23 |
-| REQ-AUTHOR-004:S1 | scripts/check-spec-authoring.mjs:15 |
-| REQ-AUTHOR-004:S1 | scripts/check-spec-authoring.mjs:39 |
-| REQ-AUTHOR-004:S1 | tests/spec-authoring-quality.test.mjs:23 |
-| REQ-AUTHOR-005:S1 | scripts/check-spec-authoring.mjs:59 |
-| REQ-AUTHOR-005:S1 | tests/spec-authoring-quality.test.mjs:33 |
+| REQ-AUTHOR-003:S1 | tests/spec-authoring-quality.test.mjs:37 |
+| REQ-AUTHOR-004:S1 | scripts/check-spec-authoring.mjs:31 |
+| REQ-AUTHOR-004:S1 | scripts/check-spec-authoring.mjs:61 |
+| REQ-AUTHOR-004:S1 | tests/spec-authoring-quality.test.mjs:37 |
+| REQ-AUTHOR-005:S1 | scripts/check-spec-authoring.mjs:84 |
+| REQ-AUTHOR-005:S1 | tests/spec-authoring-quality.test.mjs:62 |
 | REQ-BRIDGE-001:S1 | scripts/generate-req-tests.mjs:611 |
 | REQ-BRIDGE-002:S1 | tests/spec-bridge.test.mjs:13 |
 | REQ-BRIDGE-003:S1 | scripts/generate-req-tests.mjs:612 |

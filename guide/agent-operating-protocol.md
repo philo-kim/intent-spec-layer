@@ -12,6 +12,27 @@ ledger = review and readiness trail
 generated = trace scaffolding
 ```
 
+## 0. Spec Standard Reflex
+
+Before comparing code to a requirement, treat accepted L1/L2/L3 specs as the
+product standard, not a snapshot of current implementation.
+
+Do not downgrade accepted specs to match incomplete code. If reviewed
+implementation evidence does not satisfy an accepted requirement, keep the spec
+and classify the mismatch as an evidence gap:
+
+| Evidence result | Classification |
+|---|---|
+| No implementation found | `missing_implementation` |
+| Some branches implemented, others absent | `partial_implementation` |
+| Behavior appears in code but no executed proof exists | `missing_test` |
+| Code contradicts authoritative in-scope spec | `wrong_code` |
+| Spec lacks authority or conflicts with stronger authority | `wrong_spec` |
+| Correct behavior is unknowable | `decision_gap` |
+
+Only update the spec downward when the standard itself is wrong, unauthoritative,
+out of scope, stale, or contradicted by stronger L0/L1/platform authority.
+
 ## 1. Start With The Task Mode
 
 Classify the request before reading implementation code.
@@ -60,6 +81,11 @@ Only then classify:
 | Both gap | Neither spec nor code handles a real journey, state, failure, or recovery path. |
 | Edge-case gap | A likely edge case was found but needs authority before becoming binding. |
 | Decision gap | Correct behavior is not knowable from current authority. |
+
+For implementation audits, prefer the sharper taxonomy from
+[Spec As Product Standard](spec-as-product-standard.md):
+`missing_implementation`, `partial_implementation`, `missing_edge_case`,
+`missing_test`, `wrong_spec`, `wrong_code`, or `decision_gap`.
 
 ## 4. Edge-Case Discovery Loop
 

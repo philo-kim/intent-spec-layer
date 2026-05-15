@@ -19,6 +19,26 @@ Choose one:
       it becomes binding.
 - [ ] Decision gap: product authority is missing; implementation should wait.
 
+## Implementation Gap Label
+
+Use this only after code, tests, design evidence, runtime behavior, or named
+manual evidence has been checked. Do not downgrade accepted specs to match
+incomplete code.
+
+Choose one when applicable:
+
+- [ ] `missing_implementation`: accepted spec exists; reviewed code has no
+      implementation.
+- [ ] `partial_implementation`: accepted spec exists; reviewed code covers only
+      part of it.
+- [ ] `missing_test`: code appears to implement behavior, but no executed proof
+      exists.
+- [ ] `wrong_code`: authoritative spec is in scope and reviewed code
+      contradicts it.
+- [ ] `wrong_spec`: spec lacks authority, is stale, or conflicts with stronger
+      authority.
+- [ ] `decision_gap`: correct behavior is not knowable from current authority.
+
 ## Status
 
 Use `unverified` until code, tests, design evidence, or runtime behavior has
@@ -47,6 +67,9 @@ been checked.
 | Requirement or statement | Action |
 |---|---|
 | REQ-XXX-001 / REQ-XXX-001:S1 | add / modify / keep / remove |
+
+If implementation is behind accepted spec, the usual action is `keep` the
+requirement and fix code/evidence. Use `remove` only for `wrong_spec`.
 
 ## Resolution Plan
 

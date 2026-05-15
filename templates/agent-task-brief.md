@@ -27,6 +27,21 @@ Choose one:
 | L1 domain term or state |  |
 | Proposal or sample import to re-authorize |  |
 
+## Standard / Evidence Boundary
+
+Before reviewing code, state the boundary:
+
+| Check | Answer |
+|---|---|
+| Is the relevant spec accepted as the product/system standard? | yes / no / unknown |
+| If code is missing, will the spec remain unchanged? | yes / no / needs decision |
+| Where will implementation status be recorded? | Verification Map / review ledger / release tracker |
+
+Do Not Downgrade: do not downgrade accepted specs to match incomplete code. If
+implementation evidence is missing or partial, classify
+`missing_implementation`, `partial_implementation`, `missing_test`, or
+`wrong_code`, then fix code/evidence or record the blocker.
+
 ## Layer Impact
 
 | Layer | Impact |

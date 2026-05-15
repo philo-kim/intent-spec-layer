@@ -17,11 +17,17 @@ explicit intent, explicit behavior, and explicit verification obligations.
 6. Spec authoring must make predictable failure surfaces visible before
    implementation, especially valid-input automation failure and
    customer-visible latency.
+7. Accepted specs are product standards, not implementation inventories.
+   Missing implementation creates an evidence or code gap; it does not weaken
+   the standard.
 
 ## Forbidden Shortcuts
 
 - Do not remove accepted behavior from `spec/` because implementation is not
   finished.
+- Do not downgrade accepted specs to match incomplete code; use review ledgers
+  and evidence records for `missing_implementation`, `partial_implementation`,
+  `missing_test`, and `wrong_code`.
 - Do not label generated requirement stubs as verified.
 - Do not treat a non-generated `@Spec(...)` trace as executed evidence unless
   the associated command or record is named and run.

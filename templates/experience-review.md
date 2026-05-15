@@ -24,6 +24,11 @@ release_impact=unknown
 Move to implementation status only after code, tests, design evidence, runtime
 behavior, or a named manual review has been checked.
 
+Do not downgrade accepted specs to match incomplete code. If implementation
+evidence is missing or partial, keep the requirement and classify the evidence
+gap as `missing_implementation`, `partial_implementation`, `missing_test`, or
+`wrong_code`.
+
 ## Spec-Only Journey Reconstruction
 
 Describe the user journey using only the spec, not the code.

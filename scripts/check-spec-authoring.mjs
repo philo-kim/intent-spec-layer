@@ -11,6 +11,22 @@ const earsMarkerPattern = /^\*\*\[([A-Za-z-]+)\]\*\*/u;
 
 const requiredContent = [
   {
+    file: "guide/spec-as-product-standard.md",
+    // @Spec(REQ-AGENT-004:S1, REQ-AGENT-004:S2, REQ-AGENT-004:S3) verification_status=verified
+    checks: [
+      "Spec As Product Standard",
+      "not implementation inventories",
+      "Do not downgrade accepted specs",
+      "implementation or evidence gap",
+      "missing_implementation",
+      "partial_implementation",
+      "missing_test",
+      "wrong_spec",
+      "wrong_code",
+      "decision_gap",
+    ],
+  },
+  {
     file: "guide/spec-authoring-quality.md",
     // @Spec(REQ-AUTHOR-001:S1, REQ-AUTHOR-002:S1, REQ-AUTHOR-003:S1, REQ-AUTHOR-004:S1) verification_status=verified
     checks: [
@@ -18,6 +34,8 @@ const requiredContent = [
       "Valid Input Failure Rule",
       "Latency / Processing Contract",
       "Under-Decomposition Warning",
+      "Spec Is A Standard, Not A Code Summary",
+      "missing_implementation",
       "empty manual-only fallback",
       "generic API timeout",
     ],
@@ -27,6 +45,10 @@ const requiredContent = [
     // @Spec(REQ-AUTHOR-001:S1, REQ-AUTHOR-002:S1, REQ-AUTHOR-003:S1) verification_status=verified
     checks: [
       "## Feature Archetype Packs",
+      "### Normative Boundary",
+      "Implementation Gap Handling",
+      "missing_implementation",
+      "wrong_spec",
       "### Latency / Processing Contract",
       "### Valid Input Failure Rule",
       "empty manual-only fallback",
@@ -43,11 +65,14 @@ const requiredContent = [
       "Valid input failure",
       "empty manual-only fallback",
       "under-decomposition",
+      "Do not downgrade accepted specs",
     ],
   },
   {
     file: "templates/agent-task-brief.md",
     checks: [
+      "Standard / Evidence Boundary",
+      "Do Not Downgrade",
       "Feature Archetype Packs",
       "Latency And Valid Input Failure",
       "valid input + automation failure",
@@ -62,12 +87,15 @@ const requiredContent = [
       "Valid input failure",
       "latency contract",
       "empty manual-only fallback",
+      "Do not downgrade accepted specs",
     ],
   },
   {
     file: "README.md",
     checks: [
+      "[Spec as product standard](guide/spec-as-product-standard.md)",
       "[Spec authoring quality](guide/spec-authoring-quality.md)",
+      "Do not downgrade accepted specs",
       "feature archetype packs",
       "empty manual-only fallback",
       "explicit latency contract",
@@ -77,6 +105,9 @@ const requiredContent = [
     file: "guide/spec-review-loop.md",
     checks: [
       "Archetype-Based Review",
+      "Gap Ledger, Not Spec Downgrade",
+      "missing_implementation",
+      "wrong_spec",
       "Latency Contract Review",
       "Valid Input Failure Review",
       "empty manual-only fallback",
@@ -198,4 +229,3 @@ if (warnings.length > 0) {
 }
 
 console.log("Spec authoring guardrails OK.");
-

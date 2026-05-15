@@ -17,6 +17,19 @@ feature intent -> archetype prompts -> EARS statements -> latency/recovery
 contract -> verification obligation
 ```
 
+## Spec Is A Standard, Not A Code Summary
+
+Authoring quality includes keeping the spec at the level of product standard.
+Do not write a weak spec just because implementation is not ready. If the
+behavior is accepted, put it in L1/L2/L3 and let the Verification Map or review
+ledger carry `missing_implementation`, `partial_implementation`, `missing_test`,
+or `blocked` status.
+
+Likewise, do not promote every common-sense idea directly into a requirement.
+First identify its authority basis: L0 value, L1 invariant, product decision,
+platform rule, common UX expectation, or sample import. Once accepted, the
+edge case remains in the spec even if code has not caught up.
+
 ## Feature Archetype Packs
 
 Most edge cases are not random. They cluster by feature type. Select every pack

@@ -29,11 +29,27 @@ evidence, runtime behavior, or a named manual review has been checked. Do not
 use `verified` until the mapped test, guardrail, smoke check, or manual review
 has executed or been recorded.
 
+Accepted specs are standards, not implementation snapshots. Do not downgrade
+accepted specs to match incomplete code. If evidence shows implementation is
+behind the standard, keep the requirement and classify the gap here.
+
+## Gap Taxonomy
+
+| Label | Use when | Spec action | Evidence / code action |
+|---|---|---|---|
+| `missing_implementation` | Accepted spec exists; reviewed code has no implementation. | keep | implement and verify |
+| `partial_implementation` | Accepted spec exists; reviewed code covers only part. | keep or clarify | complete and verify |
+| `missing_edge_case` | A plausible edge case needs authority before becoming binding. | add after acceptance | implement after acceptance |
+| `missing_test` | Code appears to implement behavior but no executed proof exists. | keep | add or run evidence |
+| `wrong_spec` | Spec lacks authority, is stale, or conflicts with stronger authority. | modify / demote / remove | do not force code until resolved |
+| `wrong_code` | Authoritative spec is in scope and reviewed code contradicts it. | keep | fix code and tests |
+| `decision_gap` | Correct behavior is not knowable from current authority. | record decision needed | wait or scaffold reversibly |
+
 ## Findings
 
 | Gap ID | Type | Authority status | Authority basis | Target release | Release impact | Spec evidence | User/operator/system risk | Spec action | Spec status | Implementation status | Verification status | Code-review target | Resolution |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| GAP-XXX-001 | intent_gap / experience_gap / contract_gap / edge_case_gap / verification_gap / method_gap | proposal / adopted / active / stale / unknown | L0 / L1 invariant / product decision / platform rule / common UX expectation / sample import | current / next / later / unscheduled | blocker / non_blocker / proposal_only / not_applicable / unknown |  |  |  | needs_refinement | unverified | not_mapped |  |  |
+| GAP-XXX-001 | intent_gap / experience_gap / contract_gap / edge_case_gap / verification_gap / method_gap / missing_implementation / partial_implementation / missing_test / wrong_spec / wrong_code / decision_gap | proposal / adopted / active / stale / unknown | L0 / L1 invariant / product decision / platform rule / common UX expectation / sample import | current / next / later / unscheduled | blocker / non_blocker / proposal_only / not_applicable / unknown |  |  |  | needs_refinement | unverified | not_mapped |  |  |
 
 Release impact must not be guessed from spec text alone. Mark `blocker` only
 after authority, target release, implementation evidence, and core-journey

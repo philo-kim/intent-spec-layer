@@ -9,10 +9,11 @@ Read in this order before making decisions:
 1. `AGENTS.md`
 2. `README.md`
 3. `guide/agent-operating-protocol.md`
-4. `guide/intent-specification-layer.md`
-5. `guide/spec-review-loop.md`
-6. `guide/spec-to-test-bridge.md`
-7. The relevant template or example for the task
+4. `guide/spec-as-product-standard.md`
+5. `guide/intent-specification-layer.md`
+6. `guide/spec-review-loop.md`
+7. `guide/spec-to-test-bridge.md`
+8. The relevant template or example for the task
 
 For a compact workflow after this file, use
 `guide/agent-operating-protocol.md`.
@@ -28,25 +29,28 @@ For a compact workflow after this file, use
    pending.
 6. Implementation readiness belongs in tests, evidence records, review ledgers,
    or release trackers, not in normative L1/L2/L3 behavior.
-7. Generated requirement stubs are trace slots, not validation evidence.
-8. A spec-only review may find candidate gaps, but it must not label code
+7. Do not downgrade accepted specs to match incomplete code. If reviewed code
+   lacks accepted behavior, keep the spec and classify an implementation or
+   evidence gap.
+8. Generated requirement stubs are trace slots, not validation evidence.
+9. A spec-only review may find candidate gaps, but it must not label code
    `missing`, `partial`, or `implemented` until code, test, runtime, design, or
    manual evidence is checked.
-9. A finding is a release blocker only after authority, target release scope,
+10. A finding is a release blocker only after authority, target release scope,
    implementation evidence, and core-journey impact are all checked.
-10. Common-sense edge cases are valuable, but they start as candidates until
+11. Common-sense edge cases are valuable, but they start as candidates until
     their authority basis is clear.
-11. Implementation from accepted spec is not done until each touched statement
+12. Implementation from accepted spec is not done until each touched statement
     has real verification evidence or an explicit `blocked` / `manual_only`
     record.
-12. Feature archetype packs are required prompts, not optional inspiration.
+13. Feature archetype packs are required prompts, not optional inspiration.
     Async work, source ingestion, external AI, approval, payment, auth,
     deletion, and external integration each have predictable failure surfaces.
-13. Valid input failure must be handled explicitly. If a user provides valid
+14. Valid input failure must be handled explicitly. If a user provides valid
     input and automation fails, preserve the input and provide a recoverable
     draft, still-processing state, retry path, or actionable error rather than
     an empty manual-only fallback.
-14. Customer-visible work that can outlive the generic API timeout needs a
+15. Customer-visible work that can outlive the generic API timeout needs a
     latency contract: synchronous, endpoint-specific long request, polling,
     background job, or streaming.
 
@@ -59,6 +63,7 @@ Before implementing or reviewing, classify the task:
 | New behavior | Create or update L2; add L1/L3 when required. |
 | Existing behavior feels wrong | Run reverse spec review before code changes. |
 | Code differs from spec | Check spec authority before deciding spec gap or code gap. |
+| Code lacks accepted spec behavior | Keep the spec; record `missing_implementation`, `partial_implementation`, `missing_test`, or `wrong_code` after evidence review. |
 | Edge case found | Record authority basis before promoting to binding REQ. |
 | Test/verification work | Map REQ or statement IDs to real evidence, not only generated stubs. |
 
@@ -103,7 +108,7 @@ Use this sequence for mismatches:
 authority check
   -> target release check
   -> evidence check
-  -> classify spec gap / code gap / both gap / decision gap / edge-case gap
+  -> classify wrong_spec / wrong_code / missing_implementation / partial_implementation / missing_test / decision gap / edge-case gap
   -> update spec, code, and verification in that order
 ```
 
@@ -151,6 +156,8 @@ When reporting work, include these compact sections when relevant:
 
 - Do not remove accepted behavior from `spec/` only because current code lacks
   it.
+- Do not downgrade accepted specs to match incomplete code; use the evidence
+  gap taxonomy from `guide/spec-as-product-standard.md`.
 - Do not put `missing`, `partial`, `ready`, or `implemented` into normative
   spec behavior.
 - Do not treat proposal-only requirements as current release blockers.

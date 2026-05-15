@@ -6,6 +6,9 @@
 - [ ] Generated artifacts are not treated as the source of intent.
 - [ ] Accepted future behavior remains in `spec/` even if implementation is
       pending.
+- [ ] Do not downgrade accepted specs to match incomplete code; record
+      `missing_implementation`, `partial_implementation`, `missing_test`, or
+      `wrong_code` in evidence/review artifacts instead.
 - [ ] Implementation readiness words (`missing`, `partial`, `ready`,
       `implemented`) are not written into normative L1/L2/L3 behavior.
 - [ ] Target release or scope is identified before any finding is called a
@@ -86,6 +89,9 @@
 - [ ] Spec-only findings start as `implementation_status=unverified`.
 - [ ] No finding is marked `missing`, `partial`, or `implemented` without code,
       test, design, runtime, or manual evidence.
+- [ ] If authoritative in-scope spec is ahead of implementation, the finding
+      keeps the requirement and uses the gap taxonomy rather than weakening the
+      spec.
 - [ ] No finding is marked `blocker` unless authority, target release,
       implementation evidence, and core-journey impact have all been checked.
 - [ ] Accepted findings are moved into authoritative L1/L2/L3 specs before or

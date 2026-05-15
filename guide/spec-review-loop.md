@@ -81,6 +81,34 @@ When spec and code disagree, decide in this order:
 Do not weaken an accepted future spec just to match current code. Do not label a
 current code path wrong until the spec's authority has been checked.
 
+## Gap Ledger, Not Spec Downgrade
+
+When the code is behind an accepted spec, the repair path is evidence and
+implementation work, not weakening the standard:
+
+```text
+accepted spec
+  -> reviewed implementation evidence
+  -> gap taxonomy
+  -> code/test/evidence fix
+  -> finding closed
+```
+
+Use [Spec As Product Standard](spec-as-product-standard.md) for the detailed
+taxonomy:
+
+| Evidence result | Initial label |
+|---|---|
+| Accepted behavior has no implementation | `missing_implementation` |
+| Accepted behavior is only partly implemented | `partial_implementation` |
+| Code appears to work but no executed proof exists | `missing_test` |
+| Code contradicts authoritative spec | `wrong_code` |
+| Spec lacks authority or imported an old sample blindly | `wrong_spec` |
+| Behavior needs product authority | `decision_gap` |
+
+The review ledger is where the messy current state lives. L1/L2/L3 should stay
+readable as the intended product and system behavior.
+
 ## Release Blocker Decision
 
 A finding is a release blocker only when all of these are true:
