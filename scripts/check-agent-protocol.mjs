@@ -16,6 +16,8 @@ const requiredFiles = [
 const requiredContent = [
   {
     file: "AGENTS.md",
+    // @Spec(REQ-AGENT-001:S1) verification_status=verified
+    // @Spec(REQ-AGENT-002:S1) verification_status=verified
     checks: [
       "guide/agent-operating-protocol.md",
       "Accepted future behavior belongs in `spec/`",
@@ -29,6 +31,7 @@ const requiredContent = [
   },
   {
     file: "guide/agent-operating-protocol.md",
+    // @Spec(REQ-AGENT-003:S1) verification_status=verified
     checks: [
       "spec = authoritative intent",
       "evidence = implementation proof",

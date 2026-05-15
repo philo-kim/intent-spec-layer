@@ -54,6 +54,7 @@ the included method-comparison simulations.
 
 This repository contains:
 
+- an authoritative `spec/` folder that dogfoods the method for this project;
 - a practical guide to the L0-L3 spec model;
 - reusable templates for project constitutions and feature specs;
 - a spec review loop for finding product and code gaps from the spec itself;
@@ -100,6 +101,7 @@ Minimum rule set:
 ## Start Here
 
 - [Agent operating rules](AGENTS.md)
+- [Project specs](spec/README.md)
 - [Agent operating protocol](guide/agent-operating-protocol.md)
 - [Guide](guide/intent-specification-layer.md)
 - [Adoption playbook](guide/adoption.md)
@@ -135,9 +137,9 @@ docs/
   narrative documentation, design notes, research, history
 ```
 
-Use a global structure when the product has one unified domain. Use a feature
-structure when different domain slices have different authorities, change
-cadences, or failure modes.
+This repository now uses that shape for itself. Use a global structure when the
+product has one unified domain. Use a feature structure when different domain
+slices have different authorities, change cadences, or failure modes.
 
 ## Evidence
 

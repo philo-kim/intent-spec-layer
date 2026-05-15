@@ -8,13 +8,13 @@ Generated stubs are not proof of behavior. They are pending verification slots.
 
 | Metric | Count |
 |---|---:|
-| Requirements | 10 |
-| EARS statements | 11 |
-| Verification-map covered statements | 11 |
-| Generated stub slots | 11 |
-| Non-generated @Spec references outside generated artifacts | 0 |
-| Statements with non-generated @Spec trace | 0 |
-| Pending generated-only statements | 11 |
+| Requirements | 26 |
+| EARS statements | 27 |
+| Verification-map covered statements | 27 |
+| Generated stub slots | 27 |
+| Non-generated @Spec references outside generated artifacts | 15 |
+| Statements with non-generated @Spec trace | 15 |
+| Pending generated-only statements | 12 |
 | Code-only @Spec references | 0 |
 
 A non-generated trace is not automatically execution proof. Mark a statement verified only after the referenced test, guardrail, smoke check, or manual review has run or been recorded.
@@ -32,6 +32,7 @@ A non-generated trace is not automatically execution proof. Mark a statement ver
 | REQ-COUPON-007:S1 | Unwanted | examples/coupon-order-system/spec.md:62 |
 | REQ-COUPON-008:S1 | Unwanted | examples/coupon-order-system/spec.md:64 |
 | REQ-COUPON-009:S1 | Optional | examples/coupon-order-system/spec.md:66 |
+| REQ-REL-003:S1 | Event-driven | spec/features/release-and-versioning/spec.md:40 |
 | REQ-SESSION-001:S1 | Event-driven | examples/account-session-heading-style/spec.md:44 |
 | REQ-SESSION-001:S2 | Unwanted | examples/account-session-heading-style/spec.md:48 |
 
@@ -39,6 +40,13 @@ A non-generated trace is not automatically execution proof. Mark a statement ver
 
 | Statement | Planned evidence |
 |---|---|
+| REQ-AGENT-001:S1 | guardrail \| `scripts/check-agent-protocol.mjs` \| `npm run check:agent` \| verified |
+| REQ-AGENT-002:S1 | guardrail \| `scripts/check-agent-protocol.mjs` \| `npm run check:agent` \| verified |
+| REQ-AGENT-003:S1 | guardrail \| `scripts/check-agent-protocol.mjs` \| `npm run check:agent` \| verified |
+| REQ-BRIDGE-001:S1 | guardrail \| `npm run check:reqs` \| `npm run check` \| verified |
+| REQ-BRIDGE-002:S1 | test \| `tests/spec-bridge.test.mjs` \| `npm run test:project` \| verified |
+| REQ-BRIDGE-003:S1 | guardrail \| `npm run check:reqs` \| `npm run check` \| verified |
+| REQ-BRIDGE-004:S1 | test \| `tests/spec-bridge.test.mjs` \| `npm run test:project` \| verified |
 | REQ-COUPON-001:S1 | Simulation T03 |
 | REQ-COUPON-002:S1 | Simulation T02, T09, T10 |
 | REQ-COUPON-003:S1 | Simulation T08 |
@@ -48,9 +56,34 @@ A non-generated trace is not automatically execution proof. Mark a statement ver
 | REQ-COUPON-007:S1 | Simulation T06 |
 | REQ-COUPON-008:S1 | Simulation T07 |
 | REQ-COUPON-009:S1 | Generated requirement stub; premium entitlement adapter test |
+| REQ-DISC-001:S1 | test \| `tests/public-discovery.test.mjs` \| `npm run test:project` \| verified |
+| REQ-DISC-002:S1 | test \| `tests/public-discovery.test.mjs` \| `npm run test:project` \| verified |
+| REQ-DISC-003:S1 | test \| `tests/public-discovery.test.mjs` \| `npm run test:project` \| verified |
+| REQ-GOV-001:S1 | guardrail \| `tests/spec-governance.test.mjs` \| `npm run test:project` \| verified |
+| REQ-GOV-002:S1 | guardrail \| `tests/spec-governance.test.mjs` \| `npm run test:project` \| verified |
+| REQ-GOV-003:S1 | guardrail \| `npm run check:reqs` \| `npm run check` \| verified |
+| REQ-REL-001:S1 | test \| `tests/release-versioning.test.mjs` \| `npm run test:project` \| verified |
+| REQ-REL-002:S1 | test \| `tests/release-versioning.test.mjs` \| `npm run test:project` \| verified |
+| REQ-REL-003:S1 | manual release guardrail \| release checklist in this spec \| tag and release command after `npm run check` \| mapped |
 | REQ-SESSION-001:S1 | Integration test for successful callback exchange |
 | REQ-SESSION-001:S2 | Integration test for recoverable setup failure |
 
 ## Non-Generated @Spec References
 
-None found outside generated artifacts.
+| Reference | Source |
+|---|---|
+| REQ-AGENT-001:S1 | scripts/check-agent-protocol.mjs:19 |
+| REQ-AGENT-002:S1 | scripts/check-agent-protocol.mjs:20 |
+| REQ-AGENT-003:S1 | scripts/check-agent-protocol.mjs:34 |
+| REQ-BRIDGE-001:S1 | scripts/generate-req-tests.mjs:611 |
+| REQ-BRIDGE-002:S1 | tests/spec-bridge.test.mjs:13 |
+| REQ-BRIDGE-003:S1 | scripts/generate-req-tests.mjs:612 |
+| REQ-BRIDGE-004:S1 | tests/spec-bridge.test.mjs:22 |
+| REQ-DISC-001:S1 | tests/public-discovery.test.mjs:28 |
+| REQ-DISC-002:S1 | tests/public-discovery.test.mjs:43 |
+| REQ-DISC-003:S1 | tests/public-discovery.test.mjs:54 |
+| REQ-GOV-001:S1 | tests/spec-governance.test.mjs:28 |
+| REQ-GOV-002:S1 | tests/spec-governance.test.mjs:50 |
+| REQ-GOV-003:S1 | scripts/generate-req-tests.mjs:613 |
+| REQ-REL-001:S1 | tests/release-versioning.test.mjs:13 |
+| REQ-REL-002:S1 | tests/release-versioning.test.mjs:23 |

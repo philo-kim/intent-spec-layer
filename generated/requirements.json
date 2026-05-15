@@ -1,18 +1,186 @@
 {
   "generatedBy": "scripts/generate-req-tests.mjs",
   "totals": {
-    "requirements": 10,
-    "statements": 11,
-    "generatedStubSlots": 11,
-    "verificationMappedStatements": 11,
-    "nonGeneratedSpecReferences": 0,
-    "nonGeneratedTracedStatements": 0,
-    "realSpecReferences": 0,
-    "realTracedStatements": 0,
-    "pendingGeneratedOnlyStatements": 11,
+    "requirements": 26,
+    "statements": 27,
+    "generatedStubSlots": 27,
+    "verificationMappedStatements": 27,
+    "nonGeneratedSpecReferences": 15,
+    "nonGeneratedTracedStatements": 15,
+    "realSpecReferences": 15,
+    "realTracedStatements": 15,
+    "pendingGeneratedOnlyStatements": 12,
     "codeOnlyReferences": 0
   },
   "requirements": [
+    {
+      "id": "REQ-AGENT-001",
+      "title": "Agent-facing entrypoints shall state that generated stubs are trace slots and not validation evidence.",
+      "source": "spec/features/agent-operating-protocol/spec.md",
+      "line": 36,
+      "statements": [
+        {
+          "requirementId": "REQ-AGENT-001",
+          "title": "Agent-facing entrypoints shall state that generated stubs are trace slots and not validation evidence.",
+          "pattern": "Ubiquitous",
+          "text": "Agent-facing entrypoints shall state that generated stubs are trace slots and not validation evidence.",
+          "source": "spec/features/agent-operating-protocol/spec.md",
+          "line": 36,
+          "style": "inline",
+          "statementIndex": 1,
+          "statementId": "REQ-AGENT-001:S1",
+          "statementCount": 1,
+          "verificationMapped": true,
+          "plannedVerification": "guardrail | `scripts/check-agent-protocol.mjs` | `npm run check:agent` | verified",
+          "generatedStub": true,
+          "verificationStatus": "pending"
+        }
+      ]
+    },
+    {
+      "id": "REQ-AGENT-002",
+      "title": "When an agent implements accepted behavior, the agent protocol shall require the governing statement IDs and verification plan before or alongside code changes.",
+      "source": "spec/features/agent-operating-protocol/spec.md",
+      "line": 38,
+      "statements": [
+        {
+          "requirementId": "REQ-AGENT-002",
+          "title": "When an agent implements accepted behavior, the agent protocol shall require the governing statement IDs and verification plan before or alongside code changes.",
+          "pattern": "Event-driven",
+          "text": "When an agent implements accepted behavior, the agent protocol shall require the governing statement IDs and verification plan before or alongside code changes.",
+          "source": "spec/features/agent-operating-protocol/spec.md",
+          "line": 38,
+          "style": "inline",
+          "statementIndex": 1,
+          "statementId": "REQ-AGENT-002:S1",
+          "statementCount": 1,
+          "verificationMapped": true,
+          "plannedVerification": "guardrail | `scripts/check-agent-protocol.mjs` | `npm run check:agent` | verified",
+          "generatedStub": true,
+          "verificationStatus": "pending"
+        }
+      ]
+    },
+    {
+      "id": "REQ-AGENT-003",
+      "title": "If a review finding lacks authority, release scope, implementation evidence, or core-journey impact, then agent-facing guidance shall not classify it as a release blocker.",
+      "source": "spec/features/agent-operating-protocol/spec.md",
+      "line": 41,
+      "statements": [
+        {
+          "requirementId": "REQ-AGENT-003",
+          "title": "If a review finding lacks authority, release scope, implementation evidence, or core-journey impact, then agent-facing guidance shall not classify it as a release blocker.",
+          "pattern": "Unwanted",
+          "text": "If a review finding lacks authority, release scope, implementation evidence, or core-journey impact, then agent-facing guidance shall not classify it as a release blocker.",
+          "source": "spec/features/agent-operating-protocol/spec.md",
+          "line": 41,
+          "style": "inline",
+          "statementIndex": 1,
+          "statementId": "REQ-AGENT-003:S1",
+          "statementCount": 1,
+          "verificationMapped": true,
+          "plannedVerification": "guardrail | `scripts/check-agent-protocol.mjs` | `npm run check:agent` | verified",
+          "generatedStub": true,
+          "verificationStatus": "pending"
+        }
+      ]
+    },
+    {
+      "id": "REQ-BRIDGE-001",
+      "title": "When `spec/**/*.md` or `examples/**/spec.md` contains an EARS requirement, the generator shall assign a statement ID and create a generated skipped test slot.",
+      "source": "spec/features/spec-to-test-bridge/spec.md",
+      "line": 36,
+      "statements": [
+        {
+          "requirementId": "REQ-BRIDGE-001",
+          "title": "When `spec/**/*.md` or `examples/**/spec.md` contains an EARS requirement, the generator shall assign a statement ID and create a generated skipped test slot.",
+          "pattern": "Event-driven",
+          "text": "When `spec/**/*.md` or `examples/**/spec.md` contains an EARS requirement, the generator shall assign a statement ID and create a generated skipped test slot.",
+          "source": "spec/features/spec-to-test-bridge/spec.md",
+          "line": 36,
+          "style": "inline",
+          "statementIndex": 1,
+          "statementId": "REQ-BRIDGE-001:S1",
+          "statementCount": 1,
+          "verificationMapped": true,
+          "plannedVerification": "guardrail | `npm run check:reqs` | `npm run check` | verified",
+          "generatedStub": true,
+          "verificationStatus": "pending"
+        }
+      ]
+    },
+    {
+      "id": "REQ-BRIDGE-002",
+      "title": "The generated verification report shall separate generated-only pending statements from non-generated `@Spec(...)` references.",
+      "source": "spec/features/spec-to-test-bridge/spec.md",
+      "line": 39,
+      "statements": [
+        {
+          "requirementId": "REQ-BRIDGE-002",
+          "title": "The generated verification report shall separate generated-only pending statements from non-generated `@Spec(...)` references.",
+          "pattern": "Ubiquitous",
+          "text": "The generated verification report shall separate generated-only pending statements from non-generated `@Spec(...)` references.",
+          "source": "spec/features/spec-to-test-bridge/spec.md",
+          "line": 39,
+          "style": "inline",
+          "statementIndex": 1,
+          "statementId": "REQ-BRIDGE-002:S1",
+          "statementCount": 1,
+          "verificationMapped": true,
+          "plannedVerification": "test | `tests/spec-bridge.test.mjs` | `npm run test:project` | verified",
+          "generatedStub": true,
+          "verificationStatus": "pending"
+        }
+      ]
+    },
+    {
+      "id": "REQ-BRIDGE-003",
+      "title": "If a non-generated `@Spec(...)` reference points to an unknown requirement or broad multi-statement requirement, then the requirement check shall fail.",
+      "source": "spec/features/spec-to-test-bridge/spec.md",
+      "line": 41,
+      "statements": [
+        {
+          "requirementId": "REQ-BRIDGE-003",
+          "title": "If a non-generated `@Spec(...)` reference points to an unknown requirement or broad multi-statement requirement, then the requirement check shall fail.",
+          "pattern": "Unwanted",
+          "text": "If a non-generated `@Spec(...)` reference points to an unknown requirement or broad multi-statement requirement, then the requirement check shall fail.",
+          "source": "spec/features/spec-to-test-bridge/spec.md",
+          "line": 41,
+          "style": "inline",
+          "statementIndex": 1,
+          "statementId": "REQ-BRIDGE-003:S1",
+          "statementCount": 1,
+          "verificationMapped": true,
+          "plannedVerification": "guardrail | `npm run check:reqs` | `npm run check` | verified",
+          "generatedStub": true,
+          "verificationStatus": "pending"
+        }
+      ]
+    },
+    {
+      "id": "REQ-BRIDGE-004",
+      "title": "When a real project test verifies project behavior, the test shall reference the governing statement ID with `@Spec(...)`.",
+      "source": "spec/features/spec-to-test-bridge/spec.md",
+      "line": 44,
+      "statements": [
+        {
+          "requirementId": "REQ-BRIDGE-004",
+          "title": "When a real project test verifies project behavior, the test shall reference the governing statement ID with `@Spec(...)`.",
+          "pattern": "Event-driven",
+          "text": "When a real project test verifies project behavior, the test shall reference the governing statement ID with `@Spec(...)`.",
+          "source": "spec/features/spec-to-test-bridge/spec.md",
+          "line": 44,
+          "style": "inline",
+          "statementIndex": 1,
+          "statementId": "REQ-BRIDGE-004:S1",
+          "statementCount": 1,
+          "verificationMapped": true,
+          "plannedVerification": "test | `tests/spec-bridge.test.mjs` | `npm run test:project` | verified",
+          "generatedStub": true,
+          "verificationStatus": "pending"
+        }
+      ]
+    },
     {
       "id": "REQ-COUPON-001",
       "title": "The system shall allow maximum one coupon on an `order_id`.",
@@ -230,6 +398,222 @@
       ]
     },
     {
+      "id": "REQ-DISC-001",
+      "title": "GitHub Pages primary navigation shall expose only curated onboarding and evidence surfaces, not every template, internal experiment, or generated page.",
+      "source": "spec/features/public-discovery/spec.md",
+      "line": 35,
+      "statements": [
+        {
+          "requirementId": "REQ-DISC-001",
+          "title": "GitHub Pages primary navigation shall expose only curated onboarding and evidence surfaces, not every template, internal experiment, or generated page.",
+          "pattern": "Ubiquitous",
+          "text": "GitHub Pages primary navigation shall expose only curated onboarding and evidence surfaces, not every template, internal experiment, or generated page.",
+          "source": "spec/features/public-discovery/spec.md",
+          "line": 35,
+          "style": "inline",
+          "statementIndex": 1,
+          "statementId": "REQ-DISC-001:S1",
+          "statementCount": 1,
+          "verificationMapped": true,
+          "plannedVerification": "test | `tests/public-discovery.test.mjs` | `npm run test:project` | verified",
+          "generatedStub": true,
+          "verificationStatus": "pending"
+        }
+      ]
+    },
+    {
+      "id": "REQ-DISC-002",
+      "title": "When repository discovery metadata changes, the package metadata and public docs shall keep the same repository and homepage targets.",
+      "source": "spec/features/public-discovery/spec.md",
+      "line": 38,
+      "statements": [
+        {
+          "requirementId": "REQ-DISC-002",
+          "title": "When repository discovery metadata changes, the package metadata and public docs shall keep the same repository and homepage targets.",
+          "pattern": "Event-driven",
+          "text": "When repository discovery metadata changes, the package metadata and public docs shall keep the same repository and homepage targets.",
+          "source": "spec/features/public-discovery/spec.md",
+          "line": 38,
+          "style": "inline",
+          "statementIndex": 1,
+          "statementId": "REQ-DISC-002:S1",
+          "statementCount": 1,
+          "verificationMapped": true,
+          "plannedVerification": "test | `tests/public-discovery.test.mjs` | `npm run test:project` | verified",
+          "generatedStub": true,
+          "verificationStatus": "pending"
+        }
+      ]
+    },
+    {
+      "id": "REQ-DISC-003",
+      "title": "If public experiment results are shared, then the README shall state that the results are diagnostic checks and not universal model benchmarks.",
+      "source": "spec/features/public-discovery/spec.md",
+      "line": 41,
+      "statements": [
+        {
+          "requirementId": "REQ-DISC-003",
+          "title": "If public experiment results are shared, then the README shall state that the results are diagnostic checks and not universal model benchmarks.",
+          "pattern": "Unwanted",
+          "text": "If public experiment results are shared, then the README shall state that the results are diagnostic checks and not universal model benchmarks.",
+          "source": "spec/features/public-discovery/spec.md",
+          "line": 41,
+          "style": "inline",
+          "statementIndex": 1,
+          "statementId": "REQ-DISC-003:S1",
+          "statementCount": 1,
+          "verificationMapped": true,
+          "plannedVerification": "test | `tests/public-discovery.test.mjs` | `npm run test:project` | verified",
+          "generatedStub": true,
+          "verificationStatus": "pending"
+        }
+      ]
+    },
+    {
+      "id": "REQ-GOV-001",
+      "title": "The repository shall keep project-governing behavior in `spec/` before using that behavior as an implementation or release rule.",
+      "source": "spec/features/spec-governance/spec.md",
+      "line": 34,
+      "statements": [
+        {
+          "requirementId": "REQ-GOV-001",
+          "title": "The repository shall keep project-governing behavior in `spec/` before using that behavior as an implementation or release rule.",
+          "pattern": "Ubiquitous",
+          "text": "The repository shall keep project-governing behavior in `spec/` before using that behavior as an implementation or release rule.",
+          "source": "spec/features/spec-governance/spec.md",
+          "line": 34,
+          "style": "inline",
+          "statementIndex": 1,
+          "statementId": "REQ-GOV-001:S1",
+          "statementCount": 1,
+          "verificationMapped": true,
+          "plannedVerification": "guardrail | `tests/spec-governance.test.mjs` | `npm run test:project` | verified",
+          "generatedStub": true,
+          "verificationStatus": "pending"
+        }
+      ]
+    },
+    {
+      "id": "REQ-GOV-002",
+      "title": "When a project-governing behavior changes, the repository shall update the relevant feature spec and mapped verification in the same change.",
+      "source": "spec/features/spec-governance/spec.md",
+      "line": 37,
+      "statements": [
+        {
+          "requirementId": "REQ-GOV-002",
+          "title": "When a project-governing behavior changes, the repository shall update the relevant feature spec and mapped verification in the same change.",
+          "pattern": "Event-driven",
+          "text": "When a project-governing behavior changes, the repository shall update the relevant feature spec and mapped verification in the same change.",
+          "source": "spec/features/spec-governance/spec.md",
+          "line": 37,
+          "style": "inline",
+          "statementIndex": 1,
+          "statementId": "REQ-GOV-002:S1",
+          "statementCount": 1,
+          "verificationMapped": true,
+          "plannedVerification": "guardrail | `tests/spec-governance.test.mjs` | `npm run test:project` | verified",
+          "generatedStub": true,
+          "verificationStatus": "pending"
+        }
+      ]
+    },
+    {
+      "id": "REQ-GOV-003",
+      "title": "If a generated artifact becomes stale after a spec change, then the repository check shall fail until the artifact is regenerated.",
+      "source": "spec/features/spec-governance/spec.md",
+      "line": 40,
+      "statements": [
+        {
+          "requirementId": "REQ-GOV-003",
+          "title": "If a generated artifact becomes stale after a spec change, then the repository check shall fail until the artifact is regenerated.",
+          "pattern": "Unwanted",
+          "text": "If a generated artifact becomes stale after a spec change, then the repository check shall fail until the artifact is regenerated.",
+          "source": "spec/features/spec-governance/spec.md",
+          "line": 40,
+          "style": "inline",
+          "statementIndex": 1,
+          "statementId": "REQ-GOV-003:S1",
+          "statementCount": 1,
+          "verificationMapped": true,
+          "plannedVerification": "guardrail | `npm run check:reqs` | `npm run check` | verified",
+          "generatedStub": true,
+          "verificationStatus": "pending"
+        }
+      ]
+    },
+    {
+      "id": "REQ-REL-001",
+      "title": "The package version shall match the latest changelog release heading.",
+      "source": "spec/features/release-and-versioning/spec.md",
+      "line": 35,
+      "statements": [
+        {
+          "requirementId": "REQ-REL-001",
+          "title": "The package version shall match the latest changelog release heading.",
+          "pattern": "Ubiquitous",
+          "text": "The package version shall match the latest changelog release heading.",
+          "source": "spec/features/release-and-versioning/spec.md",
+          "line": 35,
+          "style": "inline",
+          "statementIndex": 1,
+          "statementId": "REQ-REL-001:S1",
+          "statementCount": 1,
+          "verificationMapped": true,
+          "plannedVerification": "test | `tests/release-versioning.test.mjs` | `npm run test:project` | verified",
+          "generatedStub": true,
+          "verificationStatus": "pending"
+        }
+      ]
+    },
+    {
+      "id": "REQ-REL-002",
+      "title": "The package manifest shall expose repository, homepage, bugs, license, keywords, and package file boundaries for public reuse.",
+      "source": "spec/features/release-and-versioning/spec.md",
+      "line": 37,
+      "statements": [
+        {
+          "requirementId": "REQ-REL-002",
+          "title": "The package manifest shall expose repository, homepage, bugs, license, keywords, and package file boundaries for public reuse.",
+          "pattern": "Ubiquitous",
+          "text": "The package manifest shall expose repository, homepage, bugs, license, keywords, and package file boundaries for public reuse.",
+          "source": "spec/features/release-and-versioning/spec.md",
+          "line": 37,
+          "style": "inline",
+          "statementIndex": 1,
+          "statementId": "REQ-REL-002:S1",
+          "statementCount": 1,
+          "verificationMapped": true,
+          "plannedVerification": "test | `tests/release-versioning.test.mjs` | `npm run test:project` | verified",
+          "generatedStub": true,
+          "verificationStatus": "pending"
+        }
+      ]
+    },
+    {
+      "id": "REQ-REL-003",
+      "title": "When a release is published, the release tag shall use `v<package version>` and the changelog entry shall describe the released behavior.",
+      "source": "spec/features/release-and-versioning/spec.md",
+      "line": 40,
+      "statements": [
+        {
+          "requirementId": "REQ-REL-003",
+          "title": "When a release is published, the release tag shall use `v<package version>` and the changelog entry shall describe the released behavior.",
+          "pattern": "Event-driven",
+          "text": "When a release is published, the release tag shall use `v<package version>` and the changelog entry shall describe the released behavior.",
+          "source": "spec/features/release-and-versioning/spec.md",
+          "line": 40,
+          "style": "inline",
+          "statementIndex": 1,
+          "statementId": "REQ-REL-003:S1",
+          "statementCount": 1,
+          "verificationMapped": true,
+          "plannedVerification": "manual release guardrail | release checklist in this spec | tag and release command after `npm run check` | mapped",
+          "generatedStub": true,
+          "verificationStatus": "pending"
+        }
+      ]
+    },
+    {
       "id": "REQ-SESSION-001",
       "title": "Session setup after identity callback",
       "source": "examples/account-session-heading-style/spec.md",
@@ -271,6 +655,118 @@
     }
   ],
   "statements": [
+    {
+      "requirementId": "REQ-AGENT-001",
+      "title": "Agent-facing entrypoints shall state that generated stubs are trace slots and not validation evidence.",
+      "pattern": "Ubiquitous",
+      "text": "Agent-facing entrypoints shall state that generated stubs are trace slots and not validation evidence.",
+      "source": "spec/features/agent-operating-protocol/spec.md",
+      "line": 36,
+      "style": "inline",
+      "statementIndex": 1,
+      "statementId": "REQ-AGENT-001:S1",
+      "statementCount": 1,
+      "verificationMapped": true,
+      "plannedVerification": "guardrail | `scripts/check-agent-protocol.mjs` | `npm run check:agent` | verified",
+      "generatedStub": true,
+      "verificationStatus": "pending"
+    },
+    {
+      "requirementId": "REQ-AGENT-002",
+      "title": "When an agent implements accepted behavior, the agent protocol shall require the governing statement IDs and verification plan before or alongside code changes.",
+      "pattern": "Event-driven",
+      "text": "When an agent implements accepted behavior, the agent protocol shall require the governing statement IDs and verification plan before or alongside code changes.",
+      "source": "spec/features/agent-operating-protocol/spec.md",
+      "line": 38,
+      "style": "inline",
+      "statementIndex": 1,
+      "statementId": "REQ-AGENT-002:S1",
+      "statementCount": 1,
+      "verificationMapped": true,
+      "plannedVerification": "guardrail | `scripts/check-agent-protocol.mjs` | `npm run check:agent` | verified",
+      "generatedStub": true,
+      "verificationStatus": "pending"
+    },
+    {
+      "requirementId": "REQ-AGENT-003",
+      "title": "If a review finding lacks authority, release scope, implementation evidence, or core-journey impact, then agent-facing guidance shall not classify it as a release blocker.",
+      "pattern": "Unwanted",
+      "text": "If a review finding lacks authority, release scope, implementation evidence, or core-journey impact, then agent-facing guidance shall not classify it as a release blocker.",
+      "source": "spec/features/agent-operating-protocol/spec.md",
+      "line": 41,
+      "style": "inline",
+      "statementIndex": 1,
+      "statementId": "REQ-AGENT-003:S1",
+      "statementCount": 1,
+      "verificationMapped": true,
+      "plannedVerification": "guardrail | `scripts/check-agent-protocol.mjs` | `npm run check:agent` | verified",
+      "generatedStub": true,
+      "verificationStatus": "pending"
+    },
+    {
+      "requirementId": "REQ-BRIDGE-001",
+      "title": "When `spec/**/*.md` or `examples/**/spec.md` contains an EARS requirement, the generator shall assign a statement ID and create a generated skipped test slot.",
+      "pattern": "Event-driven",
+      "text": "When `spec/**/*.md` or `examples/**/spec.md` contains an EARS requirement, the generator shall assign a statement ID and create a generated skipped test slot.",
+      "source": "spec/features/spec-to-test-bridge/spec.md",
+      "line": 36,
+      "style": "inline",
+      "statementIndex": 1,
+      "statementId": "REQ-BRIDGE-001:S1",
+      "statementCount": 1,
+      "verificationMapped": true,
+      "plannedVerification": "guardrail | `npm run check:reqs` | `npm run check` | verified",
+      "generatedStub": true,
+      "verificationStatus": "pending"
+    },
+    {
+      "requirementId": "REQ-BRIDGE-002",
+      "title": "The generated verification report shall separate generated-only pending statements from non-generated `@Spec(...)` references.",
+      "pattern": "Ubiquitous",
+      "text": "The generated verification report shall separate generated-only pending statements from non-generated `@Spec(...)` references.",
+      "source": "spec/features/spec-to-test-bridge/spec.md",
+      "line": 39,
+      "style": "inline",
+      "statementIndex": 1,
+      "statementId": "REQ-BRIDGE-002:S1",
+      "statementCount": 1,
+      "verificationMapped": true,
+      "plannedVerification": "test | `tests/spec-bridge.test.mjs` | `npm run test:project` | verified",
+      "generatedStub": true,
+      "verificationStatus": "pending"
+    },
+    {
+      "requirementId": "REQ-BRIDGE-003",
+      "title": "If a non-generated `@Spec(...)` reference points to an unknown requirement or broad multi-statement requirement, then the requirement check shall fail.",
+      "pattern": "Unwanted",
+      "text": "If a non-generated `@Spec(...)` reference points to an unknown requirement or broad multi-statement requirement, then the requirement check shall fail.",
+      "source": "spec/features/spec-to-test-bridge/spec.md",
+      "line": 41,
+      "style": "inline",
+      "statementIndex": 1,
+      "statementId": "REQ-BRIDGE-003:S1",
+      "statementCount": 1,
+      "verificationMapped": true,
+      "plannedVerification": "guardrail | `npm run check:reqs` | `npm run check` | verified",
+      "generatedStub": true,
+      "verificationStatus": "pending"
+    },
+    {
+      "requirementId": "REQ-BRIDGE-004",
+      "title": "When a real project test verifies project behavior, the test shall reference the governing statement ID with `@Spec(...)`.",
+      "pattern": "Event-driven",
+      "text": "When a real project test verifies project behavior, the test shall reference the governing statement ID with `@Spec(...)`.",
+      "source": "spec/features/spec-to-test-bridge/spec.md",
+      "line": 44,
+      "style": "inline",
+      "statementIndex": 1,
+      "statementId": "REQ-BRIDGE-004:S1",
+      "statementCount": 1,
+      "verificationMapped": true,
+      "plannedVerification": "test | `tests/spec-bridge.test.mjs` | `npm run test:project` | verified",
+      "generatedStub": true,
+      "verificationStatus": "pending"
+    },
     {
       "requirementId": "REQ-COUPON-001",
       "title": "The system shall allow maximum one coupon on an `order_id`.",
@@ -416,6 +912,150 @@
       "verificationStatus": "pending"
     },
     {
+      "requirementId": "REQ-DISC-001",
+      "title": "GitHub Pages primary navigation shall expose only curated onboarding and evidence surfaces, not every template, internal experiment, or generated page.",
+      "pattern": "Ubiquitous",
+      "text": "GitHub Pages primary navigation shall expose only curated onboarding and evidence surfaces, not every template, internal experiment, or generated page.",
+      "source": "spec/features/public-discovery/spec.md",
+      "line": 35,
+      "style": "inline",
+      "statementIndex": 1,
+      "statementId": "REQ-DISC-001:S1",
+      "statementCount": 1,
+      "verificationMapped": true,
+      "plannedVerification": "test | `tests/public-discovery.test.mjs` | `npm run test:project` | verified",
+      "generatedStub": true,
+      "verificationStatus": "pending"
+    },
+    {
+      "requirementId": "REQ-DISC-002",
+      "title": "When repository discovery metadata changes, the package metadata and public docs shall keep the same repository and homepage targets.",
+      "pattern": "Event-driven",
+      "text": "When repository discovery metadata changes, the package metadata and public docs shall keep the same repository and homepage targets.",
+      "source": "spec/features/public-discovery/spec.md",
+      "line": 38,
+      "style": "inline",
+      "statementIndex": 1,
+      "statementId": "REQ-DISC-002:S1",
+      "statementCount": 1,
+      "verificationMapped": true,
+      "plannedVerification": "test | `tests/public-discovery.test.mjs` | `npm run test:project` | verified",
+      "generatedStub": true,
+      "verificationStatus": "pending"
+    },
+    {
+      "requirementId": "REQ-DISC-003",
+      "title": "If public experiment results are shared, then the README shall state that the results are diagnostic checks and not universal model benchmarks.",
+      "pattern": "Unwanted",
+      "text": "If public experiment results are shared, then the README shall state that the results are diagnostic checks and not universal model benchmarks.",
+      "source": "spec/features/public-discovery/spec.md",
+      "line": 41,
+      "style": "inline",
+      "statementIndex": 1,
+      "statementId": "REQ-DISC-003:S1",
+      "statementCount": 1,
+      "verificationMapped": true,
+      "plannedVerification": "test | `tests/public-discovery.test.mjs` | `npm run test:project` | verified",
+      "generatedStub": true,
+      "verificationStatus": "pending"
+    },
+    {
+      "requirementId": "REQ-GOV-001",
+      "title": "The repository shall keep project-governing behavior in `spec/` before using that behavior as an implementation or release rule.",
+      "pattern": "Ubiquitous",
+      "text": "The repository shall keep project-governing behavior in `spec/` before using that behavior as an implementation or release rule.",
+      "source": "spec/features/spec-governance/spec.md",
+      "line": 34,
+      "style": "inline",
+      "statementIndex": 1,
+      "statementId": "REQ-GOV-001:S1",
+      "statementCount": 1,
+      "verificationMapped": true,
+      "plannedVerification": "guardrail | `tests/spec-governance.test.mjs` | `npm run test:project` | verified",
+      "generatedStub": true,
+      "verificationStatus": "pending"
+    },
+    {
+      "requirementId": "REQ-GOV-002",
+      "title": "When a project-governing behavior changes, the repository shall update the relevant feature spec and mapped verification in the same change.",
+      "pattern": "Event-driven",
+      "text": "When a project-governing behavior changes, the repository shall update the relevant feature spec and mapped verification in the same change.",
+      "source": "spec/features/spec-governance/spec.md",
+      "line": 37,
+      "style": "inline",
+      "statementIndex": 1,
+      "statementId": "REQ-GOV-002:S1",
+      "statementCount": 1,
+      "verificationMapped": true,
+      "plannedVerification": "guardrail | `tests/spec-governance.test.mjs` | `npm run test:project` | verified",
+      "generatedStub": true,
+      "verificationStatus": "pending"
+    },
+    {
+      "requirementId": "REQ-GOV-003",
+      "title": "If a generated artifact becomes stale after a spec change, then the repository check shall fail until the artifact is regenerated.",
+      "pattern": "Unwanted",
+      "text": "If a generated artifact becomes stale after a spec change, then the repository check shall fail until the artifact is regenerated.",
+      "source": "spec/features/spec-governance/spec.md",
+      "line": 40,
+      "style": "inline",
+      "statementIndex": 1,
+      "statementId": "REQ-GOV-003:S1",
+      "statementCount": 1,
+      "verificationMapped": true,
+      "plannedVerification": "guardrail | `npm run check:reqs` | `npm run check` | verified",
+      "generatedStub": true,
+      "verificationStatus": "pending"
+    },
+    {
+      "requirementId": "REQ-REL-001",
+      "title": "The package version shall match the latest changelog release heading.",
+      "pattern": "Ubiquitous",
+      "text": "The package version shall match the latest changelog release heading.",
+      "source": "spec/features/release-and-versioning/spec.md",
+      "line": 35,
+      "style": "inline",
+      "statementIndex": 1,
+      "statementId": "REQ-REL-001:S1",
+      "statementCount": 1,
+      "verificationMapped": true,
+      "plannedVerification": "test | `tests/release-versioning.test.mjs` | `npm run test:project` | verified",
+      "generatedStub": true,
+      "verificationStatus": "pending"
+    },
+    {
+      "requirementId": "REQ-REL-002",
+      "title": "The package manifest shall expose repository, homepage, bugs, license, keywords, and package file boundaries for public reuse.",
+      "pattern": "Ubiquitous",
+      "text": "The package manifest shall expose repository, homepage, bugs, license, keywords, and package file boundaries for public reuse.",
+      "source": "spec/features/release-and-versioning/spec.md",
+      "line": 37,
+      "style": "inline",
+      "statementIndex": 1,
+      "statementId": "REQ-REL-002:S1",
+      "statementCount": 1,
+      "verificationMapped": true,
+      "plannedVerification": "test | `tests/release-versioning.test.mjs` | `npm run test:project` | verified",
+      "generatedStub": true,
+      "verificationStatus": "pending"
+    },
+    {
+      "requirementId": "REQ-REL-003",
+      "title": "When a release is published, the release tag shall use `v<package version>` and the changelog entry shall describe the released behavior.",
+      "pattern": "Event-driven",
+      "text": "When a release is published, the release tag shall use `v<package version>` and the changelog entry shall describe the released behavior.",
+      "source": "spec/features/release-and-versioning/spec.md",
+      "line": 40,
+      "style": "inline",
+      "statementIndex": 1,
+      "statementId": "REQ-REL-003:S1",
+      "statementCount": 1,
+      "verificationMapped": true,
+      "plannedVerification": "manual release guardrail | release checklist in this spec | tag and release command after `npm run check` | mapped",
+      "generatedStub": true,
+      "verificationStatus": "pending"
+    },
+    {
       "requirementId": "REQ-SESSION-001",
       "title": "Session setup after identity callback",
       "pattern": "Event-driven",
@@ -448,6 +1088,82 @@
       "verificationStatus": "pending"
     }
   ],
-  "realSpecReferences": [],
+  "realSpecReferences": [
+    {
+      "id": "REQ-AGENT-001:S1",
+      "source": "scripts/check-agent-protocol.mjs",
+      "line": 19
+    },
+    {
+      "id": "REQ-AGENT-002:S1",
+      "source": "scripts/check-agent-protocol.mjs",
+      "line": 20
+    },
+    {
+      "id": "REQ-AGENT-003:S1",
+      "source": "scripts/check-agent-protocol.mjs",
+      "line": 34
+    },
+    {
+      "id": "REQ-BRIDGE-001:S1",
+      "source": "scripts/generate-req-tests.mjs",
+      "line": 611
+    },
+    {
+      "id": "REQ-BRIDGE-002:S1",
+      "source": "tests/spec-bridge.test.mjs",
+      "line": 13
+    },
+    {
+      "id": "REQ-BRIDGE-003:S1",
+      "source": "scripts/generate-req-tests.mjs",
+      "line": 612
+    },
+    {
+      "id": "REQ-BRIDGE-004:S1",
+      "source": "tests/spec-bridge.test.mjs",
+      "line": 22
+    },
+    {
+      "id": "REQ-DISC-001:S1",
+      "source": "tests/public-discovery.test.mjs",
+      "line": 28
+    },
+    {
+      "id": "REQ-DISC-002:S1",
+      "source": "tests/public-discovery.test.mjs",
+      "line": 43
+    },
+    {
+      "id": "REQ-DISC-003:S1",
+      "source": "tests/public-discovery.test.mjs",
+      "line": 54
+    },
+    {
+      "id": "REQ-GOV-001:S1",
+      "source": "tests/spec-governance.test.mjs",
+      "line": 28
+    },
+    {
+      "id": "REQ-GOV-002:S1",
+      "source": "tests/spec-governance.test.mjs",
+      "line": 50
+    },
+    {
+      "id": "REQ-GOV-003:S1",
+      "source": "scripts/generate-req-tests.mjs",
+      "line": 613
+    },
+    {
+      "id": "REQ-REL-001:S1",
+      "source": "tests/release-versioning.test.mjs",
+      "line": 13
+    },
+    {
+      "id": "REQ-REL-002:S1",
+      "source": "tests/release-versioning.test.mjs",
+      "line": 23
+    }
+  ],
   "codeOnlyReferences": []
 }

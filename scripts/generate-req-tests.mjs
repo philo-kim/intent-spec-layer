@@ -49,6 +49,7 @@ const traceRootNames = new Set([
   "frontend",
   "lib",
   "packages",
+  "scripts",
   "server",
   "src",
   "test",
@@ -477,6 +478,10 @@ function buildRequirementsJson(statements, references) {
   return `${JSON.stringify(payload, null, 2)}\n`;
 }
 
+function escapeMarkdownCell(value) {
+  return String(value).replaceAll("|", "\\|");
+}
+
 function shortTestName(statement) {
   const compact = statement.text.replace(/\s+/gu, " ");
   const maxLength = 105;
@@ -552,7 +557,7 @@ function buildVerificationReport(statements, references) {
     lines.push("| Statement | Pattern | Source |");
     lines.push("|---|---|---|");
     for (const statement of pendingGeneratedOnly) {
-      lines.push(`| ${statement.statementId} | ${statement.pattern} | ${statement.source}:${statement.line} |`);
+      lines.push(`| ${escapeMarkdownCell(statement.statementId)} | ${escapeMarkdownCell(statement.pattern)} | ${escapeMarkdownCell(`${statement.source}:${statement.line}`)} |`);
     }
   }
 
@@ -564,7 +569,7 @@ function buildVerificationReport(statements, references) {
     lines.push("| Statement | Planned evidence |");
     lines.push("|---|---|");
     for (const statement of mappedStatements) {
-      lines.push(`| ${statement.statementId} | ${statement.plannedVerification} |`);
+      lines.push(`| ${escapeMarkdownCell(statement.statementId)} | ${escapeMarkdownCell(statement.plannedVerification)} |`);
     }
   }
 
@@ -575,7 +580,7 @@ function buildVerificationReport(statements, references) {
     lines.push("| Reference | Source |");
     lines.push("|---|---|");
     for (const reference of references) {
-      lines.push(`| ${reference.id} | ${reference.source}:${reference.line} |`);
+      lines.push(`| ${escapeMarkdownCell(reference.id)} | ${escapeMarkdownCell(`${reference.source}:${reference.line}`)} |`);
     }
   }
 
@@ -584,7 +589,7 @@ function buildVerificationReport(statements, references) {
     lines.push("| Reference | Source |");
     lines.push("|---|---|");
     for (const reference of codeOnlyReferences) {
-      lines.push(`| ${reference.id} | ${reference.source}:${reference.line} |`);
+      lines.push(`| ${escapeMarkdownCell(reference.id)} | ${escapeMarkdownCell(`${reference.source}:${reference.line}`)} |`);
     }
   }
 
@@ -603,6 +608,9 @@ function checkFile(pathname, expected) {
 }
 
 const { mode } = parseArgs();
+// @Spec(REQ-BRIDGE-001:S1) verification_status=verified
+// @Spec(REQ-BRIDGE-003:S1) verification_status=verified
+// @Spec(REQ-GOV-003:S1) verification_status=verified
 const extractionResults = findSpecFiles().map(extractRequirements);
 const rawStatements = extractionResults.flatMap((result) => result.statements);
 const extractionFailures = extractionResults.flatMap((result) => result.failures);

@@ -3,6 +3,69 @@
 // Keep or replace each stub with a real test/guardrail/manual-verification note that references the same @Spec ID.
 import { test } from "node:test";
 
+test("REQ-AGENT-001:S1 [Ubiquitous] Agent-facing entrypoints shall state that generated stubs are trace slots and not validation evidence.", {
+  skip: "Generated stub from spec/features/agent-operating-protocol/spec.md:36. Verification is still pending.",
+}, () => {
+  // @Spec(REQ-AGENT-001:S1) generated_stub=true verification_status=pending
+  // Source: spec/features/agent-operating-protocol/spec.md:36
+  // Requirement: REQ-AGENT-001
+  // Statement: Agent-facing entrypoints shall state that generated stubs are trace slots and not validation evidence.
+});
+
+test("REQ-AGENT-002:S1 [Event-driven] When an agent implements accepted behavior, the agent protocol shall require the governing statement...", {
+  skip: "Generated stub from spec/features/agent-operating-protocol/spec.md:38. Verification is still pending.",
+}, () => {
+  // @Spec(REQ-AGENT-002:S1) generated_stub=true verification_status=pending
+  // Source: spec/features/agent-operating-protocol/spec.md:38
+  // Requirement: REQ-AGENT-002
+  // Statement: When an agent implements accepted behavior, the agent protocol shall require the governing statement IDs and verification plan before or alongside code changes.
+});
+
+test("REQ-AGENT-003:S1 [Unwanted] If a review finding lacks authority, release scope, implementation evidence, or core-journey impact,...", {
+  skip: "Generated stub from spec/features/agent-operating-protocol/spec.md:41. Verification is still pending.",
+}, () => {
+  // @Spec(REQ-AGENT-003:S1) generated_stub=true verification_status=pending
+  // Source: spec/features/agent-operating-protocol/spec.md:41
+  // Requirement: REQ-AGENT-003
+  // Statement: If a review finding lacks authority, release scope, implementation evidence, or core-journey impact, then agent-facing guidance shall not classify it as a release blocker.
+});
+
+test("REQ-BRIDGE-001:S1 [Event-driven] When `spec/**/*.md` or `examples/**/spec.md` contains an EARS requirement, the generator shall assign...", {
+  skip: "Generated stub from spec/features/spec-to-test-bridge/spec.md:36. Verification is still pending.",
+}, () => {
+  // @Spec(REQ-BRIDGE-001:S1) generated_stub=true verification_status=pending
+  // Source: spec/features/spec-to-test-bridge/spec.md:36
+  // Requirement: REQ-BRIDGE-001
+  // Statement: When `spec/**/*.md` or `examples/**/spec.md` contains an EARS requirement, the generator shall assign a statement ID and create a generated skipped test slot.
+});
+
+test("REQ-BRIDGE-002:S1 [Ubiquitous] The generated verification report shall separate generated-only pending statements from non-generated...", {
+  skip: "Generated stub from spec/features/spec-to-test-bridge/spec.md:39. Verification is still pending.",
+}, () => {
+  // @Spec(REQ-BRIDGE-002:S1) generated_stub=true verification_status=pending
+  // Source: spec/features/spec-to-test-bridge/spec.md:39
+  // Requirement: REQ-BRIDGE-002
+  // Statement: The generated verification report shall separate generated-only pending statements from non-generated `@Spec(...)` references.
+});
+
+test("REQ-BRIDGE-003:S1 [Unwanted] If a non-generated `@Spec(...)` reference points to an unknown requirement or broad multi-statement...", {
+  skip: "Generated stub from spec/features/spec-to-test-bridge/spec.md:41. Verification is still pending.",
+}, () => {
+  // @Spec(REQ-BRIDGE-003:S1) generated_stub=true verification_status=pending
+  // Source: spec/features/spec-to-test-bridge/spec.md:41
+  // Requirement: REQ-BRIDGE-003
+  // Statement: If a non-generated `@Spec(...)` reference points to an unknown requirement or broad multi-statement requirement, then the requirement check shall fail.
+});
+
+test("REQ-BRIDGE-004:S1 [Event-driven] When a real project test verifies project behavior, the test shall reference the governing statement...", {
+  skip: "Generated stub from spec/features/spec-to-test-bridge/spec.md:44. Verification is still pending.",
+}, () => {
+  // @Spec(REQ-BRIDGE-004:S1) generated_stub=true verification_status=pending
+  // Source: spec/features/spec-to-test-bridge/spec.md:44
+  // Requirement: REQ-BRIDGE-004
+  // Statement: When a real project test verifies project behavior, the test shall reference the governing statement ID with `@Spec(...)`.
+});
+
 test("REQ-COUPON-001:S1 [Ubiquitous] The system shall allow maximum one coupon on an `order_id`.", {
   skip: "Generated stub from examples/coupon-order-system/spec.md:49. Verification is still pending.",
 }, () => {
@@ -82,6 +145,87 @@ test("REQ-COUPON-009:S1 [Optional] Where a premium entitlement is present, the s
   // Source: examples/coupon-order-system/spec.md:66
   // Requirement: REQ-COUPON-009
   // Statement: Where a premium entitlement is present, the system shall apply the premium discount after coupon validation.
+});
+
+test("REQ-DISC-001:S1 [Ubiquitous] GitHub Pages primary navigation shall expose only curated onboarding and evidence surfaces, not every...", {
+  skip: "Generated stub from spec/features/public-discovery/spec.md:35. Verification is still pending.",
+}, () => {
+  // @Spec(REQ-DISC-001:S1) generated_stub=true verification_status=pending
+  // Source: spec/features/public-discovery/spec.md:35
+  // Requirement: REQ-DISC-001
+  // Statement: GitHub Pages primary navigation shall expose only curated onboarding and evidence surfaces, not every template, internal experiment, or generated page.
+});
+
+test("REQ-DISC-002:S1 [Event-driven] When repository discovery metadata changes, the package metadata and public docs shall keep the same...", {
+  skip: "Generated stub from spec/features/public-discovery/spec.md:38. Verification is still pending.",
+}, () => {
+  // @Spec(REQ-DISC-002:S1) generated_stub=true verification_status=pending
+  // Source: spec/features/public-discovery/spec.md:38
+  // Requirement: REQ-DISC-002
+  // Statement: When repository discovery metadata changes, the package metadata and public docs shall keep the same repository and homepage targets.
+});
+
+test("REQ-DISC-003:S1 [Unwanted] If public experiment results are shared, then the README shall state that the results are diagnostic...", {
+  skip: "Generated stub from spec/features/public-discovery/spec.md:41. Verification is still pending.",
+}, () => {
+  // @Spec(REQ-DISC-003:S1) generated_stub=true verification_status=pending
+  // Source: spec/features/public-discovery/spec.md:41
+  // Requirement: REQ-DISC-003
+  // Statement: If public experiment results are shared, then the README shall state that the results are diagnostic checks and not universal model benchmarks.
+});
+
+test("REQ-GOV-001:S1 [Ubiquitous] The repository shall keep project-governing behavior in `spec/` before using that behavior as an...", {
+  skip: "Generated stub from spec/features/spec-governance/spec.md:34. Verification is still pending.",
+}, () => {
+  // @Spec(REQ-GOV-001:S1) generated_stub=true verification_status=pending
+  // Source: spec/features/spec-governance/spec.md:34
+  // Requirement: REQ-GOV-001
+  // Statement: The repository shall keep project-governing behavior in `spec/` before using that behavior as an implementation or release rule.
+});
+
+test("REQ-GOV-002:S1 [Event-driven] When a project-governing behavior changes, the repository shall update the relevant feature spec and...", {
+  skip: "Generated stub from spec/features/spec-governance/spec.md:37. Verification is still pending.",
+}, () => {
+  // @Spec(REQ-GOV-002:S1) generated_stub=true verification_status=pending
+  // Source: spec/features/spec-governance/spec.md:37
+  // Requirement: REQ-GOV-002
+  // Statement: When a project-governing behavior changes, the repository shall update the relevant feature spec and mapped verification in the same change.
+});
+
+test("REQ-GOV-003:S1 [Unwanted] If a generated artifact becomes stale after a spec change, then the repository check shall fail until...", {
+  skip: "Generated stub from spec/features/spec-governance/spec.md:40. Verification is still pending.",
+}, () => {
+  // @Spec(REQ-GOV-003:S1) generated_stub=true verification_status=pending
+  // Source: spec/features/spec-governance/spec.md:40
+  // Requirement: REQ-GOV-003
+  // Statement: If a generated artifact becomes stale after a spec change, then the repository check shall fail until the artifact is regenerated.
+});
+
+test("REQ-REL-001:S1 [Ubiquitous] The package version shall match the latest changelog release heading.", {
+  skip: "Generated stub from spec/features/release-and-versioning/spec.md:35. Verification is still pending.",
+}, () => {
+  // @Spec(REQ-REL-001:S1) generated_stub=true verification_status=pending
+  // Source: spec/features/release-and-versioning/spec.md:35
+  // Requirement: REQ-REL-001
+  // Statement: The package version shall match the latest changelog release heading.
+});
+
+test("REQ-REL-002:S1 [Ubiquitous] The package manifest shall expose repository, homepage, bugs, license, keywords, and package file...", {
+  skip: "Generated stub from spec/features/release-and-versioning/spec.md:37. Verification is still pending.",
+}, () => {
+  // @Spec(REQ-REL-002:S1) generated_stub=true verification_status=pending
+  // Source: spec/features/release-and-versioning/spec.md:37
+  // Requirement: REQ-REL-002
+  // Statement: The package manifest shall expose repository, homepage, bugs, license, keywords, and package file boundaries for public reuse.
+});
+
+test("REQ-REL-003:S1 [Event-driven] When a release is published, the release tag shall use `v<package version>` and the changelog entry...", {
+  skip: "Generated stub from spec/features/release-and-versioning/spec.md:40. Verification is still pending.",
+}, () => {
+  // @Spec(REQ-REL-003:S1) generated_stub=true verification_status=pending
+  // Source: spec/features/release-and-versioning/spec.md:40
+  // Requirement: REQ-REL-003
+  // Statement: When a release is published, the release tag shall use `v<package version>` and the changelog entry shall describe the released behavior.
 });
 
 test("REQ-SESSION-001:S1 [Event-driven] When identity authorization succeeds, the system shall exchange the authorization result for an...", {

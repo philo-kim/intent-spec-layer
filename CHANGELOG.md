@@ -2,6 +2,27 @@
 
 This project follows the spirit of Keep a Changelog.
 
+## [0.2.0] - 2026-05-15
+
+### Added
+
+- Added a project-governing `spec/` layer so this repository dogfoods the
+  Intent Specification Layer method.
+- Added active specs for repository governance, the spec-to-test bridge, the
+  agent operating protocol, public discovery, and release/version alignment.
+- Added project tests with non-generated `@Spec(...)` traces for governance,
+  bridge, discovery, and release requirements.
+
+### Changed
+
+- Curated GitHub Pages header navigation through `_config.yml` so public docs
+  show onboarding and evidence surfaces instead of every template and generated
+  page.
+- Expanded `package.json` metadata for repository, homepage, bugs, keywords,
+  license summary, package files, and project test commands.
+- Extended `npm run check` to execute project-level tests after generated
+  requirement stubs.
+
 ## [0.1.9] - 2026-05-15
 
 ### Changed
