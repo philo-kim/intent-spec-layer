@@ -72,6 +72,9 @@ wrong actor or ownership?
 external success + local failure?
 local success + downstream failure?
 pending too long?
+generic timeout exceeded by normal processing?
+valid input failure after extraction, analysis, generation, or automation?
+empty manual-only fallback after valid input?
 cancel, reject, retry, expire?
 user-visible next action?
 ```
@@ -85,6 +88,31 @@ Then decide the authority basis:
 | Product decision | Promote to L2/L3 and map evidence. |
 | Common UX expectation | Record candidate; accept or reject explicitly. |
 | Sample or previous project import | Re-authorize before treating as binding. |
+
+## 4A. Feature Archetype Packs
+
+Before L2 authoring or implementation, choose the relevant feature archetype
+packs from [Spec authoring quality](spec-authoring-quality.md). The packs are
+there to make predictable failure surfaces hard to forget:
+
+- async customer operation;
+- source or file ingestion;
+- external AI or automation;
+- approval or decision;
+- payment, entitlement, or billing;
+- auth or account;
+- deletion or privacy;
+- external integration.
+
+For each selected pack, make sure the spec contains the corresponding state,
+`[Unwanted]`, or L3 contract.
+
+The two checks most likely to prevent false completion are:
+
+- **valid input failure**: accepted user input is preserved when automation
+  fails, with draft, still-processing, retry, or actionable error recovery;
+- **latency contract**: work that can outlive the generic timeout declares
+  synchronous, long request, polling, background job, or streaming behavior.
 
 ## 5. Release Blocker Test
 

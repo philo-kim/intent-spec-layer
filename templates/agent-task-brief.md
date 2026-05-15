@@ -36,6 +36,32 @@ Choose one:
 | L2 | none / update |
 | L3 | none / update |
 
+## Feature Archetype Packs
+
+Select all that apply before implementation. If a selected pack has no
+corresponding L2 `[Unwanted]`, state behavior, or L3 contract, update the spec
+first.
+
+| Pack | Applies? | Governing REQ/S or decision |
+|---|---|---|
+| Async customer operation | yes / no |  |
+| Source or file ingestion | yes / no |  |
+| External AI or automation | yes / no |  |
+| Approval or decision | yes / no |  |
+| Payment, entitlement, or billing | yes / no |  |
+| Auth or account | yes / no |  |
+| Deletion or privacy | yes / no |  |
+| External integration | yes / no |  |
+
+## Latency And Valid Input Failure
+
+| Check | Answer |
+|---|---|
+| Can any customer-visible operation outlive the generic API timeout? | no / synchronous / long request / polling / background job / streaming |
+| If the user provides valid input and automation fails, what is preserved? |  |
+| Recovery result | recoverable draft / still-processing / retry path / actionable error / not applicable |
+| Is there any empty manual-only fallback after valid input? | no / yes, needs spec decision |
+
 ## Implementation Verification Obligation
 
 Fill this before implementation. If a touched statement has no evidence path,
@@ -57,6 +83,9 @@ For the target action, answer each before implementation:
 | external success + local failure |  |
 | local success + downstream failure |  |
 | pending too long |  |
+| generic timeout exceeded by normal processing |  |
+| valid input + automation failure |  |
+| empty manual-only fallback risk |  |
 | cancel / reject / retry / expire |  |
 | user-visible next action |  |
 

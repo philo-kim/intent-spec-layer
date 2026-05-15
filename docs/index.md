@@ -7,6 +7,7 @@ Layer.
 - [Agent operating rules](../AGENTS.md)
 - [Agent operating protocol](../guide/agent-operating-protocol.md)
 - [Guide](../guide/intent-specification-layer.md)
+- [Spec authoring quality](../guide/spec-authoring-quality.md)
 - [Adoption playbook](../guide/adoption.md)
 - [Spec review loop](../guide/spec-review-loop.md)
 - [Spec-to-test bridge](../guide/spec-to-test-bridge.md)

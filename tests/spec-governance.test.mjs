@@ -32,6 +32,7 @@ test("project governance specs exist and are discoverable", () => {
     "spec/features/spec-governance/spec.md",
     "spec/features/spec-to-test-bridge/spec.md",
     "spec/features/agent-operating-protocol/spec.md",
+    "spec/features/spec-authoring-quality/spec.md",
     "spec/features/public-discovery/spec.md",
     "spec/features/release-and-versioning/spec.md",
   ];

@@ -70,6 +70,43 @@ for `missing`, `partial`, `implemented`, or `blocked` status.
 - [REQ-XXX-004][Unwanted] If ..., then the system shall ...
 - [REQ-XXX-005][Optional] Where ..., the system shall ...
 
+## Feature Archetype Packs
+
+Choose every pack that applies. These prompts are a spec-authoring guardrail:
+they help AI agents and reviewers find common-sense failures before the code
+turns them into user experience defects.
+
+| Pack | Applies? | Required review prompts | Resulting requirement / contract |
+|---|---|---|---|
+| Async customer operation | yes / no | Can it outlive the generic API timeout? What pending, retry, refresh, and still-processing states exist? | REQ-XXX-### / L3 |
+| Source or file ingestion | yes / no | Are upload completion and analysis readiness separate? Is source input preserved after parse/OCR/extraction failure? | REQ-XXX-### / L3 |
+| External AI or automation | yes / no | What happens on schema failure, partial output, low confidence, timeout, or usable draft fallback? | REQ-XXX-### / L3 |
+| Approval or decision | yes / no | What happens on duplicate submit, stale state, wrong actor, or already-decided object? | REQ-XXX-### / L3 |
+| Payment, entitlement, or billing | yes / no | How are idempotency, double charge, provider success with local failure, and reconciliation handled? | REQ-XXX-### / L3 |
+| Auth or account | yes / no | How are replay, state mismatch, backend sync failure, and partial session prevented? | REQ-XXX-### / L3 |
+| Deletion or privacy | yes / no | How are authorization, retention, partial cleanup, audit, and idempotency handled? | REQ-XXX-### / L3 |
+| External integration | yes / no | What provider timeout, retry policy, local persistence failure, and reconciliation path exist? | REQ-XXX-### / L3 |
+
+### Latency / Processing Contract
+
+Customer-visible work must choose one processing shape before implementation.
+Do not let a generic API timeout define the user experience.
+
+| Operation | Shape | Expected window | User-visible pending state | Retry / re-entry path | Requirement |
+|---|---|---:|---|---|---|
+|  | synchronous / long request / polling / background job / streaming |  |  |  | REQ-XXX-### |
+
+### Valid Input Failure Rule
+
+If the user provides valid input and automation fails, the system must preserve
+the input and return one of: recoverable draft, still-processing state, retry
+path, or actionable error. It must not collapse into an empty manual-only
+fallback.
+
+| Valid input | Automation that can fail | Preserved data | Recovery result | Requirement |
+|---|---|---|---|---|
+|  | extract / analyze / generate / classify / quote / upload / parse |  | draft / still-processing / retry / actionable error | REQ-XXX-### |
+
 ## Experience Review
 
 This section is not marketing copy. It is the reviewable journey implied by L1,
@@ -92,7 +129,7 @@ into L2/L3 only after its authority basis is clear.
 
 | Candidate edge case | Authority basis | Decision | Requirement |
 |---|---|---|---|
-| duplicate submit / stale state / permission / timeout / rollback / cancellation / expiry / retry | L0 / L1 invariant / product decision / platform rule / common UX expectation / sample import | accept / reject / decide later | REQ-XXX-### |
+| duplicate submit / stale state / permission / timeout / valid input failure / empty manual fallback / rollback / cancellation / expiry / retry | L0 / L1 invariant / product decision / platform rule / common UX expectation / sample import | accept / reject / decide later | REQ-XXX-### |
 
 ### Open Experience Questions
 

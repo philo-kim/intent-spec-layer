@@ -2,6 +2,28 @@
 
 This project follows the spirit of Keep a Changelog.
 
+## [0.2.1] - 2026-05-15
+
+### Added
+
+- Added spec authoring quality guidance for feature archetype packs,
+  valid-input automation failure, latency / processing contracts, and
+  under-decomposition review.
+- Added `check:authoring` to keep the authoring-quality guidance visible across
+  README, guides, templates, and agent-facing entrypoints.
+- Added a governing spec and tests for the authoring-quality rules.
+
+### Changed
+
+- Updated feature, change proposal, experience review, and agent task templates
+  so AI agents must consider archetype-specific edge cases before
+  implementation.
+- Extended release/version checks to include citation metadata alignment.
+- Aligned public package keywords and GitHub Pages navigation with the new
+  authoring-quality guide.
+- Renamed the roadmap's active minor line to `0.2.x` so patch releases do not
+  make the roadmap look stale.
+
 ## [0.2.0] - 2026-05-15
 
 ### Added

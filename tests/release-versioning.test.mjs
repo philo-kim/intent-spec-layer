@@ -19,6 +19,20 @@ test("package version matches latest changelog release heading", () => {
   assert.equal(pkg.version, heading[1]);
 });
 
+test("citation version matches package and changelog versions", () => {
+  // @Spec(REQ-REL-004:S1) verification_status=verified
+  const pkg = JSON.parse(read("package.json"));
+  const citation = read("CITATION.cff");
+  const changelog = read("CHANGELOG.md");
+  const citationVersion = citation.match(/^version:\s*([^\s]+)$/mu);
+  const heading = changelog.match(/^## \[([^\]]+)\] - \d{4}-\d{2}-\d{2}$/mu);
+
+  assert.ok(citationVersion, "CITATION.cff should include a version field");
+  assert.ok(heading, "CHANGELOG.md should start with a versioned release heading");
+  assert.equal(citationVersion[1], pkg.version);
+  assert.equal(citationVersion[1], heading[1]);
+});
+
 test("package manifest exposes public reuse metadata and file boundaries", () => {
   // @Spec(REQ-REL-002:S1) verification_status=verified
   const pkg = JSON.parse(read("package.json"));

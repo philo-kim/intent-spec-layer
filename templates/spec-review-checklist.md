@@ -24,11 +24,24 @@
 - [ ] The intended user journey can be reconstructed from the spec alone.
 - [ ] Each important action has a user-visible result.
 - [ ] Each failure or pending state has a user next action.
+- [ ] The relevant feature archetype packs were selected and answered.
 - [ ] Duplicate submit, stale state, permission, timeout, rollback, cancellation,
       expiry, and retry cases have been considered.
+- [ ] Async customer-visible work has a latency / processing contract:
+      synchronous, endpoint-specific long request, polling, background job, or
+      streaming.
+- [ ] Valid input failure is explicit: if the user provides valid input and
+      automation fails, the input is preserved and the recovery is a draft,
+      still-processing state, retry path, or actionable error.
+- [ ] No valid-input automation failure collapses into an empty manual-only
+      fallback.
 - [ ] Common-sense edge cases are marked with an authority basis before they are
       promoted into binding requirements.
-- [ ] Each behavior is one EARS requirement.
+- [ ] Each behavior statement is one EARS statement.
+- [ ] If every requirement has exactly one behavior statement, the spec was
+      checked for under-decomposition. Important customer-facing features
+      usually need multiple Event/State/Unwanted statements under the same user
+      capability.
 - [ ] At least one `[Unwanted]` requirement exists.
 - [ ] Requirements use stable IDs.
 - [ ] Requirements avoid vague phrasing.

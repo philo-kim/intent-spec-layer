@@ -14,6 +14,9 @@ explicit intent, explicit behavior, and explicit verification obligations.
 4. Public examples must not imply that paperwork is equivalent to runtime
    validation.
 5. Release surfaces must not drift from package, changelog, docs, and tags.
+6. Spec authoring must make predictable failure surfaces visible before
+   implementation, especially valid-input automation failure and
+   customer-visible latency.
 
 ## Forbidden Shortcuts
 

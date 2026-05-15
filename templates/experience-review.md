@@ -42,6 +42,16 @@ Describe the user journey using only the spec, not the code.
 |---|---|---|---|
 |  |  |  |  |
 
+## Archetype And Processing Review
+
+| Review item | Finding | Requirement action |
+|---|---|---|
+| Relevant feature archetype packs selected |  |  |
+| Customer-visible async work has a latency contract |  |  |
+| Valid input failure preserves input |  |  |
+| Automation failure returns draft, still-processing, retry, or actionable error |  |  |
+| Empty manual-only fallback after valid input is avoided or explicitly authorized |  |  |
+
 ## Edge-Case Candidates
 
 Use this section for common-sense cases discovered from the spec. Promote them
@@ -49,7 +59,7 @@ to L2/L3 only after their authority basis is clear.
 
 | Candidate | Authority basis | Decision | Requirement impact |
 |---|---|---|---|
-| duplicate submit / stale state / permission / timeout / rollback / cancellation / retry | L0 / L1 invariant / product decision / platform rule / common UX expectation / sample import | accept / reject / decide later | add / modify / none |
+| duplicate submit / stale state / permission / timeout / valid input failure / empty manual fallback / rollback / cancellation / retry | L0 / L1 invariant / product decision / platform rule / common UX expectation / sample import | accept / reject / decide later | add / modify / none |
 
 ## Code Evidence Review
 

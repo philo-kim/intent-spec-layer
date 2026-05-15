@@ -18,6 +18,8 @@ changed, released, verified, and presented.
   stubs, trace references, and executed evidence.
 - `spec/features/agent-operating-protocol/spec.md`: agent-facing rules and
   guardrails.
+- `spec/features/spec-authoring-quality/spec.md`: archetype packs, valid-input
+  failure, latency contracts, and under-decomposition checks.
 - `spec/features/public-discovery/spec.md`: README, GitHub Pages, repository
   metadata, and community discovery surfaces.
 - `spec/features/release-and-versioning/spec.md`: package, changelog, tags, and

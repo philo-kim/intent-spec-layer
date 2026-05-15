@@ -62,6 +62,8 @@ This repository contains:
   evidence;
 - an agent operating protocol that keeps AI agents from confusing intent,
   evidence, review findings, and generated stubs;
+- feature archetype packs that force predictable edge cases into review before
+  implementation;
 - a REQ-ID and statement-level verification bridge that turns each intent
   statement into a proof obligation, while keeping generated placeholders,
   planned evidence, non-generated traces, and executed verification separate;
@@ -97,6 +99,17 @@ Minimum rule set:
    present. It is complete only when a real test, guardrail, smoke check, or
    named manual UX review has executed or recorded evidence for that statement.
 9. Tools consume the source layer; they do not define it.
+10. Use feature archetype packs to force common-sense edge-case discovery before
+    implementation. Async work, source ingestion, external AI, approval,
+    payment, auth, deletion, and external integration each have predictable
+    failure surfaces.
+11. If a user provides valid input and automation fails, the system must
+    preserve that input and provide a recoverable draft, still-processing state,
+    retry path, or actionable error. Do not collapse valid input into an empty
+    manual-only fallback.
+12. Customer-visible work that can outlive the generic API timeout needs an
+    explicit latency contract: synchronous, endpoint-specific long request,
+    polling, background job, or streaming.
 
 ## Start Here
 
@@ -104,6 +117,7 @@ Minimum rule set:
 - [Project specs](spec/README.md)
 - [Agent operating protocol](guide/agent-operating-protocol.md)
 - [Guide](guide/intent-specification-layer.md)
+- [Spec authoring quality](guide/spec-authoring-quality.md)
 - [Adoption playbook](guide/adoption.md)
 - [Spec review loop](guide/spec-review-loop.md)
 - [Spec-to-test bridge](guide/spec-to-test-bridge.md)

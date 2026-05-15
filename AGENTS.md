@@ -39,6 +39,16 @@ For a compact workflow after this file, use
 11. Implementation from accepted spec is not done until each touched statement
     has real verification evidence or an explicit `blocked` / `manual_only`
     record.
+12. Feature archetype packs are required prompts, not optional inspiration.
+    Async work, source ingestion, external AI, approval, payment, auth,
+    deletion, and external integration each have predictable failure surfaces.
+13. Valid input failure must be handled explicitly. If a user provides valid
+    input and automation fails, preserve the input and provide a recoverable
+    draft, still-processing state, retry path, or actionable error rather than
+    an empty manual-only fallback.
+14. Customer-visible work that can outlive the generic API timeout needs a
+    latency contract: synchronous, endpoint-specific long request, polling,
+    background job, or streaming.
 
 ## Decision Flow
 
@@ -51,6 +61,25 @@ Before implementing or reviewing, classify the task:
 | Code differs from spec | Check spec authority before deciding spec gap or code gap. |
 | Edge case found | Record authority basis before promoting to binding REQ. |
 | Test/verification work | Map REQ or statement IDs to real evidence, not only generated stubs. |
+
+## Feature Archetype Reflex
+
+Before writing or implementing L2, choose the matching archetype packs and
+answer their prompts:
+
+| Archetype | Required prompts |
+|---|---|
+| Async customer operation | generic timeout, pending state, retry, refresh/re-entry, still-processing |
+| Source or file ingestion | upload completion vs analysis readiness, parse/OCR failure, input preservation, retry/split/reduce |
+| External AI or automation | schema failure, partial output, low confidence, valid input failure, usable draft |
+| Approval or decision | stale state, duplicate submit, actor authority, already-decided object, audit trail |
+| Payment, entitlement, or billing | idempotency, double charge, provider success with local failure, entitlement reconciliation |
+| Auth or account | callback replay, state mismatch, backend sync failure, partial session prevention |
+| Deletion or privacy | authorization, retention, partial cleanup, audit, idempotency |
+| External integration | provider timeout, retry policy, local persistence failure, reconciliation path |
+
+If a feature matches an archetype but the spec has no corresponding
+`[Unwanted]`, state, or L3 contract, treat that as a spec gap before code work.
 
 ## Implementation Reflex
 
@@ -89,6 +118,9 @@ For every meaningful action, ask:
 - What if local persistence succeeds but notification, billing, or delivery
   fails?
 - What if the async step stays pending too long?
+- What if the action can outlive the generic API timeout?
+- What if the user supplied valid input but automation, extraction, generation,
+  or analysis fails?
 - What if the user cancels, retries, rejects, or comes back later?
 - What next action does the user see after every unwanted path?
 

@@ -104,6 +104,10 @@ wrote down yet. EARS `[Unwanted]` review should actively ask:
 - What happens when the actor lacks ownership or permission?
 - What happens when an external service succeeds but local persistence fails?
 - What happens when an async operation stays pending too long?
+- What happens when normal processing can exceed the generic API timeout?
+- What happens when the user supplied valid input but extraction, analysis,
+  generation, classification, or another automation step fails?
+- Does any valid input failure collapse into an empty manual-only fallback?
 - What does the user see next after rejection, cancellation, expiry, or retry?
 
 These are valuable findings, but they are not automatically code gaps. Treat
@@ -131,6 +135,55 @@ Authority basis matters:
 
 This keeps the strength of reverse review without letting "common sense" become
 unreviewed AI invention.
+
+## Archetype-Based Review
+
+Spec review should not rely on memory. Use the feature archetype packs from
+[Spec authoring quality](spec-authoring-quality.md) as a forcing function.
+
+| Pack | What the reviewer must be able to answer from the spec |
+|---|---|
+| Async customer operation | timeout budget, pending state, retry, refresh/re-entry, still-processing result |
+| Source or file ingestion | upload completion vs analysis readiness, parse/OCR failure, input preservation |
+| External AI or automation | partial output, schema failure, low confidence, valid input failure, usable draft |
+| Approval or decision | duplicate submit, stale state, actor authority, already-decided object |
+| Payment, entitlement, or billing | idempotency, double charge, provider/local reconciliation |
+| Auth or account | callback replay, state mismatch, backend sync failure, partial session prevention |
+| Deletion or privacy | authorization, retention, partial cleanup, audit, idempotency |
+| External integration | provider timeout, retry policy, local persistence failure, reconciliation |
+
+When a pack applies and the answer is not visible, classify the finding as a
+candidate spec gap. Promote it to authoritative L2/L3 only after the authority
+basis is clear.
+
+## Latency Contract Review
+
+Customer-visible processing should not inherit a generic timeout by accident.
+For every async or automation-heavy flow, identify which contract the spec
+declares:
+
+- synchronous;
+- endpoint-specific long request;
+- polling;
+- background job;
+- streaming.
+
+If none is declared, the likely implementation failure is a false timeout that
+turns normal processing into a generic error or manual fallback.
+
+## Valid Input Failure Review
+
+When valid input has been accepted, automation failure is not the same as user
+failure. The reviewer should verify that the spec preserves the input and
+requires one of:
+
+- recoverable draft;
+- still-processing state;
+- retry path;
+- actionable error detail.
+
+If the only visible outcome is an empty manual-only fallback, the spec is
+missing a recovery requirement.
 
 ## What The Spec Must Let Reviewers See
 

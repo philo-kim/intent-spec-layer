@@ -1,6 +1,6 @@
 {
   "name": "intent-spec-layer",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Spec layer for AI coding agents: turn intent into EARS requirements and verification obligations",
   "private": false,
   "type": "module",
@@ -17,13 +17,17 @@
     "ai-agents",
     "ai-assisted-coding",
     "ai-coding",
+    "coding-agents",
+    "developer-tools",
     "ears",
     "requirements",
     "requirements-engineering",
     "sdd",
+    "software-engineering",
     "spec-driven-development",
     "testing",
-    "verification"
+    "verification",
+    "vibe-coding"
   ],
   "files": [
     "_config.yml",
@@ -60,8 +64,9 @@
     "test:project": "node --test tests/*.test.mjs",
     "check:syntax": "find experiments scripts tests -name '*.mjs' -print | sort | xargs -n1 node --check",
     "check:agent": "node scripts/check-agent-protocol.mjs",
+    "check:authoring": "node scripts/check-spec-authoring.mjs",
     "check:links": "node scripts/check-links.mjs",
     "check:reqs": "node scripts/generate-req-tests.mjs --check",
-    "check": "npm run check:syntax && npm run check:agent && npm run check:links && npm run check:reqs && npm run test:reqs && npm run test:project && npm run benchmark && npm run simulate"
+    "check": "npm run check:syntax && npm run check:agent && npm run check:authoring && npm run check:links && npm run check:reqs && npm run test:reqs && npm run test:project && npm run benchmark && npm run simulate"
   }
 }

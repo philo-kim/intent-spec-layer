@@ -1,14 +1,14 @@
 {
   "generatedBy": "scripts/generate-req-tests.mjs",
   "totals": {
-    "requirements": 26,
-    "statements": 27,
-    "generatedStubSlots": 27,
-    "verificationMappedStatements": 27,
-    "nonGeneratedSpecReferences": 15,
-    "nonGeneratedTracedStatements": 15,
-    "realSpecReferences": 15,
-    "realTracedStatements": 15,
+    "requirements": 32,
+    "statements": 33,
+    "generatedStubSlots": 33,
+    "verificationMappedStatements": 33,
+    "nonGeneratedSpecReferences": 33,
+    "nonGeneratedTracedStatements": 21,
+    "realSpecReferences": 33,
+    "realTracedStatements": 21,
     "pendingGeneratedOnlyStatements": 12,
     "codeOnlyReferences": 0
   },
@@ -80,6 +80,126 @@
           "statementCount": 1,
           "verificationMapped": true,
           "plannedVerification": "guardrail | `scripts/check-agent-protocol.mjs` | `npm run check:agent` | verified",
+          "generatedStub": true,
+          "verificationStatus": "pending"
+        }
+      ]
+    },
+    {
+      "id": "REQ-AUTHOR-001",
+      "title": "Agent-facing guides and templates shall require feature archetype packs before implementation so predictable edge cases are considered by feature type.",
+      "source": "spec/features/spec-authoring-quality/spec.md",
+      "line": 37,
+      "statements": [
+        {
+          "requirementId": "REQ-AUTHOR-001",
+          "title": "Agent-facing guides and templates shall require feature archetype packs before implementation so predictable edge cases are considered by feature type.",
+          "pattern": "Ubiquitous",
+          "text": "Agent-facing guides and templates shall require feature archetype packs before implementation so predictable edge cases are considered by feature type.",
+          "source": "spec/features/spec-authoring-quality/spec.md",
+          "line": 37,
+          "style": "inline",
+          "statementIndex": 1,
+          "statementId": "REQ-AUTHOR-001:S1",
+          "statementCount": 1,
+          "verificationMapped": true,
+          "plannedVerification": "guardrail | `scripts/check-spec-authoring.mjs` | `npm run check:authoring` | verified",
+          "generatedStub": true,
+          "verificationStatus": "pending"
+        }
+      ]
+    },
+    {
+      "id": "REQ-AUTHOR-002",
+      "title": "If a feature accepts valid user input and an automation step can fail, then the authoring guidance shall require input preservation and a recoverable draft, still-processing state, retry path, or actionable error instead of an empty manual-only fallback.",
+      "source": "spec/features/spec-authoring-quality/spec.md",
+      "line": 40,
+      "statements": [
+        {
+          "requirementId": "REQ-AUTHOR-002",
+          "title": "If a feature accepts valid user input and an automation step can fail, then the authoring guidance shall require input preservation and a recoverable draft, still-processing state, retry path, or actionable error instead of an empty manual-only fallback.",
+          "pattern": "Unwanted",
+          "text": "If a feature accepts valid user input and an automation step can fail, then the authoring guidance shall require input preservation and a recoverable draft, still-processing state, retry path, or actionable error instead of an empty manual-only fallback.",
+          "source": "spec/features/spec-authoring-quality/spec.md",
+          "line": 40,
+          "style": "inline",
+          "statementIndex": 1,
+          "statementId": "REQ-AUTHOR-002:S1",
+          "statementCount": 1,
+          "verificationMapped": true,
+          "plannedVerification": "guardrail | `scripts/check-spec-authoring.mjs` | `npm run check:authoring` | verified",
+          "generatedStub": true,
+          "verificationStatus": "pending"
+        }
+      ]
+    },
+    {
+      "id": "REQ-AUTHOR-003",
+      "title": "If customer-visible processing can outlive the generic API timeout, then the authoring guidance shall require a latency contract: synchronous, endpoint-specific long request, polling, background job, or streaming.",
+      "source": "spec/features/spec-authoring-quality/spec.md",
+      "line": 44,
+      "statements": [
+        {
+          "requirementId": "REQ-AUTHOR-003",
+          "title": "If customer-visible processing can outlive the generic API timeout, then the authoring guidance shall require a latency contract: synchronous, endpoint-specific long request, polling, background job, or streaming.",
+          "pattern": "Unwanted",
+          "text": "If customer-visible processing can outlive the generic API timeout, then the authoring guidance shall require a latency contract: synchronous, endpoint-specific long request, polling, background job, or streaming.",
+          "source": "spec/features/spec-authoring-quality/spec.md",
+          "line": 44,
+          "style": "inline",
+          "statementIndex": 1,
+          "statementId": "REQ-AUTHOR-003:S1",
+          "statementCount": 1,
+          "verificationMapped": true,
+          "plannedVerification": "guardrail | `scripts/check-spec-authoring.mjs` | `npm run check:authoring` | verified",
+          "generatedStub": true,
+          "verificationStatus": "pending"
+        }
+      ]
+    },
+    {
+      "id": "REQ-AUTHOR-004",
+      "title": "If every requirement in a meaningful customer-facing feature has exactly one behavior statement, then the tooling or checklist shall flag under-decomposition review rather than treating equal REQ/EARS counts as automatically healthy.",
+      "source": "spec/features/spec-authoring-quality/spec.md",
+      "line": 48,
+      "statements": [
+        {
+          "requirementId": "REQ-AUTHOR-004",
+          "title": "If every requirement in a meaningful customer-facing feature has exactly one behavior statement, then the tooling or checklist shall flag under-decomposition review rather than treating equal REQ/EARS counts as automatically healthy.",
+          "pattern": "Unwanted",
+          "text": "If every requirement in a meaningful customer-facing feature has exactly one behavior statement, then the tooling or checklist shall flag under-decomposition review rather than treating equal REQ/EARS counts as automatically healthy.",
+          "source": "spec/features/spec-authoring-quality/spec.md",
+          "line": 48,
+          "style": "inline",
+          "statementIndex": 1,
+          "statementId": "REQ-AUTHOR-004:S1",
+          "statementCount": 1,
+          "verificationMapped": true,
+          "plannedVerification": "guardrail | `scripts/check-spec-authoring.mjs` | `npm run check:authoring` | verified",
+          "generatedStub": true,
+          "verificationStatus": "pending"
+        }
+      ]
+    },
+    {
+      "id": "REQ-AUTHOR-005",
+      "title": "When repository authoring rules change, the check suite shall verify that the README, guide, templates, and agent-facing entrypoints keep those rules visible.",
+      "source": "spec/features/spec-authoring-quality/spec.md",
+      "line": 52,
+      "statements": [
+        {
+          "requirementId": "REQ-AUTHOR-005",
+          "title": "When repository authoring rules change, the check suite shall verify that the README, guide, templates, and agent-facing entrypoints keep those rules visible.",
+          "pattern": "Event-driven",
+          "text": "When repository authoring rules change, the check suite shall verify that the README, guide, templates, and agent-facing entrypoints keep those rules visible.",
+          "source": "spec/features/spec-authoring-quality/spec.md",
+          "line": 52,
+          "style": "inline",
+          "statementIndex": 1,
+          "statementId": "REQ-AUTHOR-005:S1",
+          "statementCount": 1,
+          "verificationMapped": true,
+          "plannedVerification": "guardrail | `scripts/check-spec-authoring.mjs` | `npm run check:authoring` | verified",
           "generatedStub": true,
           "verificationStatus": "pending"
         }
@@ -545,7 +665,7 @@
       "id": "REQ-REL-001",
       "title": "The package version shall match the latest changelog release heading.",
       "source": "spec/features/release-and-versioning/spec.md",
-      "line": 35,
+      "line": 37,
       "statements": [
         {
           "requirementId": "REQ-REL-001",
@@ -553,7 +673,7 @@
           "pattern": "Ubiquitous",
           "text": "The package version shall match the latest changelog release heading.",
           "source": "spec/features/release-and-versioning/spec.md",
-          "line": 35,
+          "line": 37,
           "style": "inline",
           "statementIndex": 1,
           "statementId": "REQ-REL-001:S1",
@@ -569,7 +689,7 @@
       "id": "REQ-REL-002",
       "title": "The package manifest shall expose repository, homepage, bugs, license, keywords, and package file boundaries for public reuse.",
       "source": "spec/features/release-and-versioning/spec.md",
-      "line": 37,
+      "line": 39,
       "statements": [
         {
           "requirementId": "REQ-REL-002",
@@ -577,7 +697,7 @@
           "pattern": "Ubiquitous",
           "text": "The package manifest shall expose repository, homepage, bugs, license, keywords, and package file boundaries for public reuse.",
           "source": "spec/features/release-and-versioning/spec.md",
-          "line": 37,
+          "line": 39,
           "style": "inline",
           "statementIndex": 1,
           "statementId": "REQ-REL-002:S1",
@@ -593,7 +713,7 @@
       "id": "REQ-REL-003",
       "title": "When a release is published, the release tag shall use `v<package version>` and the changelog entry shall describe the released behavior.",
       "source": "spec/features/release-and-versioning/spec.md",
-      "line": 40,
+      "line": 42,
       "statements": [
         {
           "requirementId": "REQ-REL-003",
@@ -601,13 +721,37 @@
           "pattern": "Event-driven",
           "text": "When a release is published, the release tag shall use `v<package version>` and the changelog entry shall describe the released behavior.",
           "source": "spec/features/release-and-versioning/spec.md",
-          "line": 40,
+          "line": 42,
           "style": "inline",
           "statementIndex": 1,
           "statementId": "REQ-REL-003:S1",
           "statementCount": 1,
           "verificationMapped": true,
           "plannedVerification": "manual release guardrail | release checklist in this spec | tag and release command after `npm run check` | mapped",
+          "generatedStub": true,
+          "verificationStatus": "pending"
+        }
+      ]
+    },
+    {
+      "id": "REQ-REL-004",
+      "title": "The citation metadata version shall match the package version and latest changelog release heading.",
+      "source": "spec/features/release-and-versioning/spec.md",
+      "line": 45,
+      "statements": [
+        {
+          "requirementId": "REQ-REL-004",
+          "title": "The citation metadata version shall match the package version and latest changelog release heading.",
+          "pattern": "Ubiquitous",
+          "text": "The citation metadata version shall match the package version and latest changelog release heading.",
+          "source": "spec/features/release-and-versioning/spec.md",
+          "line": 45,
+          "style": "inline",
+          "statementIndex": 1,
+          "statementId": "REQ-REL-004:S1",
+          "statementCount": 1,
+          "verificationMapped": true,
+          "plannedVerification": "test | `tests/release-versioning.test.mjs` | `npm run test:project` | verified",
           "generatedStub": true,
           "verificationStatus": "pending"
         }
@@ -700,6 +844,86 @@
       "statementCount": 1,
       "verificationMapped": true,
       "plannedVerification": "guardrail | `scripts/check-agent-protocol.mjs` | `npm run check:agent` | verified",
+      "generatedStub": true,
+      "verificationStatus": "pending"
+    },
+    {
+      "requirementId": "REQ-AUTHOR-001",
+      "title": "Agent-facing guides and templates shall require feature archetype packs before implementation so predictable edge cases are considered by feature type.",
+      "pattern": "Ubiquitous",
+      "text": "Agent-facing guides and templates shall require feature archetype packs before implementation so predictable edge cases are considered by feature type.",
+      "source": "spec/features/spec-authoring-quality/spec.md",
+      "line": 37,
+      "style": "inline",
+      "statementIndex": 1,
+      "statementId": "REQ-AUTHOR-001:S1",
+      "statementCount": 1,
+      "verificationMapped": true,
+      "plannedVerification": "guardrail | `scripts/check-spec-authoring.mjs` | `npm run check:authoring` | verified",
+      "generatedStub": true,
+      "verificationStatus": "pending"
+    },
+    {
+      "requirementId": "REQ-AUTHOR-002",
+      "title": "If a feature accepts valid user input and an automation step can fail, then the authoring guidance shall require input preservation and a recoverable draft, still-processing state, retry path, or actionable error instead of an empty manual-only fallback.",
+      "pattern": "Unwanted",
+      "text": "If a feature accepts valid user input and an automation step can fail, then the authoring guidance shall require input preservation and a recoverable draft, still-processing state, retry path, or actionable error instead of an empty manual-only fallback.",
+      "source": "spec/features/spec-authoring-quality/spec.md",
+      "line": 40,
+      "style": "inline",
+      "statementIndex": 1,
+      "statementId": "REQ-AUTHOR-002:S1",
+      "statementCount": 1,
+      "verificationMapped": true,
+      "plannedVerification": "guardrail | `scripts/check-spec-authoring.mjs` | `npm run check:authoring` | verified",
+      "generatedStub": true,
+      "verificationStatus": "pending"
+    },
+    {
+      "requirementId": "REQ-AUTHOR-003",
+      "title": "If customer-visible processing can outlive the generic API timeout, then the authoring guidance shall require a latency contract: synchronous, endpoint-specific long request, polling, background job, or streaming.",
+      "pattern": "Unwanted",
+      "text": "If customer-visible processing can outlive the generic API timeout, then the authoring guidance shall require a latency contract: synchronous, endpoint-specific long request, polling, background job, or streaming.",
+      "source": "spec/features/spec-authoring-quality/spec.md",
+      "line": 44,
+      "style": "inline",
+      "statementIndex": 1,
+      "statementId": "REQ-AUTHOR-003:S1",
+      "statementCount": 1,
+      "verificationMapped": true,
+      "plannedVerification": "guardrail | `scripts/check-spec-authoring.mjs` | `npm run check:authoring` | verified",
+      "generatedStub": true,
+      "verificationStatus": "pending"
+    },
+    {
+      "requirementId": "REQ-AUTHOR-004",
+      "title": "If every requirement in a meaningful customer-facing feature has exactly one behavior statement, then the tooling or checklist shall flag under-decomposition review rather than treating equal REQ/EARS counts as automatically healthy.",
+      "pattern": "Unwanted",
+      "text": "If every requirement in a meaningful customer-facing feature has exactly one behavior statement, then the tooling or checklist shall flag under-decomposition review rather than treating equal REQ/EARS counts as automatically healthy.",
+      "source": "spec/features/spec-authoring-quality/spec.md",
+      "line": 48,
+      "style": "inline",
+      "statementIndex": 1,
+      "statementId": "REQ-AUTHOR-004:S1",
+      "statementCount": 1,
+      "verificationMapped": true,
+      "plannedVerification": "guardrail | `scripts/check-spec-authoring.mjs` | `npm run check:authoring` | verified",
+      "generatedStub": true,
+      "verificationStatus": "pending"
+    },
+    {
+      "requirementId": "REQ-AUTHOR-005",
+      "title": "When repository authoring rules change, the check suite shall verify that the README, guide, templates, and agent-facing entrypoints keep those rules visible.",
+      "pattern": "Event-driven",
+      "text": "When repository authoring rules change, the check suite shall verify that the README, guide, templates, and agent-facing entrypoints keep those rules visible.",
+      "source": "spec/features/spec-authoring-quality/spec.md",
+      "line": 52,
+      "style": "inline",
+      "statementIndex": 1,
+      "statementId": "REQ-AUTHOR-005:S1",
+      "statementCount": 1,
+      "verificationMapped": true,
+      "plannedVerification": "guardrail | `scripts/check-spec-authoring.mjs` | `npm run check:authoring` | verified",
       "generatedStub": true,
       "verificationStatus": "pending"
     },
@@ -1013,7 +1237,7 @@
       "pattern": "Ubiquitous",
       "text": "The package version shall match the latest changelog release heading.",
       "source": "spec/features/release-and-versioning/spec.md",
-      "line": 35,
+      "line": 37,
       "style": "inline",
       "statementIndex": 1,
       "statementId": "REQ-REL-001:S1",
@@ -1029,7 +1253,7 @@
       "pattern": "Ubiquitous",
       "text": "The package manifest shall expose repository, homepage, bugs, license, keywords, and package file boundaries for public reuse.",
       "source": "spec/features/release-and-versioning/spec.md",
-      "line": 37,
+      "line": 39,
       "style": "inline",
       "statementIndex": 1,
       "statementId": "REQ-REL-002:S1",
@@ -1045,13 +1269,29 @@
       "pattern": "Event-driven",
       "text": "When a release is published, the release tag shall use `v<package version>` and the changelog entry shall describe the released behavior.",
       "source": "spec/features/release-and-versioning/spec.md",
-      "line": 40,
+      "line": 42,
       "style": "inline",
       "statementIndex": 1,
       "statementId": "REQ-REL-003:S1",
       "statementCount": 1,
       "verificationMapped": true,
       "plannedVerification": "manual release guardrail | release checklist in this spec | tag and release command after `npm run check` | mapped",
+      "generatedStub": true,
+      "verificationStatus": "pending"
+    },
+    {
+      "requirementId": "REQ-REL-004",
+      "title": "The citation metadata version shall match the package version and latest changelog release heading.",
+      "pattern": "Ubiquitous",
+      "text": "The citation metadata version shall match the package version and latest changelog release heading.",
+      "source": "spec/features/release-and-versioning/spec.md",
+      "line": 45,
+      "style": "inline",
+      "statementIndex": 1,
+      "statementId": "REQ-REL-004:S1",
+      "statementCount": 1,
+      "verificationMapped": true,
+      "plannedVerification": "test | `tests/release-versioning.test.mjs` | `npm run test:project` | verified",
       "generatedStub": true,
       "verificationStatus": "pending"
     },
@@ -1102,7 +1342,92 @@
     {
       "id": "REQ-AGENT-003:S1",
       "source": "scripts/check-agent-protocol.mjs",
-      "line": 34
+      "line": 37
+    },
+    {
+      "id": "REQ-AUTHOR-001:S1",
+      "source": "scripts/check-spec-authoring.mjs",
+      "line": 15
+    },
+    {
+      "id": "REQ-AUTHOR-001:S1",
+      "source": "scripts/check-spec-authoring.mjs",
+      "line": 27
+    },
+    {
+      "id": "REQ-AUTHOR-001:S1",
+      "source": "tests/spec-authoring-quality.test.mjs",
+      "line": 13
+    },
+    {
+      "id": "REQ-AUTHOR-001:S1",
+      "source": "tests/spec-authoring-quality.test.mjs",
+      "line": 23
+    },
+    {
+      "id": "REQ-AUTHOR-002:S1",
+      "source": "scripts/check-spec-authoring.mjs",
+      "line": 15
+    },
+    {
+      "id": "REQ-AUTHOR-002:S1",
+      "source": "scripts/check-spec-authoring.mjs",
+      "line": 27
+    },
+    {
+      "id": "REQ-AUTHOR-002:S1",
+      "source": "tests/spec-authoring-quality.test.mjs",
+      "line": 13
+    },
+    {
+      "id": "REQ-AUTHOR-002:S1",
+      "source": "tests/spec-authoring-quality.test.mjs",
+      "line": 23
+    },
+    {
+      "id": "REQ-AUTHOR-003:S1",
+      "source": "scripts/check-spec-authoring.mjs",
+      "line": 15
+    },
+    {
+      "id": "REQ-AUTHOR-003:S1",
+      "source": "scripts/check-spec-authoring.mjs",
+      "line": 27
+    },
+    {
+      "id": "REQ-AUTHOR-003:S1",
+      "source": "tests/spec-authoring-quality.test.mjs",
+      "line": 13
+    },
+    {
+      "id": "REQ-AUTHOR-003:S1",
+      "source": "tests/spec-authoring-quality.test.mjs",
+      "line": 23
+    },
+    {
+      "id": "REQ-AUTHOR-004:S1",
+      "source": "scripts/check-spec-authoring.mjs",
+      "line": 15
+    },
+    {
+      "id": "REQ-AUTHOR-004:S1",
+      "source": "scripts/check-spec-authoring.mjs",
+      "line": 39
+    },
+    {
+      "id": "REQ-AUTHOR-004:S1",
+      "source": "tests/spec-authoring-quality.test.mjs",
+      "line": 23
+    },
+    {
+      "id": "REQ-AUTHOR-005:S1",
+      "source": "scripts/check-spec-authoring.mjs",
+      "line": 59
+    },
+    {
+      "id": "REQ-AUTHOR-005:S1",
+      "source": "tests/spec-authoring-quality.test.mjs",
+      "line": 33
     },
     {
       "id": "REQ-BRIDGE-001:S1",
@@ -1147,7 +1472,7 @@
     {
       "id": "REQ-GOV-002:S1",
       "source": "tests/spec-governance.test.mjs",
-      "line": 50
+      "line": 51
     },
     {
       "id": "REQ-GOV-003:S1",
@@ -1161,6 +1486,11 @@
     },
     {
       "id": "REQ-REL-002:S1",
+      "source": "tests/release-versioning.test.mjs",
+      "line": 37
+    },
+    {
+      "id": "REQ-REL-004:S1",
       "source": "tests/release-versioning.test.mjs",
       "line": 23
     }

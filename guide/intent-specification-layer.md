@@ -226,6 +226,31 @@ Example:
   a partial local session.
 ```
 
+## 8A. Spec Authoring Quality
+
+EARS gives the sentence shape, but it does not by itself guarantee that the
+right situations were considered. Use
+[Spec authoring quality](spec-authoring-quality.md) before implementation.
+
+Three checks matter most:
+
+1. **Feature archetype packs.** Async work, source ingestion, external AI,
+   approval, payment, auth, deletion, and external integration have predictable
+   failure surfaces. Select the matching packs and write the missing
+   `[State-driven]`, `[Unwanted]`, or L3 contract entries.
+2. **Valid input failure rule.** If a user provides valid input and automation
+   fails, preserve the input and provide a recoverable draft, still-processing
+   state, retry path, or actionable error. Do not collapse valid input into an
+   empty manual-only fallback.
+3. **Latency / processing contract.** Customer-visible work that can outlive
+   the generic API timeout must choose synchronous, endpoint-specific long
+   request, polling, background job, or streaming behavior.
+
+If every REQ has exactly one EARS statement, pause and check for
+under-decomposition. Important customer-facing capabilities usually need more
+than one statement because state, recovery, and unwanted paths are distinct
+behaviors under the same capability.
+
 ## 9. L3 Interface Contracts
 
 EARS says what must happen. L3 says how modules preserve the promise when the

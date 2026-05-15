@@ -30,6 +30,51 @@ test("REQ-AGENT-003:S1 [Unwanted] If a review finding lacks authority, release s
   // Statement: If a review finding lacks authority, release scope, implementation evidence, or core-journey impact, then agent-facing guidance shall not classify it as a release blocker.
 });
 
+test("REQ-AUTHOR-001:S1 [Ubiquitous] Agent-facing guides and templates shall require feature archetype packs before implementation so...", {
+  skip: "Generated stub from spec/features/spec-authoring-quality/spec.md:37. Verification is still pending.",
+}, () => {
+  // @Spec(REQ-AUTHOR-001:S1) generated_stub=true verification_status=pending
+  // Source: spec/features/spec-authoring-quality/spec.md:37
+  // Requirement: REQ-AUTHOR-001
+  // Statement: Agent-facing guides and templates shall require feature archetype packs before implementation so predictable edge cases are considered by feature type.
+});
+
+test("REQ-AUTHOR-002:S1 [Unwanted] If a feature accepts valid user input and an automation step can fail, then the authoring guidance...", {
+  skip: "Generated stub from spec/features/spec-authoring-quality/spec.md:40. Verification is still pending.",
+}, () => {
+  // @Spec(REQ-AUTHOR-002:S1) generated_stub=true verification_status=pending
+  // Source: spec/features/spec-authoring-quality/spec.md:40
+  // Requirement: REQ-AUTHOR-002
+  // Statement: If a feature accepts valid user input and an automation step can fail, then the authoring guidance shall require input preservation and a recoverable draft, still-processing state, retry path, or actionable error instead of an empty manual-only fallback.
+});
+
+test("REQ-AUTHOR-003:S1 [Unwanted] If customer-visible processing can outlive the generic API timeout, then the authoring guidance shall...", {
+  skip: "Generated stub from spec/features/spec-authoring-quality/spec.md:44. Verification is still pending.",
+}, () => {
+  // @Spec(REQ-AUTHOR-003:S1) generated_stub=true verification_status=pending
+  // Source: spec/features/spec-authoring-quality/spec.md:44
+  // Requirement: REQ-AUTHOR-003
+  // Statement: If customer-visible processing can outlive the generic API timeout, then the authoring guidance shall require a latency contract: synchronous, endpoint-specific long request, polling, background job, or streaming.
+});
+
+test("REQ-AUTHOR-004:S1 [Unwanted] If every requirement in a meaningful customer-facing feature has exactly one behavior statement, then...", {
+  skip: "Generated stub from spec/features/spec-authoring-quality/spec.md:48. Verification is still pending.",
+}, () => {
+  // @Spec(REQ-AUTHOR-004:S1) generated_stub=true verification_status=pending
+  // Source: spec/features/spec-authoring-quality/spec.md:48
+  // Requirement: REQ-AUTHOR-004
+  // Statement: If every requirement in a meaningful customer-facing feature has exactly one behavior statement, then the tooling or checklist shall flag under-decomposition review rather than treating equal REQ/EARS counts as automatically healthy.
+});
+
+test("REQ-AUTHOR-005:S1 [Event-driven] When repository authoring rules change, the check suite shall verify that the README, guide,...", {
+  skip: "Generated stub from spec/features/spec-authoring-quality/spec.md:52. Verification is still pending.",
+}, () => {
+  // @Spec(REQ-AUTHOR-005:S1) generated_stub=true verification_status=pending
+  // Source: spec/features/spec-authoring-quality/spec.md:52
+  // Requirement: REQ-AUTHOR-005
+  // Statement: When repository authoring rules change, the check suite shall verify that the README, guide, templates, and agent-facing entrypoints keep those rules visible.
+});
+
 test("REQ-BRIDGE-001:S1 [Event-driven] When `spec/**/*.md` or `examples/**/spec.md` contains an EARS requirement, the generator shall assign...", {
   skip: "Generated stub from spec/features/spec-to-test-bridge/spec.md:36. Verification is still pending.",
 }, () => {
@@ -202,30 +247,39 @@ test("REQ-GOV-003:S1 [Unwanted] If a generated artifact becomes stale after a sp
 });
 
 test("REQ-REL-001:S1 [Ubiquitous] The package version shall match the latest changelog release heading.", {
-  skip: "Generated stub from spec/features/release-and-versioning/spec.md:35. Verification is still pending.",
+  skip: "Generated stub from spec/features/release-and-versioning/spec.md:37. Verification is still pending.",
 }, () => {
   // @Spec(REQ-REL-001:S1) generated_stub=true verification_status=pending
-  // Source: spec/features/release-and-versioning/spec.md:35
+  // Source: spec/features/release-and-versioning/spec.md:37
   // Requirement: REQ-REL-001
   // Statement: The package version shall match the latest changelog release heading.
 });
 
 test("REQ-REL-002:S1 [Ubiquitous] The package manifest shall expose repository, homepage, bugs, license, keywords, and package file...", {
-  skip: "Generated stub from spec/features/release-and-versioning/spec.md:37. Verification is still pending.",
+  skip: "Generated stub from spec/features/release-and-versioning/spec.md:39. Verification is still pending.",
 }, () => {
   // @Spec(REQ-REL-002:S1) generated_stub=true verification_status=pending
-  // Source: spec/features/release-and-versioning/spec.md:37
+  // Source: spec/features/release-and-versioning/spec.md:39
   // Requirement: REQ-REL-002
   // Statement: The package manifest shall expose repository, homepage, bugs, license, keywords, and package file boundaries for public reuse.
 });
 
 test("REQ-REL-003:S1 [Event-driven] When a release is published, the release tag shall use `v<package version>` and the changelog entry...", {
-  skip: "Generated stub from spec/features/release-and-versioning/spec.md:40. Verification is still pending.",
+  skip: "Generated stub from spec/features/release-and-versioning/spec.md:42. Verification is still pending.",
 }, () => {
   // @Spec(REQ-REL-003:S1) generated_stub=true verification_status=pending
-  // Source: spec/features/release-and-versioning/spec.md:40
+  // Source: spec/features/release-and-versioning/spec.md:42
   // Requirement: REQ-REL-003
   // Statement: When a release is published, the release tag shall use `v<package version>` and the changelog entry shall describe the released behavior.
+});
+
+test("REQ-REL-004:S1 [Ubiquitous] The citation metadata version shall match the package version and latest changelog release heading.", {
+  skip: "Generated stub from spec/features/release-and-versioning/spec.md:45. Verification is still pending.",
+}, () => {
+  // @Spec(REQ-REL-004:S1) generated_stub=true verification_status=pending
+  // Source: spec/features/release-and-versioning/spec.md:45
+  // Requirement: REQ-REL-004
+  // Statement: The citation metadata version shall match the package version and latest changelog release heading.
 });
 
 test("REQ-SESSION-001:S1 [Event-driven] When identity authorization succeeds, the system shall exchange the authorization result for an...", {

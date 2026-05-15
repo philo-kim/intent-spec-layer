@@ -1,6 +1,6 @@
 # Roadmap
 
-## 0.2
+## 0.2.x
 
 - Add examples outside e-commerce.
 - Add a stricter frontmatter validator that uses `schemas/frontmatter.schema.json`.

@@ -8,12 +8,12 @@ Generated stubs are not proof of behavior. They are pending verification slots.
 
 | Metric | Count |
 |---|---:|
-| Requirements | 26 |
-| EARS statements | 27 |
-| Verification-map covered statements | 27 |
-| Generated stub slots | 27 |
-| Non-generated @Spec references outside generated artifacts | 15 |
-| Statements with non-generated @Spec trace | 15 |
+| Requirements | 32 |
+| EARS statements | 33 |
+| Verification-map covered statements | 33 |
+| Generated stub slots | 33 |
+| Non-generated @Spec references outside generated artifacts | 33 |
+| Statements with non-generated @Spec trace | 21 |
 | Pending generated-only statements | 12 |
 | Code-only @Spec references | 0 |
 
@@ -32,7 +32,7 @@ A non-generated trace is not automatically execution proof. Mark a statement ver
 | REQ-COUPON-007:S1 | Unwanted | examples/coupon-order-system/spec.md:62 |
 | REQ-COUPON-008:S1 | Unwanted | examples/coupon-order-system/spec.md:64 |
 | REQ-COUPON-009:S1 | Optional | examples/coupon-order-system/spec.md:66 |
-| REQ-REL-003:S1 | Event-driven | spec/features/release-and-versioning/spec.md:40 |
+| REQ-REL-003:S1 | Event-driven | spec/features/release-and-versioning/spec.md:42 |
 | REQ-SESSION-001:S1 | Event-driven | examples/account-session-heading-style/spec.md:44 |
 | REQ-SESSION-001:S2 | Unwanted | examples/account-session-heading-style/spec.md:48 |
 
@@ -43,6 +43,11 @@ A non-generated trace is not automatically execution proof. Mark a statement ver
 | REQ-AGENT-001:S1 | guardrail \| `scripts/check-agent-protocol.mjs` \| `npm run check:agent` \| verified |
 | REQ-AGENT-002:S1 | guardrail \| `scripts/check-agent-protocol.mjs` \| `npm run check:agent` \| verified |
 | REQ-AGENT-003:S1 | guardrail \| `scripts/check-agent-protocol.mjs` \| `npm run check:agent` \| verified |
+| REQ-AUTHOR-001:S1 | guardrail \| `scripts/check-spec-authoring.mjs` \| `npm run check:authoring` \| verified |
+| REQ-AUTHOR-002:S1 | guardrail \| `scripts/check-spec-authoring.mjs` \| `npm run check:authoring` \| verified |
+| REQ-AUTHOR-003:S1 | guardrail \| `scripts/check-spec-authoring.mjs` \| `npm run check:authoring` \| verified |
+| REQ-AUTHOR-004:S1 | guardrail \| `scripts/check-spec-authoring.mjs` \| `npm run check:authoring` \| verified |
+| REQ-AUTHOR-005:S1 | guardrail \| `scripts/check-spec-authoring.mjs` \| `npm run check:authoring` \| verified |
 | REQ-BRIDGE-001:S1 | guardrail \| `npm run check:reqs` \| `npm run check` \| verified |
 | REQ-BRIDGE-002:S1 | test \| `tests/spec-bridge.test.mjs` \| `npm run test:project` \| verified |
 | REQ-BRIDGE-003:S1 | guardrail \| `npm run check:reqs` \| `npm run check` \| verified |
@@ -65,6 +70,7 @@ A non-generated trace is not automatically execution proof. Mark a statement ver
 | REQ-REL-001:S1 | test \| `tests/release-versioning.test.mjs` \| `npm run test:project` \| verified |
 | REQ-REL-002:S1 | test \| `tests/release-versioning.test.mjs` \| `npm run test:project` \| verified |
 | REQ-REL-003:S1 | manual release guardrail \| release checklist in this spec \| tag and release command after `npm run check` \| mapped |
+| REQ-REL-004:S1 | test \| `tests/release-versioning.test.mjs` \| `npm run test:project` \| verified |
 | REQ-SESSION-001:S1 | Integration test for successful callback exchange |
 | REQ-SESSION-001:S2 | Integration test for recoverable setup failure |
 
@@ -74,7 +80,24 @@ A non-generated trace is not automatically execution proof. Mark a statement ver
 |---|---|
 | REQ-AGENT-001:S1 | scripts/check-agent-protocol.mjs:19 |
 | REQ-AGENT-002:S1 | scripts/check-agent-protocol.mjs:20 |
-| REQ-AGENT-003:S1 | scripts/check-agent-protocol.mjs:34 |
+| REQ-AGENT-003:S1 | scripts/check-agent-protocol.mjs:37 |
+| REQ-AUTHOR-001:S1 | scripts/check-spec-authoring.mjs:15 |
+| REQ-AUTHOR-001:S1 | scripts/check-spec-authoring.mjs:27 |
+| REQ-AUTHOR-001:S1 | tests/spec-authoring-quality.test.mjs:13 |
+| REQ-AUTHOR-001:S1 | tests/spec-authoring-quality.test.mjs:23 |
+| REQ-AUTHOR-002:S1 | scripts/check-spec-authoring.mjs:15 |
+| REQ-AUTHOR-002:S1 | scripts/check-spec-authoring.mjs:27 |
+| REQ-AUTHOR-002:S1 | tests/spec-authoring-quality.test.mjs:13 |
+| REQ-AUTHOR-002:S1 | tests/spec-authoring-quality.test.mjs:23 |
+| REQ-AUTHOR-003:S1 | scripts/check-spec-authoring.mjs:15 |
+| REQ-AUTHOR-003:S1 | scripts/check-spec-authoring.mjs:27 |
+| REQ-AUTHOR-003:S1 | tests/spec-authoring-quality.test.mjs:13 |
+| REQ-AUTHOR-003:S1 | tests/spec-authoring-quality.test.mjs:23 |
+| REQ-AUTHOR-004:S1 | scripts/check-spec-authoring.mjs:15 |
+| REQ-AUTHOR-004:S1 | scripts/check-spec-authoring.mjs:39 |
+| REQ-AUTHOR-004:S1 | tests/spec-authoring-quality.test.mjs:23 |
+| REQ-AUTHOR-005:S1 | scripts/check-spec-authoring.mjs:59 |
+| REQ-AUTHOR-005:S1 | tests/spec-authoring-quality.test.mjs:33 |
 | REQ-BRIDGE-001:S1 | scripts/generate-req-tests.mjs:611 |
 | REQ-BRIDGE-002:S1 | tests/spec-bridge.test.mjs:13 |
 | REQ-BRIDGE-003:S1 | scripts/generate-req-tests.mjs:612 |
@@ -83,7 +106,8 @@ A non-generated trace is not automatically execution proof. Mark a statement ver
 | REQ-DISC-002:S1 | tests/public-discovery.test.mjs:43 |
 | REQ-DISC-003:S1 | tests/public-discovery.test.mjs:54 |
 | REQ-GOV-001:S1 | tests/spec-governance.test.mjs:28 |
-| REQ-GOV-002:S1 | tests/spec-governance.test.mjs:50 |
+| REQ-GOV-002:S1 | tests/spec-governance.test.mjs:51 |
 | REQ-GOV-003:S1 | scripts/generate-req-tests.mjs:613 |
 | REQ-REL-001:S1 | tests/release-versioning.test.mjs:13 |
-| REQ-REL-002:S1 | tests/release-versioning.test.mjs:23 |
+| REQ-REL-002:S1 | tests/release-versioning.test.mjs:37 |
+| REQ-REL-004:S1 | tests/release-versioning.test.mjs:23 |
